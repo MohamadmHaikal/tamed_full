@@ -1,0 +1,82 @@
+.remove-attachment {
+    margin-left: 15px;
+    margin-right: 0;
+    display: inline-block;
+    margin-right: 15px;
+    color: #bc2b3e;
+    font-size: .85rem;
+}
+
+.add-attachment {
+    display: inline-block;
+    color: var(--blue);
+    font-size: .85rem;
+}
+.form.form-translation .form-control.hidden, .awe-booking .form.form-translation .hh-upload-wrapper.hidden {
+    display: none;
+}
+.hh-options-wrapper .field-google_font .hh-font-variants .checkbox, .hh-options-wrapper .field-google_font .hh-font-subsets .checkbox {
+    margin-top: 3px;
+    width: 50%;
+    float: left;
+}
+.hh-options-wrapper .field-google_font .hh-font-variants, .hh-options-wrapper .field-google_font .hh-font-subsets {
+    padding-left: 35px;
+    margin-top: 15px;
+}
+.hh-options-wrapper .select2-container .select2-selection--single {
+    height: 50px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(206, 212, 218);
+    border-image: initial;
+}
+.form-group label, label {
+    font-size: 14px;
+    color: #acb0c3;
+    letter-spacing: 1px;
+    margin-right: 11px;
+}
+.hh-options-tab {
+    display: inline-block;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    list-style: none;
+}
+
+.hh-language-action {
+    position: relative;
+    top: auto;
+}
+ .hh-language-action ul {
+    margin: 0 -3px;
+    padding: 0;
+}
+.hh-language-action ul li {
+    margin-left: 2px;
+    margin-right: 2px;
+    display: inline-block;
+    list-style: none;
+}
+.hh-language-action ul li a.active {
+    opacity: 1;
+    border-bottom: 2px solid var(--blue);
+    display: block;
+}
+.hh-language-action ul li a img {
+    max-width: 25px;
+    height: auto;
+}
+.nav-settings {
+    margin-top: 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid #DDD;
+    font-weight: 500;
+}
+

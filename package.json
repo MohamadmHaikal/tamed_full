@@ -1,0 +1,40 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "axios": "^0.21",
+        "bootstrap": "^4.6",
+        "cross-env": "^7.0.3",
+        "jquery": "^3.6.0",
+        "laravel-mix": "^6.0.27",
+        "lodash": "^4.17.19",
+        "nodemon": "^2.0.12",
+        "popper.js": "^1.16.1",
+        "postcss": "^8.1.14",
+        "alpinejs": "^2.7.3",
+        "postcss-import": "^12.0.1",
+        "sass-loader": "^10.2.0",
+        "autoprefixer": "^10.1.0",
+        "tailwindcss": "^2.0.2"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "jquery-confirm": "^3.3.4",
+        "sass": "^1.52.3",
+        "vue": "^3.2.20",
+        "vue-dk-toast": "^3.2.1",
+        "vue-loader": "^16.8.1",
+        "vue-router": "^4.0.11",
+        "vue3-carousel": "^0.1.38",
+        "vue3-circle-progress": "^1.0.7",
+        "vue3-flip-countdown": "^0.1.6"
+    }
+}

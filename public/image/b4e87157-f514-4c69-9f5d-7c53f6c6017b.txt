@@ -1,0 +1,54 @@
+public function _addMediaApi($request)
+    {$file =$request;
+        
+            $media_max_size = get_media_upload_size() * 1048576;
+            $file_size = $file->getSize();
+           
+            $origin_name = $file->getClientOriginalName();
+            $file_extension = $file->getClientOriginalExtension();
+
+            $file_name = esc_html(pathinfo($origin_name, PATHINFO_FILENAME));
+
+            $slug_name = Str::slug($file_name);
+            $saved_ame = $slug_name . '-' . time() . '.' . $file_extension;
+
+            $new_file = $file->move(storage_path($this->getMediaFolderApi()), $saved_ame);
+
+         $data = [
+                    'media_title' => $file_name,
+                    'media_name' => $slug_name,
+                    'media_url' => $this->getMediaFolderApi(true, true) . '/' . $saved_ame,
+                    'media_path' =>$this->getMediaFolderApi(false, true) . '/' . $saved_ame,
+                    'media_size' => $file_size,
+                    'media_type' => $file_extension,
+                    'media_description' => $file_name,
+                    'author' => 37,
+                    'created_at' => time()
+                ];
+
+                $media = new Media();
+                $media_id = $media->create($data);
+                return $media_id;
+        
+        
+    }
+
+
+
+
+ public function getMediaFolderApi($assets = false, $include_storage_folder = false)
+    {
+        
+        $user_id = 37;
+        $year = date('Y');
+        $month = date('m');
+        $day = date('d');
+
+        $storage_folder = $include_storage_folder ? 'storage' : '';
+
+        if ($assets) {
+            return $storage_folder . '/u-' . $user_id . '/' . $year . '/' . $month . '/' . $day;
+        } else {
+            return $storage_folder . '/app/public/u-' . $user_id . '/' . $year . '/' . $month . '/' . $day;
+        }
+    }
