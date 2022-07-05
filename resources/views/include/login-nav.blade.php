@@ -88,8 +88,7 @@
                 </b-collapse>
                 <div class="others-options">
                     <a href="https://login.tamedksa.com/" class="login-btn">
-                        <i class="flaticon-user"></i>
-                        تسجيل الدخول
+                        <img src="{{ asset('assets/img/loginIcon.png') }}" style="    width: 40px;height: 45px;">
                     </a>
                 </div>
             </nav>

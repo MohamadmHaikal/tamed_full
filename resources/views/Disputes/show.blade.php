@@ -62,7 +62,7 @@
 
 
                                     <table class="table table-sm mb-0"
-                                        style="width:50%; border: 1px solid #dee2e6; background-color: #f6f7f8;">
+                                        style="width:50%; border: 1px solid #dee2e6; background-color: #f5f5f585;">
 
                                         <tbody>
                                             <tr>

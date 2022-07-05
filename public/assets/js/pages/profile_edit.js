@@ -299,7 +299,7 @@ $(window).on('load', function () {
 
 
             }
-            document.getElementById("facility_activity").innerHTML = options_str;
+          //  document.getElementById("facility_activity").innerHTML = options_str;
 
         },
         error: function (data) {
@@ -439,7 +439,7 @@ $('#facility_type').change(function () {
 
 
             }
-            document.getElementById("facility_activity").innerHTML = options_str;
+           // document.getElementById("facility_activity").innerHTML = options_str;
 
         },
         error: function (data) {

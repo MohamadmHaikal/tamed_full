@@ -17,6 +17,7 @@
     $cities = get_cities();
     $userType = get_users_type();
     $curentType = get_facility_type($user->activitie_id);
+    $allActivity=get_all_activity();
     ?>
     <!--  Navbar Starts / Breadcrumb Area  -->
     <div class="sub-header-container">
@@ -183,7 +184,18 @@
                                                                         for="country">{{ __('backend.facility activity') }}</label>
                                                                     <select class="form-control" name="facility_activity"
                                                                         id="facility_activity">
-
+                                                                        @foreach ($allActivity as $item)
+                                                                        @if ($user->activitie_id == $item->id)
+                                                                            <option value="{{ $item->id }}"
+                                                                                selected>
+                                                                                {{ $item->name }}
+                                                                            </option>
+                                                                        @else
+                                                                            <option value="{{ $item->id }}">
+                                                                                {{ $item->name }}
+                                                                            </option>
+                                                                        @endif
+                                                                    @endforeach
 
                                                                     </select>
                                                                 </div>

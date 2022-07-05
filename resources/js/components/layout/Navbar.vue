@@ -220,13 +220,17 @@
 
                                 </a>
                                 <div class="info-login" v-else>
-                                    <img :src="'/image/' + user.logo" alt="avatar"
+                                    <img v-if="user.logo != null" :src="'/image/' + user.logo" alt="avatar"
                                         style="  width: 50px;border-radius: 50%; height: 50px;  position: relative;  top: -8px;  right: 20px; border: 1px solid #eee;">
+                                    <img v-else src="https://dummyimage.com/1200x900/e0e0e0/c7c7c7.png" alt="avatar"
+                                        style="  width: 50px;border-radius: 50%; height: 50px;  position: relative;  top: -8px;  right: 20px; border: 1px solid #eee;">
+
                                     <a href="javascript:void(0);"
                                         style="position: relative;top: -10px;right: 8px;color:#4c9da5;">
                                         {{ user.name }}<i class="fas fa-chevron-down"></i>
                                     </a>
-                                    <ul class="dropdown-menu rounded"  style="width: 170px;position: relative;top: 30px;">
+                                    <ul class="dropdown-menu rounded"
+                                        style="width: 170px;position: relative;top: 30px;">
                                         <div class="drop-arrow"
                                             style="position: absolute;width: 0;height: 0;border-style: solid;border-width: 0 7.5px 10px;border-color: transparent transparent #fff;right: 17%;z-index: 9;transform: translateX(-50%); bottom: 142px;transition: .25s ease-in-out;">
                                         </div>
@@ -268,7 +272,11 @@
                             <i class="flaticon-user" style="    color: #039ca5;  "></i>
                         </a>
                         <div class="" v-else>
-                            <img :src="'/image/' + user.logo" alt="avatar" id="mobile-user-logo"
+                            <img v-if="user.logo != null" :src="'/image/' + user.logo" alt="avatar"
+                                id="mobile-user-logo"
+                                style="  width: 50px;border-radius: 50%; height: 50px;position: relative;top: -14px;right: 45px;border: 1px solid #eee;">
+                            <img v-else src="https://dummyimage.com/1200x900/e0e0e0/c7c7c7.png" alt="avatar"
+                                id="mobile-user-logo"
                                 style="  width: 50px;border-radius: 50%; height: 50px;position: relative;top: -14px;right: 45px;border: 1px solid #eee;">
 
                             <ul class="dropdown-menu" id="user-menu"

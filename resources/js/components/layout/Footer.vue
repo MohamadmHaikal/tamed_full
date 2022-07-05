@@ -48,7 +48,7 @@
                                             <router-link to="/projects">المشاريع</router-link>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0);">المواد</a>
+                                            <router-link to="/factory-materials">المواد</router-link>
                                         </li>
                                         <li>
                                             <router-link to="/DealsAuctions">الصفقات / المزادات</router-link>
@@ -59,10 +59,10 @@
                                 <div class="col-md-6">
                                     <ul class="list">
                                         <li>
-                                            <a href="javascript:void(0);">الوظائف</a>
+                                            <router-link to="/jobs">الوظائف</router-link>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0);">المعدات</a>
+                                            <router-link to="/equipment">المعدات</router-link>
                                         </li>
                                         <li>
                                             <a href="javascript:void(0);">مكاتب هندسية <span>قريباً</span>

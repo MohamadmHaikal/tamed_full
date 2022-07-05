@@ -116,16 +116,17 @@ class AdsController extends Controller
      */
     public function store(Request $request)
     {
-   
+  
         $services=$this->getServices($request->activitie_Add_id);
-        
-    
         $x = TypeAds::getTypeName($request->model);
         $infoArray=[];
         foreach ($x[0] as $key => $value) {
          if ( $value['type'] != 'oo' && $request->exists($value['name']) ) {
              $infoArray += [$value['name'] => $request->get($value['name']) ];
          }
+        }
+        if($request->salary!=null){
+            $infoArray += ['salary' => $request->get('salary') ];
         }
         foreach ( $services as $key => $servicesvalue) {
 

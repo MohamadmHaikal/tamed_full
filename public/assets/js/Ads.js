@@ -21,7 +21,6 @@ function type(type, id = '') {
         type: "get",
         contentType: 'application/json',
         success: function (data) {
-         
             $('#inputsAds').append(data);
             $('#type').val(type);
 
@@ -52,19 +51,32 @@ $('.type').on('click', function () {
     var id = $(this).attr('value');
    var x = type(id);
    if(id=='6'){
-    $(".has-price").prop('hidden', true);
+    $(".has-price").html(`
+    
+    <div class="form-group " id="salary">
+        <label class="fieldlabels">الراتب</label>
+        <input type="number" name="salary" placeholder="" data-error="#Errorsalary" aria-describedby="inputGroupPrepend" value="" class="form-control mb-3">
+    </div>
+     <div class="errorTxt col-md-12">
+      <span class="spanError" id="Errorsalary"></span>
+  </div>
+   
+    `);
    
    }
    else{
     $(".has-price").prop('hidden', false);
    }
-   if (id == "1") {
-
+  
   var Certificate=['السجل التجاري','شهادة القيمة المضافة','شهادة السعودة','شهادة الغرفة التجارية','شهادة التأمينات الأجتماعية','شهادة المنشآة','شهادة تصنيف','بروفايل المنشآة']
 
 
     $(".multiple-form-one #progressbar li").css("width", "18%");
-    $(`<li  id="account">
+    const element = document.getElementById("conditions");
+    if(element!=null){
+        element.remove();
+    }
+    $(`<li  id="conditions">
     <strong>${window.translation.Application_conditions}</strong></li>`).insertBefore('#payment');
     
     var options_str = `  <fieldset class="ApplicationConditions">
@@ -182,7 +194,7 @@ $(".multiple-form-one .previous").on('click', function(){
     });
 });
 
-}
+//}
 
 //    if (checked == '1') {
        
@@ -223,9 +235,10 @@ $("#bestPrice").change(function () {
         $("[name='price']").val('');
         $("#price").prop('hidden', true);
         $("#pricee").html('');
+        $(this).val('on');
     } else {
         $("#price").prop('hidden', false);
-       
+        $(this).val('off');
     }
 });
 
@@ -335,6 +348,7 @@ $('#createItem').on('click', function () {
         }
     });
     let form = $(this).closest("form").serializeArray();
+   
     editor = $(".ql-editor").html();
             fd.append('description', editor);
     $.each(form, function (key, input) {

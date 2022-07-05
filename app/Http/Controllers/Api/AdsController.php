@@ -27,7 +27,7 @@ class AdsController extends Controller
             $ads['cover'] =  '/' . 'image' . '/' . getAdsCover($ads->id, 'Ads')->file;
             $ads['activity'] = getActivityById($ads->activitie_id)->name;
             $ads['city'] = getCityById($ads->city_id)->name;
-            $ads['neighborhood'] = getNeighborhoodById($ads->neighborhood_id)->name;
+            // $ads['neighborhood'] = getNeighborhoodById($ads->neighborhood_id)->name;
             $ads['author'] = get_user_by_id($ads->user_id);
             $ads['authorName'] = get_user_by_id($ads->user_id)->name;
             $ads['infoArray'] = unserialize($ads->infoArray);
@@ -81,7 +81,7 @@ class AdsController extends Controller
         $ads['cover'] = '/' . 'image' . '/' . getAdsCover($ads->id, 'Ads')->file;
         $ads['activity'] = getActivityById($ads->activitie_id)->name;
         $ads['city'] = getCityById($ads->city_id)->name;
-        $ads['neighborhood'] = getNeighborhoodById($ads->neighborhood_id)->name;
+        // $ads['neighborhood'] = getNeighborhoodById($ads->neighborhood_id)->name;
         $ads['infoArray'] = unserialize($ads->infoArray);
         if (!empty(json_decode($ads->application_conditions))) {
             $ads['req_paper'] = explode(',', json_decode($ads->application_conditions)->Certificate[0]);

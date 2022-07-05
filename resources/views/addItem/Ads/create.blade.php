@@ -142,7 +142,7 @@ $Certificate=['السجل التجاري','شهادة القيمة المضاف�
                                                                 <div class="form-card">
                                                                     <div id="inputsAds"></div>
                                                                     <div class="row mt-5">
-                                                                        <div class="col-12">
+                                                                        <div class="col-12 col-md-8">
                                                                             <label
                                                                                 class="fieldlabels">{{__('backend.title')}}</label>
                                                                             <input type="text" name="title"
@@ -154,7 +154,19 @@ $Certificate=['السجل التجاري','شهادة القيمة المضاف�
                                                                             <span class="spanError" id="title"></span>
                                                                         </div>
                                                                     </div>
-
+                                                                    <div class="row ">
+                                                                        <div class="col-12 col-md-8">
+                                                                            <label
+                                                                                class="fieldlabels">{{__('backend.Brief description')}}</label>
+                                                                            <input type="text" name="BriefDescription"
+                                                                                placeholder="" data-error="#BriefDescription" 
+                                                                                value="{{ isset($item) ? $item->BriefDescription : '' }}"
+                                                                                class="form-control Shadow mb-3" />
+                                                                        </div>
+                                                                        <div class="errorTxt col-md-6">
+                                                                            <span class="spanError" id="BriefDescription"></span>
+                                                                        </div>
+                                                                    </div>
                                                                     <div class="row mt-6">
                                                                         <div class="col-12">
                                                                             <label
@@ -189,9 +201,6 @@ $Certificate=['السجل التجاري','شهادة القيمة المضاف�
                                                                         <div class="col-md-6">
                                                                             @php
                                                                             $city= App\Models\City::all() ;
-                                                                            if(isset($item) )
-                                                                            $NeighborhoodID=
-                                                                            $item->Neighborhood()->first()->id
                                                                             @endphp
                                                                             <label
                                                                                 class="fieldlabels">{{__('backend.city')}}</label>
@@ -224,7 +233,7 @@ $Certificate=['السجل التجاري','شهادة القيمة المضاف�
                                                                             <label
                                                                                 class="fieldlabels">{{__('backend.neighborhood')}}</label>
 
-                                                                            <select
+                                                                            {{-- <select
                                                                                 class="form-control form-control-lg "
                                                                                 id="Neighborhood"
                                                                                 data-error="#neighborhood"
@@ -238,8 +247,16 @@ $Certificate=['السجل التجاري','شهادة القيمة المضاف�
                                                                                 @endif
 
 
-                                                                            </select>
-
+                                                                            </select> --}}
+                                                                          
+                                                                                <input type="text"   id="Neighborhood" style="height: 62px;"
+                                                                                data-error="#neighborhood"
+                                                                                aria-describedby="inputGroupPrepend"
+                                                                                required name="neighborhood"
+                                                                                    placeholder="" data-error="#neighborhood"
+                                                                                    value="{{ isset($item) ? $item->neighborhood : '' }}"
+                                                                                    class="form-control form-control-lg " />
+                                                                            
 
                                                                             <div class="errorTxt col-md-6">
                                                                                 <span class="spanError"
@@ -268,8 +285,16 @@ $Certificate=['السجل التجاري','شهادة القيمة المضاف�
                                                                             <input id="basicExample" name="deadline"
                                                                                 value="{{ isset($item) ? $item->deadline : '' }}"
                                                                                 class="form-control Shadow flatpickr flatpickr-input active basicExample"
-                                                                                type="text"
+                                                                                type="text" required
+                                                                                data-error="#deadline"
+                                                                                aria-describedby="inputGroupPrepend"
+                                                                                required name="deadline"
+                                                                               data-error="#deadline"
                                                                                 placeholder="{{__('backend.Select Date')}}">
+                                                                                <div class="errorTxt col-md-12">
+                                                                                    <span class="spanError"
+                                                                                        id="deadline"></span>
+                                                                                </div>
                                                                         </div>
 
                                                                         <div class="col-2"></div>
@@ -291,8 +316,8 @@ $Certificate=['السجل التجاري','شهادة القيمة المضاف�
 
                                                                                             <input type="checkbox"
                                                                                                 id="bestPrice"
-                                                                                                value="{{ isset($item) ? $item->bestPrice : 'on' }}"
-                                                                                                checked="checked"
+                                                                                                value="{{ isset($item) ? $item->pricestatus : 'on' }}"
+                                                                                                {{ isset($item) ? ($item->pricestatus=='on'? 'checked':'') : 'checked' }}
                                                                                                 name="pricestatus">
 
                                                                                             <span></span>
@@ -301,7 +326,7 @@ $Certificate=['السجل التجاري','شهادة القيمة المضاف�
                                                                                 </div>
 
                                                                                 <div class="input-group-prepend col-md-8"
-                                                                                    id="price" hidden>
+                                                                                    id="price" {{isset($item) ? ($item->pricestatus=='on'?'hidden':''):'hidden'}}>
                                                                                     <label
                                                                                         class="fieldlabels">{{__('backend.total value to project')}}</label>
 

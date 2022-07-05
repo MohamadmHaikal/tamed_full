@@ -309,14 +309,14 @@ class TypeAds extends Model
                 //     'class' => 'col-md-4',
                 // ],
 
-                [
-                    'id' => 'salary',
-                    'label' => __('backend.salary'),
-                    'name' => 'salary',
-                    'type' => 'number',
-                    'class' => 'col-md-4',
-                    'layout' => 'col-12 col-md-6'
-                ],
+                // [
+                //     'id' => 'salary',
+                //     'label' => __('backend.salary'),
+                //     'name' => 'salary',
+                //     'type' => 'number',
+                //     'class' => 'col-md-4',
+                //     'layout' => 'col-12 col-md-6'
+                // ],
 
                 // [
                 //     'id' => 'Submission_deadline',

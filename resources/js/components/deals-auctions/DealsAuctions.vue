@@ -69,7 +69,7 @@
                                                 <router-link :to="{ name: 'details', params: { projectId: ad.id } }">
                                                     <span style="color: #019aa2;"> {{ ad.title }} </span>
                                                 </router-link>
-                                                <p class="mt-2" style="color: rgb(87 83 77);">{{ ad.description }}</p>
+                                                <p class="mt-2" style="color: rgb(87 83 77);">{{ ad.BriefDescription }}</p>
                                             </div>
                                             <div class="col-md-4 mt-1 lg-counter">
 

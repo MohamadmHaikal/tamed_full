@@ -35,7 +35,7 @@ use App\Http\Controllers\UserController;
 Route::get('/dashboard', [DashboardController::class,'index'])->middleware('LanguageSwitcher', 'auth:customer')->name('dashboard');
 Route::post('store-file', [FileController::class, 'store']);
 
-Route::get('login', [AuthController::class, 'Login'])->middleware('is_login:customer')->name('login.switch');
+Route::get('login', [AuthController::class, 'Login'])->middleware('has_auth','is_login:customer')->name('login.switch');
 
 Route::group(['prefix' => 'Business', 'middleware' => ['LanguageSwitcher']], function () {
     Route::post('checkCardToReset', [AuthMangerController::class, 'checkCardToReset'])->name('Business.checkCardToReset');

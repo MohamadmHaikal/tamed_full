@@ -136,7 +136,7 @@
                                             </div>
                                         </div>
                                         <p class="description">
-                                            {{ ad.description }}
+                                            {{ ad.BriefDescription }}
                                         </p>
                                         <p class="since">
                                             {{ ad.from_date }}

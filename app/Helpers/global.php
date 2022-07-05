@@ -903,6 +903,10 @@ function get_facility_activity($id)
 
     return  Activitie::find($id);
 }
+function get_all_activity()
+{
+    return Activitie::all();
+}
 function page_title($is_dashboard = false)
 {
     $title = get_site_name() . ' - ' . get_site_description();

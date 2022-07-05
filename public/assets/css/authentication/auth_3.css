@@ -484,7 +484,8 @@ form.digit-group {
     }
     .luvion-nav .navbar .others-options .login-btn {
         position: relative;
-        right: 60px;
+        right: 20px;
+        bottom: 10px;
         color: #039ca5;
         font-size: 15px;
         font-weight: 300;
@@ -503,7 +504,7 @@ form.digit-group {
 }
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
     font-family: Flaticon;
-    font-size: 15px;
+    font-size: 30px;
     font-style: normal;
 }
 @media only screen and (min-width: 768px) {

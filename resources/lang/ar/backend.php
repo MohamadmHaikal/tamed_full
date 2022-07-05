@@ -76,7 +76,7 @@ return array (
   'Blue' => 'أزرق',
   'Both' => 'كلا',
   'Brief Description Required' => 'الوصف الموجز مطلوب',
-  'Brief description' => 'وصف موجز',
+  'Brief description' => 'وصف مختصر',
   'Building Category' => 'فئة البناء',
   'CHATS' => 'الدردشات',
   'Cancel' => 'إلغاء',
