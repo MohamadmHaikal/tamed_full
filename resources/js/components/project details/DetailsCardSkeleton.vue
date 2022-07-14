@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class="about-area pb-70">
-            <div class="containp  container">
+            <div class="containp1  container">
                 <div class="mt-2" style="text-align: -webkit-center;">
-                    <div class="col-md-9 col-sm-12 mt-3 text-center">
+                    <div class="col-md-12 col-sm-12 mt-3 text-center">
                         <div class="text-end">
                             <h3 class="title mt-5 title-skeleton mb-3" style="width: 40%; color:rgba(0, 0, 0, 0.0);">
                                 صفقة لبيع مواد بناء</h3>
@@ -359,7 +359,7 @@
                             </div>
                             <div class="col-md-5 col-sm-12 price-card">
                                 <div class="card-skeleton"
-                                    style="width: 75%; height: 330px; margin-top: 6%; border-radius: 12px; margin-bottom: 5%;  box-shadow: rgb(236 233 233) 1px 1px 5px 2px;">
+                                    style="width: 60%; height: 330px; margin-top: 6%; border-radius: 12px; margin-bottom: 5%;  box-shadow: rgb(236 233 233) 1px 1px 5px 2px;">
                                     <div style="border-bottom: 1px solid #eeeff1 ;">
                                         <h5 style="padding-top: 8%;text-align: right;padding-right: 10%;color: #fff;">
                                             قيمة الصفقة
@@ -397,7 +397,7 @@
                                     </div>
                                 </div>
                                 <div class="card-skeleton"
-                                    style="width: 75%;  margin-top: 6%; border-radius: 12px;  box-shadow: rgb(236 233 233) 1px 1px 5px 2px;     margin-bottom: 25px;">
+                                    style="width: 60%;  margin-top: 6%; border-radius: 12px;  box-shadow: rgb(236 233 233) 1px 1px 5px 2px;     margin-bottom: 25px;">
                                     <div style="border-bottom: 1px solid #eeeff1 ;">
                                         <h5 style="padding-top: 8%;text-align: center;  color: #fff;  font-size: 95%;">
                                             معلومات صاحب

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Activitie;
+use App\Models\Ads;
 use App\Models\City;
 use App\Models\Neighborhood;
 use App\Models\File;
@@ -906,6 +907,17 @@ function get_facility_activity($id)
 function get_all_activity()
 {
     return Activitie::all();
+}
+function get_ads_cover($id){
+$ads=Ads::find($id);
+$cover=explode(',', $ads->gallery)[0];
+$file= File::find($cover);
+return $file!=null? $file->file:null;
+
+}
+function get_ads_attachment($id){
+    $file= File::find($id);
+    return $file;
 }
 function page_title($is_dashboard = false)
 {

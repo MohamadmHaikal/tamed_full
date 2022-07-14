@@ -40,7 +40,7 @@
                     <div class="page-header">
                         <nav class="breadcrumb-one" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="javascript:void(0);">{{__('Datatables')}}</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">{{__('backend.All Ads')}}</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -81,7 +81,7 @@
                                            
                                             @foreach ($Ads as $item)
                                          @php
-                                        $image=getAdsCover( $item->id,'Ads');
+                                        $image=get_ads_cover($item->id);
                          
                                          @endphp
                                             <tr>
@@ -92,7 +92,7 @@
                                                 <td>{{ $item->user->name }}</td>
                                                 <td>
                                                     <img class="imgADS"
-                                                    src="{{ isset($image) ? asset('image/'.$image->file) : url('https://dummyimage.com/1200x900/e0e0e0/c7c7c7.png')}}" alt=""></td>
+                                                    src="{{ isset($image) ? asset('image/'.$image) : url('https://dummyimage.com/1200x900/e0e0e0/c7c7c7.png')}}" alt=""></td>
                                                
                                                     <td>
                                                         <div class="service-status  status-icon icon{{ $item->status }}"

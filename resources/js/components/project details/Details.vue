@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="about-area pb-70">
-            <div class="containp container">
+            <div class="containp1 container">
 
                 <div class="mt-2" style="text-align: -webkit-center;">
-                    <div class="col-md-9 col-sm-12 mt-3 text-center">
+                    <div class="col-md-12 col-sm-12 mt-3 text-center">
                         <div class="ref-header">
                             <h3 class="title mt-5 mb-3">{{ ads.title }}</h3>
                             <span class="ref-header" style="color: #019aa2;    font-size: 14px;"> الرقم المرجعي:</span>

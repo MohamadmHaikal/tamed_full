@@ -264,6 +264,9 @@ Route::post('get-list-item', [OptionController::class, '_getListItem'])->name('g
         Route::get('/deleteFile/{id}','AdsController@deleteFile')->name('deleteFile');
         Route::get('/deleteADS/{id}','AdsController@delete')->name('delete');
         Route::post('/updateADS/{id}','AdsController@update')->name('update');
+        Route::post('/uploadFile','AdsController@uploadFile')->name('uploadFile');
+        Route::post('/removeFile/{id}','AdsController@removeFile')->name('removeFile');
+        Route::get('/ads/{id}','AdsController@show')->name('showAds');
 
     });
     Route::group(['prefix' => 'project'], function () {

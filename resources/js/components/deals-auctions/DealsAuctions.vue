@@ -56,7 +56,7 @@
                                             <div class="col-md-3 counter-title " style="padding-right: 20px;">
                                                 <span style="color: #019aa2;padding-right: 8px;">
                                                     {{ 'بداية ال' + ad.infoArray.dealsOrAuction }}</span>
-                                                <Countdown :deadline="ad.startdate" :showLabels="false"
+                                                <Countdown :deadline="ad.deadline" :showLabels="false"
                                                     :mainFlipBackgroundColor="ad.infoArray.dealsOrAuction == 'مزاد' ? '#d7a358' : '#019aa2'"
                                                     :secondFlipBackgroundColor="ad.infoArray.dealsOrAuction == 'مزاد' ? '#d7a358' : '#019aa2'"
                                                     countdownSize="1.1rem" mainColor="#ffff" />
@@ -73,7 +73,7 @@
                                             </div>
                                             <div class="col-md-4 mt-1 lg-counter">
 
-                                                <Countdown :deadline="ad.startdate" :showLabels="false"
+                                                <Countdown :deadline="ad.deadline" :showLabels="false"
                                                     :mainFlipBackgroundColor="ad.infoArray.dealsOrAuction == 'مزاد' ? '#d7a358' : '#019aa2'"
                                                     :secondFlipBackgroundColor="ad.infoArray.dealsOrAuction == 'مزاد' ? '#d7a358' : '#019aa2'"
                                                     countdownSize="1.1rem" mainColor="#ffff" />

@@ -3613,10 +3613,13 @@ $value_eleven: 1399px;
         max-width: 95%;
     }
 
+    .containp1 {
+        max-width: 1280px;
+    }
+
     .containp {
         max-width: 100%;
     }
-
 }
 
 @media (min-width: 1400px) {
@@ -4727,7 +4730,7 @@ $value_eleven: 1399px;
     }
 
     .project-activite {
-        padding-top: 10%;
+        padding-top: 8%;
         text-align: end;
     }
 
@@ -4926,8 +4929,8 @@ $value_eleven: 1399px;
     .view-gallery {
         margin-right: 5px;
         background: rgb(238, 238, 238);
-        font-size: 10px;
-        // font-weight: 500;
+        font-size: 12px;
+        font-weight: 600;
         padding: 10px 10px;
         display: flex;
         align-items: center;
@@ -4935,7 +4938,8 @@ $value_eleven: 1399px;
         backdrop-filter: blur(15px);
         color: rgb(255, 255, 255);
         border-radius: 12px;
-        img{
+
+        img {
             width: 15px;
         }
     }
@@ -5443,7 +5447,7 @@ $value_eleven: 1399px;
 
     .price-card {
         .first-card {
-            width: 75%;
+            width: 60%;
             height: 330px;
             margin-top: 6%;
             border-radius: 12px;
@@ -5452,7 +5456,7 @@ $value_eleven: 1399px;
         }
 
         .second-card {
-            width: 75%;
+            width: 60%;
             margin-top: 6%;
             border-radius: 12px;
             box-shadow: rgb(236 233 233) 1px 1px 5px 2px;
@@ -5487,7 +5491,8 @@ $value_eleven: 1399px;
         backdrop-filter: blur(15px);
         color: rgb(255, 255, 255);
         border-radius: 12px;
-        img{
+
+        img {
             width: 15px;
         }
     }
@@ -5496,6 +5501,7 @@ $value_eleven: 1399px;
         background-color: rgba(255, 255, 255, 0.16);
         color: rgb(255, 255, 255);
     }
+
     .hiden-item {
         display: none;
     }
@@ -7259,6 +7265,15 @@ $value_eleven: 1399px;
 }
 
 @media(max-width:360px) {
+    .controls {
+        position: absolute;
+        bottom: 45px;
+        right: 16px;
+        z-index: 9;
+        display: flex;
+        align-items: center;
+    }
+
     .files-text-download {
         font-size: 12px;
     }

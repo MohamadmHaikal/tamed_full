@@ -24,7 +24,7 @@ class AdsController extends Controller
 
             $ads['created'] = date('d-m-Y', strtotime($ads->created_at));
             $ads['time'] = date('h:i', strtotime($ads->created_at));
-            $ads['cover'] =  '/' . 'image' . '/' . getAdsCover($ads->id, 'Ads')->file;
+            $ads['cover'] = get_ads_cover($ads->id)!=null ?('/' . 'image' . '/' . get_ads_cover($ads->id)):'https://dummyimage.com/1200x900/e0e0e0/c7c7c7.png';
             $ads['activity'] = getActivityById($ads->activitie_id)->name;
             $ads['city'] = getCityById($ads->city_id)->name;
             // $ads['neighborhood'] = getNeighborhoodById($ads->neighborhood_id)->name;
@@ -78,7 +78,7 @@ class AdsController extends Controller
         $ads->save();
         $ads['created'] = date('d-m-Y', strtotime($ads->created_at));
         $ads['time'] = date('h:i', strtotime($ads->created_at));
-        $ads['cover'] = '/' . 'image' . '/' . getAdsCover($ads->id, 'Ads')->file;
+        $ads['cover'] = get_ads_cover($ads->id)!=null ?('/' . 'image' . '/' . get_ads_cover($ads->id)):'https://dummyimage.com/1200x900/e0e0e0/c7c7c7.png';
         $ads['activity'] = getActivityById($ads->activitie_id)->name;
         $ads['city'] = getCityById($ads->city_id)->name;
         // $ads['neighborhood'] = getNeighborhoodById($ads->neighborhood_id)->name;
@@ -89,7 +89,8 @@ class AdsController extends Controller
             $ads['application_conditions'] = json_decode($ads->application_conditions);
         }
         $ads['author'] = get_user_by_id($ads->user_id);
-        $ads['files'] = File::where('FK', $id)->where('model', 'Ads')->get();
+        $gallery= $ads['gallery']!=null?explode(',', $ads['gallery']) : [];
+        $ads['files'] = File::whereIn('id', $gallery)->get();
         foreach ($ads['files'] as $file) {
             $file['info'] = unserialize($file['info']);
         }
