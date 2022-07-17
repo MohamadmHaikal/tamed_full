@@ -79,8 +79,7 @@
                                         class="view-gallery item-link">
                                         <img alt=""
                                             srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
-                                            src="../../assets/images/photos.svg" decoding="async"
-                                            data-nimg="intrinsic">
+                                            src="../../assets/images/photos.svg" decoding="async" data-nimg="intrinsic">
                                         <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
@@ -141,17 +140,16 @@
                                         class="view-gallery item-link">
                                         <img alt=""
                                             srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
-                                            src="../../assets/images/photos.svg" decoding="async"
-                                            data-nimg="intrinsic">
+                                            src="../../assets/images/photos.svg" decoding="async" data-nimg="intrinsic">
                                         <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
                                     <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
                                             class="view-gallery item-link">
                                             <img alt=""
-                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
-                                            src="../../assets/images/photos.svg" decoding="async"
-                                            data-nimg="intrinsic">
+                                                srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                                src="../../assets/images/photos.svg" decoding="async"
+                                                data-nimg="intrinsic">
                                             <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
@@ -194,19 +192,18 @@
                                 <div class="controls">
                                     <a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
                                         class="view-gallery item-link">
-                                         <img alt=""
+                                        <img alt=""
                                             srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
-                                            src="../../assets/images/photos.svg" decoding="async"
-                                            data-nimg="intrinsic">
+                                            src="../../assets/images/photos.svg" decoding="async" data-nimg="intrinsic">
                                         <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
                                     <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
                                             class="view-gallery item-link">
-                                             <img alt=""
-                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
-                                            src="../../assets/images/photos.svg" decoding="async"
-                                            data-nimg="intrinsic">
+                                            <img alt=""
+                                                srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                                src="../../assets/images/photos.svg" decoding="async"
+                                                data-nimg="intrinsic">
                                             <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
@@ -245,17 +242,16 @@
                                         class="view-gallery item-link">
                                         <img alt=""
                                             srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
-                                            src="../../assets/images/photos.svg" decoding="async"
-                                            data-nimg="intrinsic">
-                                            <span style="padding-right: 5px;">عرض كل الصور</span>
+                                            src="../../assets/images/photos.svg" decoding="async" data-nimg="intrinsic">
+                                        <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
                                     <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
                                             class="view-gallery item-link">
-                                             <img alt=""
-                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
-                                            src="../../assets/images/photos.svg" decoding="async"
-                                            data-nimg="intrinsic">
+                                            <img alt=""
+                                                srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                                src="../../assets/images/photos.svg" decoding="async"
+                                                data-nimg="intrinsic">
                                             <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
@@ -281,19 +277,18 @@
                                 <div class="controls">
                                     <a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
                                         class="view-gallery item-link">
-                                         <img alt=""
+                                        <img alt=""
                                             srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
-                                            src="../../assets/images/photos.svg" decoding="async"
-                                            data-nimg="intrinsic">
-                                            <span style="padding-right: 5px;">عرض كل الصور</span>
+                                            src="../../assets/images/photos.svg" decoding="async" data-nimg="intrinsic">
+                                        <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
                                     <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
                                             class="view-gallery item-link">
                                             <img alt=""
-                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
-                                            src="../../assets/images/photos.svg" decoding="async"
-                                            data-nimg="intrinsic">
+                                                srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                                src="../../assets/images/photos.svg" decoding="async"
+                                                data-nimg="intrinsic">
                                             <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
@@ -316,8 +311,7 @@
                                         class="view-gallery item-link">
                                         <img alt=""
                                             srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
-                                            src="../../assets/images/photos.svg" decoding="async"
-                                            data-nimg="intrinsic">
+                                            src="../../assets/images/photos.svg" decoding="async" data-nimg="intrinsic">
                                         <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
@@ -326,7 +320,8 @@
                                             <img alt=""
                                                 srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
                                                 src="../../assets/images/photos.svg" decoding="async"
-                                                data-nimg="intrinsic"> <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
+                                                data-nimg="intrinsic"> <span style="padding-right: 5px;">عرض كل
+                                                الفيديوهات</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -341,7 +336,8 @@
 
 
                             </div>
-                            <div id="myModal" class="modal" style=" padding-top: 130px;background-color: black;" @click="closeModal()">
+                            <div id="myModal" class="modal" style=" padding-top: 130px;background-color: black;"
+                                @click="closeModal()">
                                 <span class="close cursor" @click="closeModal()"
                                     style=" cursor: pointer; color: #999;position: fixed;top: 10px;right: 25px;font-size: 35px;font-weight: bold;">&times;</span>
                                 <div class="modal-content" @click.stop=""
@@ -351,7 +347,7 @@
                                         <div class="numbertext"
                                             style="font-size: 18px; color: #999;padding: 8px 12px;position: fixed;top: 10px; left: 60px;">
                                             {{ i }} / {{ AllImage.length }}</div>
-                                        <img :src="'/image/' + AllImage[i - 1].file" >
+                                        <img :src="'/image/' + AllImage[i - 1].file">
                                         <a class="close cursor" href="" :download="'/image/' + AllImage[i - 1].file"
                                             style="cursor: pointer; color: #999; position: fixed; top: 22px;right: 100px; font-size: 18px;"><i
                                                 class="fa fa-download"></i></a>
@@ -393,14 +389,14 @@
                         <div class="row" style="    padding-right: 0px; 
     padding-left: 0px;">
                             <div class="col-md-7  col-sm-12 text-end mt-3">
-                                <div  style="border-bottom: 1px solid rgb(238, 239, 241); padding-bottom: 10%;">
+                                <div style="border-bottom: 1px solid rgb(238, 239, 241); padding-bottom: 10%;">
 
                                     <h6 style="color:#0d0d0d ;padding-top: 5%; font-weight: 700;">الوصف</h6>
                                     <!-- <p style="max-width: 52ch; color: rgb(13, 13, 13);font-weight: 400;" >
                                         {{ ads.description }}</p> -->
-                                        <div id="description">
-                                        
-                                        </div>
+                                    <div id="description">
+
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-8  project-deadline">
@@ -518,65 +514,47 @@
                                             <h3 v-if="ads.type == 5" style="color:#000000">تحميل ملفات
                                                 ال{{ ads.infoArray.dealsOrAuction }}</h3>
                                             <h3 v-else style="color:#000000">تحميل ملفات المشروع</h3>
-                                            <table class="mt-5" style=" border-collapse: separate;border-spacing: 0;">
+                                            <div class="mt-5"
+                                                style="border: 1px solid rgb(204, 204, 204); border-radius: 25px; padding: 20px; padding-top: 0px;">
+                                                <div class="row mt-4">
+                                                    <div class="col-md-4 col-6 text-center"
+                                                        style="border-left: 1px solid #ccc;">
+                                                        <small style="">الكميات والمواصفات</small>
+                                                        <br>
+                                                        <br>
+                                                        <img src="../../assets/images/pdf.png" alt=""
+                                                            style="width: 70px;">
+                                                        <br>
+                                                        <br>
+                                                        <a href="javascript:void(0);"
+                                                            style="color: rgb(1, 154, 162);">حمل الأن</a>
+                                                    </div>
+                                                    <div class="col-md-4 col-6 text-center"
+                                                        style="border-left: 1px solid #ccc;">
+                                                        <small style="">تصاميم </small>
+                                                        <br>
+                                                        <br>
+                                                        <img src="../../assets/images/3d.png" alt=""
+                                                            style="width: 70px;">
+                                                        <br>
+                                                        <br>
+                                                       <a href="javascript:void(0);"
+                                                            style="color: rgb(1, 154, 162);">حمل الأن</a>
+                                                    </div>
+                                                    <div class="col-md-4 col-6 text-center">
+                                                        <small style=""> مخططات</small>
+                                                        <br>
+                                                        <br>
+                                                        <img src="../../assets/images/autoca.png" alt=""
+                                                            style="width: 70px;">
+                                                        <br>
+                                                        <br>
+                                                        <a href="javascript:void(0);"
+                                                            style="color: rgb(1, 154, 162);">حمل الأن</a>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                                <tr>
-                                                    <td
-                                                        style=" border-right: 1px solid #ccc; border-top: 1px solid #ccc; border-top-right-radius: 20px;">
-                                                        <div style="padding: 30px;"> <img class="files-img"
-                                                                src="../../assets/images/pdf.png" alt=""> <span
-                                                                style=" color:#019aa2;  padding-right: 2px;  font-size: 20px;">
-                                                                <a v-if="files['pdf'] == null"
-                                                                    href="javascript:void(0);"
-                                                                    class="files-text-download"
-                                                                    style=" color:#019aa2;">غير متوفر</a>
-                                                                <a v-else href="" class="files-text-download"
-                                                                    :download="'/image/' + files['pdf']"
-                                                                    style=" color:#019aa2;">تحميل</a>
-                                                            </span>
-                                                        </div>
-                                                    </td>
-                                                    <td
-                                                        style=" border-top: 1px solid #ccc;    border-left: 1px solid #ccc; border-right: 1px solid #ccc; border-top-left-radius: 20px;">
-                                                        <div style="padding: 30px;"><img
-                                                                src="../../assets/images/3d.png" alt=""
-                                                                class="files-img"> <span
-                                                                style=" color:#019aa2;  padding-right: 2px;  font-size: 20px;">
-                                                                <a href="javascript:void(0);"
-                                                                    class="files-text-download"
-                                                                    style=" color:#019aa2;">تحميل</a></span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td
-                                                        style="border-right: 1px solid #ccc;     border-bottom: 1px solid #ccc;   border-top: 1px solid #ccc; border-bottom-right-radius: 20px;">
-                                                        <div style="padding: 30px;"><img
-                                                                src="../../assets/images/Excel.png" alt=""
-                                                                class="files-img"> <span
-                                                                style=" color:#019aa2; padding-right: 2px;   font-size: 20px;">
-                                                                <a v-if="files['xlsx'] == null"
-                                                                    href="javascript:void(0);"
-                                                                    class="files-text-download"
-                                                                    style=" color:#019aa2;">غير متوفر</a>
-                                                                <a v-else href="" class="files-text-download"
-                                                                    :download="'/image/' + files['xlsx']"
-                                                                    style=" color:#019aa2;">تحميل</a>
-                                                            </span>
-                                                        </div>
-                                                    </td>
-                                                    <td style="border: 1px solid #ccc;border-bottom-left-radius: 20px;">
-                                                        <div style="padding: 30px;"><img
-                                                                src="../../assets/images/autoca.png" alt=""
-                                                                class="files-img"> <span
-                                                                style=" color:#019aa2;   padding-right: 2px; font-size: 20px;">
-                                                                <a href="javascript:void(0);"
-                                                                    class="files-text-download"
-                                                                    style=" color:#019aa2;">تحميل</a></span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
                                         </div>
 
                                         <div id="Tokyo" class="tabcontent">
