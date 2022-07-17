@@ -138,15 +138,21 @@
                                 style=" position: relative; Height: 30%;Overflow: hidden;">
                                 <div class="controls">
                                     <a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                        class="view-gallery item-link"
-                                        style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                        <span>عرض كل الصور</span>
+                                        class="view-gallery item-link">
+                                        <img alt=""
+                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                            src="../../assets/images/photos.svg" decoding="async"
+                                            data-nimg="intrinsic">
+                                        <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
                                     <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                            class="view-gallery item-link"
-                                            style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                            <span>عرض كل الفيديوهات</span>
+                                            class="view-gallery item-link">
+                                            <img alt=""
+                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                            src="../../assets/images/photos.svg" decoding="async"
+                                            data-nimg="intrinsic">
+                                            <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -187,15 +193,21 @@
                                 style=" position: relative; Height: 30%;Overflow: hidden;">
                                 <div class="controls">
                                     <a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                        class="view-gallery item-link"
-                                        style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                        <span>عرض كل الصور</span>
+                                        class="view-gallery item-link">
+                                         <img alt=""
+                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                            src="../../assets/images/photos.svg" decoding="async"
+                                            data-nimg="intrinsic">
+                                        <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
                                     <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                            class="view-gallery item-link"
-                                            style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                            <span>عرض كل الفيديوهات</span>
+                                            class="view-gallery item-link">
+                                             <img alt=""
+                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                            src="../../assets/images/photos.svg" decoding="async"
+                                            data-nimg="intrinsic">
+                                            <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -230,15 +242,21 @@
                                 style=" position: relative; Height: 30%;Overflow: hidden;">
                                 <div class="controls">
                                     <a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                        class="view-gallery item-link"
-                                        style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                        <span>عرض كل الصور</span>
+                                        class="view-gallery item-link">
+                                        <img alt=""
+                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                            src="../../assets/images/photos.svg" decoding="async"
+                                            data-nimg="intrinsic">
+                                            <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
                                     <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                            class="view-gallery item-link"
-                                            style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                            <span>عرض كل الفيديوهات</span>
+                                            class="view-gallery item-link">
+                                             <img alt=""
+                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                            src="../../assets/images/photos.svg" decoding="async"
+                                            data-nimg="intrinsic">
+                                            <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -262,15 +280,21 @@
                                 style=" position: relative;  Height: 30%;Overflow: hidden;">
                                 <div class="controls">
                                     <a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                        class="view-gallery item-link"
-                                        style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                        <span>عرض كل الصور</span>
+                                        class="view-gallery item-link">
+                                         <img alt=""
+                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                            src="../../assets/images/photos.svg" decoding="async"
+                                            data-nimg="intrinsic">
+                                            <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
                                     <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                            class="view-gallery item-link"
-                                            style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                            <span>عرض كل الفيديوهات</span>
+                                            class="view-gallery item-link">
+                                            <img alt=""
+                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                            src="../../assets/images/photos.svg" decoding="async"
+                                            data-nimg="intrinsic">
+                                            <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -317,17 +341,17 @@
 
 
                             </div>
-                            <div id="myModal" class="modal" style=" padding-top: 130px;background-color: black;">
+                            <div id="myModal" class="modal" style=" padding-top: 130px;background-color: black;" @click="closeModal()">
                                 <span class="close cursor" @click="closeModal()"
                                     style=" cursor: pointer; color: #999;position: fixed;top: 10px;right: 25px;font-size: 35px;font-weight: bold;">&times;</span>
-                                <div class="modal-content"
+                                <div class="modal-content" @click.stop=""
                                     style="position: relative;background-color: #fefefe;margin: auto; padding: 0; width: 60%; max-width: 1200px;    height: 80%;    direction: ltr;">
 
                                     <div v-for="i in AllImage.length" :key="i" class="mySlides">
                                         <div class="numbertext"
                                             style="font-size: 18px; color: #999;padding: 8px 12px;position: fixed;top: 10px; left: 60px;">
                                             {{ i }} / {{ AllImage.length }}</div>
-                                        <img :src="'/image/' + AllImage[i - 1].file" style=" width: 100%;height: 100%;">
+                                        <img :src="'/image/' + AllImage[i - 1].file" >
                                         <a class="close cursor" href="" :download="'/image/' + AllImage[i - 1].file"
                                             style="cursor: pointer; color: #999; position: fixed; top: 22px;right: 100px; font-size: 18px;"><i
                                                 class="fa fa-download"></i></a>
@@ -343,10 +367,10 @@
 
                 </div> -->
                                     <a class="next" @click="plusSlides(-1)"
-                                        style=" right: 0; border-radius: 3px 0 0 3px;background-color: rgba(0, 0, 0, 0.5); cursor: pointer;position: fixed;top: 50%;width: auto; padding: 16px; margin-top: -50px; color: white; font-weight: bold; font-size: 20px;transition: 0.6s ease; border-radius: 0 3px 3px 0;user-select: none;-webkit-user-select: none;"><i
+                                        style=" right: 0; border-radius: 3px 0 0 3px;background-color: rgba(0, 0, 0, 0.5); cursor: pointer;position: fixed;top: 50%;width: auto; padding: 16px; color: white; font-weight: bold; font-size: 20px;transition: 0.6s ease; border-radius: 0 3px 3px 0;user-select: none;-webkit-user-select: none;"><i
                                             class="fa fa-arrow-right"></i></a>
                                     <a class="prev" @click="plusSlides(1)"
-                                        style="top: 50%;font-size: 22px;left: 10px; cursor: pointer; position: fixed;width: auto; padding: 16px; margin-top: -50px; color: white;font-weight: bold; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none; -webkit-user-select: none; "><i
+                                        style="top: 50%;font-size: 22px;left: 10px; cursor: pointer; position: fixed;width: auto; padding: 16px;  color: white;font-weight: bold; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none; -webkit-user-select: none; "><i
                                             class="fa fa-arrow-left"></i></a>
 
                                 </div>

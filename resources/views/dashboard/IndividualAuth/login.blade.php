@@ -62,12 +62,12 @@
                             <div class="d-flex align-items-center justify-content-center mt-4 " id="underCheck">
                                 <a id="newAccount" style="color:#0298a7;" href="{{route('auth.signup')}}">تسجيل حساب جديد</a>
                             </div>
-                            <div class="d-flex align-items-center justify-content-center mt-4 text-center">
+                            {{-- <div class="d-flex align-items-center justify-content-center mt-4 text-center">
                                 <a class="soonImg" style="color:#0298a7;" href="javascript:void(0);">
 
                                     <img class="cardlogB" src="{{ asset('assets/img/soonNafaz.png') }}" width="75%">
                                 </a>
-                            </div>
+                            </div> --}}
                               <div class="d-flex align-items-center justify-content-center  text-center mt-4">
                                 <a style="color:#0298a7;"  href="{{route('login.switch')}}"><span>الرجوع للخلف </span>
 

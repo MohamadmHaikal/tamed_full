@@ -140,9 +140,9 @@ class AdsController extends Controller
              $infoArray += [$value['name'] => $request->get($value['name']) ];
          }
         }
-        if($request->salary!=null){
-            $infoArray += ['salary' => $request->get('salary') ];
-        }
+        // if($request->salary!=null){
+        //     $infoArray += ['salary' => $request->get('salary') ];
+        // }
         foreach ( $services as $key => $servicesvalue) {
 
             if (  $request->exists(str_replace(" ","_",$servicesvalue['name'])) ) {
@@ -150,6 +150,14 @@ class AdsController extends Controller
             }
            }
            $application_conditions=[];
+           foreach ($request->all() as $key => $v){
+            $model = new Ads();
+            if(!in_array($key, $model->getFillable())){
+                $application_conditions+=[$key => $request->get($key)];
+                unset($request[$key]);
+            }
+           
+              }
            if (  $request->exists('Certificate','employment','PricingWithMaterials','CodeKSA','Building_Category','Building_Category_choices','Classification','Category_Category','Bank_guarantee','nots','Category_conditions') ) {
             $application_conditions=[
                 'Certificate'=>$request->Certificate,

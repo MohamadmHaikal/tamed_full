@@ -117,7 +117,7 @@
                                                         <td>{{ $user->phone }}</td>
                                                         <td>{{ $user->email }}</td>
                                                         @if(request('id')!=null)
-                                                        <td>{{ get_facility_type($user->activitie_id)->name }}</td>
+                                                        <td>{{ get_facility_type($user->type_id) }}</td>
                                                         @endif
                                                         <td><p class="{{ $user->status }}1">
                                                                 {{ __('backend.'.$user->status) }}</p></td>

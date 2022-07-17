@@ -56,14 +56,14 @@ return [
                 //     'parameter' => 'ProjectType',
                 //     'active_class' => 'Item/ProjectType'
                 // ],
-                [
-                    'type' => 'item',
-                    'label' => awe_lang('TypeEmployment'),
-                    'route_name' => 'Item',
-                    'parameter' => 'TypeEmployment',
-                    'icon'=>'la-user-tie',
-                    'active_class' => 'Item/TypeEmployment'
-                ],
+                // [
+                //     'type' => 'item',
+                //     'label' => awe_lang('TypeEmployment'),
+                //     'route_name' => 'Item',
+                //     'parameter' => 'TypeEmployment',
+                //     'icon'=>'la-user-tie',
+                //     'active_class' => 'Item/TypeEmployment'
+                // ],
                 [
                     'type' => 'item',
                     'label' => awe_lang('Section'),

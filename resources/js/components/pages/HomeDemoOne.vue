@@ -4,8 +4,8 @@
         <MainBanner />
         <Featured />
         <Services />
-        <SectionProject />
-        <Sectiondeals />
+        <!-- <SectionProject />-->
+        <Sectiondeals /> 
         <Invoicing />
         <!-- <ReadyToTalk /> -->
         <!-- <Partner /> -->
@@ -26,7 +26,7 @@ import Invoicing from '../common/Invoicing'
 import AppDownload from '../common/AppDownload'
 // import Subscribe from '../home-demo-six/Subscribe'
 import Footer from '../layout/Footer'
-import SectionProject from '../home-demo-one/SectionProject'
+// import SectionProject from '../home-demo-one/SectionProject'
 import Sectiondeals from '../home-demo-one/Sectiondeals'
 export default {
     name: 'HomeDemoOne',
@@ -35,7 +35,7 @@ export default {
         MainBanner,
         Featured,
         Services,
-        SectionProject,
+        // SectionProject,
         Sectiondeals,
         Invoicing,
         // ReadyToTalk,

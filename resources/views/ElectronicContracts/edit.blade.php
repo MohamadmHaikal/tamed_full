@@ -116,7 +116,7 @@
                                                                                                                                 color: green;
                                                                                                                             "></i>
                                                         <div class="input-group-append">
-                                                            <button class="btn btn-soft-primary check "
+                                                            <button class="btn btn-soft-primary check " style="border-radius: 23px 0px 0px 23px;"
                                                                 type="button">{{ __('backend.check') }}</button>
                                                         </div>
                                                         <input type="text" class="form-control" name="customer" value="{{ $Contract->SParty_id }}" hidden

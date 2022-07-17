@@ -139,6 +139,7 @@ class DashboardController extends Controller
         $city = request()->get('city');
         $neighbor = request()->get('neighbor');
         $activitie_id = request()->get('activitie_id');
+        $type_id = request()->get('type_id');
         $user = User::find(get_current_user_id());
         $user->name = $name;
         $user->phone = $phone;
@@ -149,8 +150,9 @@ class DashboardController extends Controller
         $user->verified = 1;
         $user->description = $description;
         $user->city_id = $city;
-        $user->neighbor_id = $neighbor;
+        $user->neighborhood = $neighbor;
         $user->activitie_id = $activitie_id;
+        $user->type_id = $type_id;
         $user->save();
         return $this->sendJson([
             'status' => 1,

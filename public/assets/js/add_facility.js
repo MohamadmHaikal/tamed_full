@@ -117,7 +117,7 @@ $('#city').change(function () {
 
 
             }
-            document.getElementById("Neighborhood").innerHTML = options_str;
+           // document.getElementById("Neighborhood").innerHTML = options_str;
 
         },
         error: function (data) {

@@ -105,7 +105,7 @@
                                                     <tr>
                                                         <td>{{ $item->id }}</td>
                                                         <td>{{ get_user_by_id($item->SParty_id)->name }}</td>
-                                                        <td>{{ get_facility_type(get_user_by_id($item->SParty_id)->activitie_id)->name }}
+                                                        <td>{{ get_facility_type(get_user_by_id($item->SParty_id)->type_id) }}
                                                         </td>
                                                         <td>{{ $item->amount }}</td>
                                                         <td>{{ date('Y-m-d', strtotime($item->contract_date)) }}</td>

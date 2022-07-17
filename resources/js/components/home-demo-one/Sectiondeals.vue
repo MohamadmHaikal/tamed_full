@@ -42,7 +42,7 @@
                                         <i class="fas fa-angle-left	"></i>
                                     </h5>
 
-                                    <p class="desc" style="padding-right: 0;">{{ slide.description }}</p>
+                                    <p class="desc" style="padding-right: 0;">{{ slide.BriefDescription }}</p>
 
 
                                 </div>

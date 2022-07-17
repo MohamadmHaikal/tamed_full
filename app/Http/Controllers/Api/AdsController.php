@@ -24,7 +24,7 @@ class AdsController extends Controller
 
             $ads['created'] = date('d-m-Y', strtotime($ads->created_at));
             $ads['time'] = date('h:i', strtotime($ads->created_at));
-            $ads['cover'] = get_ads_cover($ads->id)!=null ?('/' . 'image' . '/' . get_ads_cover($ads->id)):'https://dummyimage.com/1200x900/e0e0e0/c7c7c7.png';
+            $ads['cover'] = get_ads_cover($ads->id) != null ? ('/' . 'image' . '/' . get_ads_cover($ads->id)) : 'https://dummyimage.com/1200x900/e0e0e0/c7c7c7.png';
             $ads['activity'] = getActivityById($ads->activitie_id)->name;
             $ads['city'] = getCityById($ads->city_id)->name;
             // $ads['neighborhood'] = getNeighborhoodById($ads->neighborhood_id)->name;
@@ -36,6 +36,27 @@ class AdsController extends Controller
             $ads['Signed'] = get_Signed_ads($ads->id);
             if ($id == 5) {
                 $ads['dealsOrAuction'] = $ads['infoArray']['dealsOrAuction'];
+            }
+            if ($ads->type == 6) {
+                $ads['application_conditions'] = json_decode($ads->application_conditions);
+                if ($ads['application_conditions'] != null) {
+                    $ads['salary'] = number_format($ads['application_conditions']->salary);
+                }
+                 if (array_key_exists("residintal", $ads->application_conditions)) {
+                $ads['residintal'] = __('backend.Valid residence');
+            } else {
+                $ads['residintal'] = '';
+            }
+            if ( isset($ads['application_conditions']->employment_on_warranty)) {
+                $ads['employment_on_warranty'] = __('backend.on warranty');
+            } else {
+                $ads['employment_on_warranty'] = '';
+            }
+            if (isset($ads['application_conditions']->employment_rent_contract)) {
+                $ads['employment_rent_contract'] = __('backend.rent contract');;
+            } else {
+                $ads['employment_rent_contract'] = '';
+            }
             }
         }
 
@@ -78,18 +99,45 @@ class AdsController extends Controller
         $ads->save();
         $ads['created'] = date('d-m-Y', strtotime($ads->created_at));
         $ads['time'] = date('h:i', strtotime($ads->created_at));
-        $ads['cover'] = get_ads_cover($ads->id)!=null ?('/' . 'image' . '/' . get_ads_cover($ads->id)):'https://dummyimage.com/1200x900/e0e0e0/c7c7c7.png';
+        $ads['cover'] = get_ads_cover($ads->id) != null ? ('/' . 'image' . '/' . get_ads_cover($ads->id)) : 'https://dummyimage.com/1200x900/e0e0e0/c7c7c7.png';
         $ads['activity'] = getActivityById($ads->activitie_id)->name;
         $ads['city'] = getCityById($ads->city_id)->name;
         // $ads['neighborhood'] = getNeighborhoodById($ads->neighborhood_id)->name;
         $ads['infoArray'] = unserialize($ads->infoArray);
         if (!empty(json_decode($ads->application_conditions))) {
-            $ads['req_paper'] = explode(',', json_decode($ads->application_conditions)->Certificate[0]);
-            $ads['req_paper'] = explode(',', json_decode($ads->application_conditions)->Certificate[0]);
+            if ($ads->type != 6) {
+                $ads['req_paper'] = explode(',', json_decode($ads->application_conditions)->Certificate[0]);
+                $ads['req_paper'] = explode(',', json_decode($ads->application_conditions)->Certificate[0]);
+            }
             $ads['application_conditions'] = json_decode($ads->application_conditions);
         }
+        if ($ads->type == 6) {
+            $ads['salary'] = number_format($ads['application_conditions']->salary);
+           
+            if (isset($ads['infoArray']['work_hours'])) {
+                $ads['work_hours'] = $ads['infoArray']['work_hours'];
+            }
+            else{
+                $ads['work_hours'] ='';
+            }
+            if (array_key_exists("residintal", $ads->application_conditions)) {
+                $ads['residintal'] = __('backend.Valid residence');
+            } else {
+                $ads['residintal'] = '';
+            }
+            if (isset($ads->application_conditions->employment_on_warranty)) {
+                $ads['employment_on_warranty'] = __('backend.on warranty');
+            } else {
+                $ads['employment_on_warranty'] = '';
+            }
+            if (isset($ads->application_conditions->employment_on_warranty)) {
+                $ads['employment_rent_contract'] = __('backend.rent contract');;
+            } else {
+                $ads['employment_rent_contract'] = '';
+            }
+        }
         $ads['author'] = get_user_by_id($ads->user_id);
-        $gallery= $ads['gallery']!=null?explode(',', $ads['gallery']) : [];
+        $gallery = $ads['gallery'] != null ? explode(',', $ads['gallery']) : [];
         $ads['files'] = File::whereIn('id', $gallery)->get();
         foreach ($ads['files'] as $file) {
             $file['info'] = unserialize($file['info']);

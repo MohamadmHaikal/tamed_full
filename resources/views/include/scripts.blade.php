@@ -155,6 +155,7 @@
         Individuals:"{{__('backend.Individuals')}}",
         Institutions:"{{__('backend.Institutions')}}",
         Both:"{{__('backend.Both')}}",
+        waitingForAcceptance:"{{__('backend.waiting for acceptance')}}",
 
     };
 </script>

@@ -3704,7 +3704,7 @@ $value_eleven: 1399px;
                                     color: rgb(62, 147, 142);
                                     padding-right: 5px;
                                     font-size: 18px;
-                                    margin-top: 32px;
+                                    // margin-top: 32px;
                                 }
                             }
 
@@ -3811,11 +3811,11 @@ $value_eleven: 1399px;
 
             color: #777777;
             font-size: 13px;
-            margin-right: 10px;
+            margin-right: 8px;
         }
 
         .address {
-            margin-right: 6px;
+            margin-right: 5px;
             font-size: 10px;
 
             span {
@@ -3897,7 +3897,7 @@ $value_eleven: 1399px;
             position: absolute;
             top: 98px;
             font-weight: 700;
-            left: 12px;
+            left: 20px;
 
             span {
                 color: #000;
@@ -3910,8 +3910,8 @@ $value_eleven: 1399px;
         background-color: #ffffff;
         border: 1px solid #019aa2;
         color: #019aa2;
-        font-size: 11px;
-        padding: 5px 24px 5px 24px;
+        font-size: 13px;
+        padding: 0px 18px 0px 18px;
 
         .text {
             color: rgb(1, 154, 162);
@@ -3940,12 +3940,33 @@ $value_eleven: 1399px;
         border: 1px solid #019aa2;
         color: #019aa2;
         font-size: 11px;
-        padding: 5px 21px 5px 21px;
+        padding: 5px 17px 5px 17px;
         color: #7ace5e;
         font-weight: 500;
 
     }
+    .residintal {
+        border-radius: 25px;
+        background-color: #ffffff;
+        border: 1px solid #019aa2;
+        color: #019aa2;
+        font-size: 11px;
+        padding: 5px 15px 5px 15px;
+        color: #7ace5e;
+        font-weight: 500;
 
+    }
+    .transp-rent {
+        border-radius: 25px;
+        background-color: #ffffff;
+        border: 1px solid #019aa2;
+        color: #019aa2;
+        font-size: 11px;
+        padding: 5px 21px 5px 21px;
+        color: #000;
+        font-weight: 500;
+
+    }
     .job-modal {
         position: fixed;
         top: 0;
@@ -4670,7 +4691,7 @@ $value_eleven: 1399px;
 
     .footer-area-about {
         padding-top: 50px;
-        padding-right: 25px;
+        // padding-right: 25px;
     }
 
     .footer-area-services {
@@ -5886,7 +5907,7 @@ $value_eleven: 1399px;
         color: #000;
         font-size: 10px;
         font-weight: 500;
-        padding: 5px 17px 5px 18px;
+        padding: 5px 10px 5px 10px;
     }
 
     .transp-w {
@@ -5895,12 +5916,33 @@ $value_eleven: 1399px;
         border: 1px solid #019aa2;
         color: #019aa2;
         font-size: 10px;
-        padding: 5px 18px 5px 18px;
+        padding: 5px 7px 5px 7px;
         color: #7ace5e;
         font-weight: 500;
 
     }
+    .residintal {
+        border-radius: 25px;
+        background-color: #ffffff;
+        border: 1px solid #019aa2;
+        color: #019aa2;
+        font-size: 10px;
+        padding: 5px 7px 5px 7px;
+        color: #7ace5e;
+        font-weight: 500;
 
+    }
+    .transp-rent {
+        border-radius: 25px;
+        background-color: #ffffff;
+        border: 1px solid #019aa2;
+        color: #019aa2;
+        font-size: 10px;
+        padding: 5px 10px 5px 10px;
+        color: #000;
+        font-weight: 500;
+
+    }
     .job-modal {
         position: fixed;
         top: 0;

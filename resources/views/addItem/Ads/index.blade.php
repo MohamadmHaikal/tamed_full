@@ -8,7 +8,7 @@
 {!! Html::style('plugins/sweetalerts/sweetalert2.min.css') !!}
 {!! Html::style('plugins/sweetalerts/sweetalert.css') !!}
 {!! Html::style('assets/css/basic-ui/custom_sweetalert.css') !!}
-
+{!! Html::style('assets/css/ui-elements/tooltip.css') !!}
 
 <style>
     .service-status.status-icon {
@@ -22,7 +22,7 @@
     background-color: #16ca5b
 }
 .service-status.status-icon.icon0 {
-    background-color: red
+    background-color: darkorange;
 }
 </style>
 @endpush
@@ -95,8 +95,8 @@
                                                     src="{{ isset($image) ? asset('image/'.$image) : url('https://dummyimage.com/1200x900/e0e0e0/c7c7c7.png')}}" alt=""></td>
                                                
                                                     <td>
-                                                        <div class="service-status  status-icon icon{{ $item->status }}"
-                                                             data-toggle="tooltip" data-placement="right" title=""
+                                                        <div class="service-status  status-icon icon{{ $item->status }}  bs-tooltip"
+                                                             data-toggle="tooltip"  data-placement="top" title="{{$item->status=='1'?__('backend.published'):__('backend.pending')}}"
                                                              data-original-title=""><span
                                                                 class="exp d-none">{{ $item->status }}</span>
                                                         </div>
@@ -115,7 +115,8 @@
                                                         </a>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1"
                                                             style="will-change: transform;">
-                                                            <a class="dropdown-item hh-link-action hh-link-change-status-home changestatus"
+                                                            @if (is_admin())
+                                                                      <a class="dropdown-item hh-link-action hh-link-change-status-home changestatus"
                                                             data-action="/ads/changeStatus/"
                                                             data-id="{{ $item->id }}"
                                                             data-status="1"
@@ -127,6 +128,8 @@
                                                             data-id="{{ $item->id }}"
                                                             data-status="0"
                                                            >{{ __('backend.stop') }}</a>
+                                                            @endif
+                                                      
 
                                                             <a class="dropdown-item "
                                                                 href="{{ route('ads.edit',$item->id) }}">{{__('backend.Edit')}}</a>

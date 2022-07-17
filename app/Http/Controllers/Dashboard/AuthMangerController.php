@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use Hash;
 use Illuminate\Auth\AuthManager;
 use Sentinel;
-
+use Illuminate\Support\Facades\Http;
 class AuthMangerController extends Controller
 {
     use AuthenticatesUsers;
@@ -104,14 +104,34 @@ class AuthMangerController extends Controller
                 'message' => view('common.alert', ['type' => 'danger', 'message' => 'الرقم المدخل غير موجود'])->render()
             ]);
         }
-        return $this->sendJson([
-            'status' => 1,
-            'mobile' => $user['phone'],
-            'message' => view('common.alert', ['type' => 'success', 'message' => 'تم إرسال كود التحقق بنجاح'])->render()
-        ]);
+        $msg = " منصة تعميد \r\n كود التفعيل: ".$code;
+        $a=  Http::post("https://www.msegat.com/gw/sendsms.php", [
+         "userName"=> "tamedksa",
+         "numbers"=> $input['mobile'],
+         "userSender" => "tamed.sa",
+         "apiKey"=> "ad8fe82ffa00761d1fc36b2cdb15a516",
+         "msg"=> "$msg"
+         ]);
+         
+        //  if($a['code']!=1){
+        //     return $this->sendJson([
+        //         'status' => 0,
+        //         'message' => view('common.alert', ['type' => 'danger', 'message' => 'حدث خطأ لم يتم ارسال الكود'])->render()
+        //     ]);
+        //  }else{
+            return $this->sendJson([
+                'status' => 1,
+                'mobile' => $user['phone'],
+                'message' => view('common.alert', ['type' => 'success', 'message' => 'تم إرسال كود التحقق بنجاح'])->render()
+            ]);
+        //  }
+       
     }
+    
     public function _getPostSignUp(Request $request)
-    {
+    {   if(str_starts_with($request->mobile, '9660')){
+        $request->mobile=substr_replace($request->mobile, '', 4, 1);
+        }
         $user = AuthManger::where('IdCard', '=', $request->IdCard)->orWhere('phone', $request->mobile)->first();
         if ($user != null) {
             if ($user->IdCard == $request->IdCard) {
@@ -222,7 +242,7 @@ class AuthMangerController extends Controller
         $user->CRecord = $CRecord;
         $user->verified = 1;
         $user->city_id = $city;
-        $user->neighbor_id = $neighbor;
+        $user->neighborhood = $neighbor;
         $user->activitie_id = $activitie_id;
         $user['v-code'] = $code;
         $user['password'] = bcrypt($code);
@@ -231,7 +251,7 @@ class AuthMangerController extends Controller
         return $this->sendJson([
             'status' => 1,
             'reload' => true,
-            'message' => view('common.alert', ['message' => __('backend.Profile Updated successfully'), 'type' => 'success'])->render(),
+            'message' => view('common.alert', ['message' => __('backend.The facility file has been successfully added'), 'type' => 'success'])->render(),
         ]);
     }
 

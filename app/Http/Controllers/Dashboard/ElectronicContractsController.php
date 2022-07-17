@@ -59,7 +59,7 @@ class ElectronicContractsController extends Controller
             ]);
         }
         if ($user) {
-            $userType = get_facility_type($user->activitie_id)->name;
+            $userType = get_facility_type($user->type_id);
             return $this->sendJson([
                 'status' => 1,
                 'message' => view('common.alert', ['message' => __('backend.Commercial Registration Verified Successfully'), 'type' => 'success'])->render(),
@@ -139,7 +139,7 @@ class ElectronicContractsController extends Controller
     public function show($id)
     {
         $Contract = ElectronicContracts::find($id);
-        $Contract['type'] = get_facility_type(get_user_by_id($Contract->SParty_id)->activitie_id)->name;
+        $Contract['type'] = get_facility_type(get_user_by_id($Contract->SParty_id)->type_id);
         $Contract['City'] = $Contract->City->name;
         $Contract['company_name'] = get_user_by_id($Contract->SParty_id)->name;
         $Contract['is_received'] = get_current_user_id() == $Contract->SParty_id ? true : false;
@@ -161,7 +161,7 @@ class ElectronicContractsController extends Controller
         $Contract = ElectronicContracts::find($id);
         $user = User::where('CRecord', '=', $Contract->CRecord)->first();
         $Contract['batch'] = unserialize($Contract->batch);
-        $Contract['userType'] = get_facility_type($user->activitie_id)->name;
+        $Contract['userType'] = get_facility_type($user->type_id);
         $Contract['Company_name'] = $user->name;
         return view('ElectronicContracts.edit', compact('cities', 'Contract'));
     }

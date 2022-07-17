@@ -36,11 +36,21 @@ class TypeEmployment extends Model
                          'columnType' => 'text'
             ]   ]; }
     }
+    public function showRelation()
+    {
+        return 'Subjobs';
+    }
+    public function Subjobs(){
+        return $this->hasMany('App\Models\Subjobs' , 'employment_type_id');
+    }
+
     public function getTitleColumn()
     {
         return [
             'id',  
-                 'name'
+                 'name',
+                 'Jobs',
+                 'action'
                 ];
     }
 }

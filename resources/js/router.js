@@ -32,6 +32,7 @@ import ProjectDetails from "./components/pages/ProjectDetails";
 import DealsAuctionsDetails from "./components/pages/DealsAuctionsDetails";
 import SubmitQuotes from "./components/pages/SubmitQuotes";
 import ContractForms from "./components/pages/ContractForms";
+import GuideManual from "./components/pages/GuideManual";
 import Jobs from "./components/pages/Jobs";
 import Technique from "./components/pages/Technique";
 import FactoryMaterials from "./components/pages/FactoryMaterials";
@@ -72,6 +73,7 @@ const routes = [
   { path: "/equipment?page=:number", name: 'equipmentFilter', component: Equipment, props: true },
   { path: "/DealsAuctions?page=:number", name: 'DealsAuctionsFilter', component: DealsAuctions, props: true },
   { path: "/ContractForms", component: ContractForms },
+  { path: "/GuideManual", component: GuideManual },
   { path: "/blog/:type", name: 'blog', component: BlogDetails, props: true, },
   { path: "/DealsAuctions", component: DealsAuctions },
   { path: "/profile/:id/details", name: 'profile', component: Profile, props: true, },

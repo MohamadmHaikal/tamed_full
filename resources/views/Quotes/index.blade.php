@@ -98,12 +98,12 @@
                                                 @foreach ($quotes as $quote)
                                                     <tr>
                                                         <td>{{ $quote->id }}</td>
-                                                        <td style=" text-align: right;">{{ $source == 'received' ? get_user_by_id($quote->form_id)->name : get_user_by_id($quote->to_id)->name }}
+                                                        <td>{{ $source == 'received' ? get_user_by_id($quote->form_id)->name : get_user_by_id($quote->to_id)->name }}
                                                         </td>
-                                                        <td style=" text-align: right;">{{$quote->name}}</td>
-                                                        <td style=" text-align: right;">{{ $source == 'received'? get_facility_activity(get_user_by_id($quote->form_id)->activitie_id)->name: get_facility_activity(get_user_by_id($quote->to_id)->activitie_id)->name }}
+                                                        <td>{{$quote->name}}</td>
+                                                        <td>{{ $source == 'received'? get_facility_activity(get_user_by_id($quote->form_id)->activitie_id)->name: get_facility_activity(get_user_by_id($quote->to_id)->activitie_id)->name }}
                                                         </td>
-                                                        <td style=" text-align: right;">
+                                                        <td>
                                                             <div class="dropdown custom-dropdown">
                                                                 <a class="dropdown-toggle  text-primary QuotesDetails"
                                                                     href="javascript:void(0);"

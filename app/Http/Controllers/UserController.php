@@ -34,7 +34,7 @@ class UserController extends Controller
                 array_push($array, $a['id']);
             }
 
-            $users = User::whereIn('activitie_id', $array)->get();
+            $users = User::whereIn('type_id', $array)->get();
         } else {
             $users = AuthManger::all();
         }
@@ -83,7 +83,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user['allType'] = UserType::all();
-        $user['userType'] = get_facility_type($user->activitie_id)->name;
+        $user['userType'] = get_facility_type($user->type_id);
         $user['userActivity'] = Activitie::find($user->activitie_id)->name;
         $user['allActivity'] = Activitie::all();
         $user['role'] = get_user_role($id)->name;
@@ -104,7 +104,7 @@ class UserController extends Controller
                 array_push($array, $a['id']);
             }
           
-            $users = User::whereIn('id', $facilities)->whereIn('activitie_id', $array)->get();
+            $users = User::whereIn('id', $facilities)->whereIn('type_id', $array)->get();
         } else {
         $users= User::whereIn('id', $facilities)->get();
         }

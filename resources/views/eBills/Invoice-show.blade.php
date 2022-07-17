@@ -78,7 +78,7 @@
                                                             <div class="col-sm-4 col-12">
                                                                 <h6 class="in-heading mb-3">{{ $author->name }}</h6>
                                                                 <h6 class="in-heading mb-3">{{ __('backend.address') }} :
-                                                                    {{ get_location_by_id($author->neighbor_id) }}</h6>
+                                                                    {{ get_location_by_id($author) }}</h6>
                                                                 <h6 class="in-heading">{{ __('backend.Tax Number') }}
                                                                     :
                                                                     {{ $author->TaxNumber }}
@@ -117,10 +117,12 @@
                                                                     {{ __('backend.' . $invoice->type) }}</h6>
                                                             </div>
                                                             <div class="col-sm-4 col-12 align-self-center text-sm-right">
+                                                                @if (isset($author->invoiceLogo))
                                                                 <div class="">
                                                                     <img src="{{ url("/image/$author->invoiceLogo") }}"
                                                                         style="width: 45%; margin-left: 16%;" />
                                                                 </div>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                         <div class="row">

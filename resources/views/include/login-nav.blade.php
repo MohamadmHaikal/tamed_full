@@ -37,18 +37,12 @@
                                 الصفقات / المزادات
                             </a>
                         </li>
-                        <li class="nav-item"
-                            style="position: relative; padding-top: 10px; padding-bottom: 10px; padding-left: 0;padding-right: 0;">
-                            <a href="javascript:void(0);" class="nav-link"
-                                style="font-size: 13px;font-weight: 500; color: #4c9da5;text-transform: capitalize;padding-left: 0;padding-right: 0;padding-top: 0; margin-left: 15px; margin-right: 15px;padding-bottom: 0;">
-                                تمويل العقود
-                            </a>
-                        </li>
+                       
                         <li class="nav-item"
                             style="position: relative;padding-top: 10px;padding-bottom: 10px;padding-left: 0;padding-right: 0;">
-                            <a href="javascript:void(0);" class="nav-link"
+                            <a href="/jobs" class="nav-link"
                                 style="font-size: 13px;font-weight: 500;color: #4c9da5;text-transform: capitalize;padding-left: 0;padding-right: 0; padding-top: 0;margin-left: 15px;margin-right: 15px; padding-bottom: 0;">
-                                المركز الإعلامي
+                                الوظائف
                             </a>
                         </li>
                         <li
@@ -58,6 +52,13 @@
                                 نماذج العقود
                             </a>
                         </li>
+                        <li class="nav-item"
+                        style="position: relative; padding-top: 10px; padding-bottom: 10px; padding-left: 0;padding-right: 0;">
+                        <a href="/GuideManual" class="nav-link"
+                            style="font-size: 13px;font-weight: 500; color: #4c9da5;text-transform: capitalize;padding-left: 0;padding-right: 0;padding-top: 0; margin-left: 15px; margin-right: 15px;padding-bottom: 0;">
+                            الدليل الإرشادي
+                        </a>
+                    </li>
                         <li class="nav-item"
                             style=" position: relative; padding-top: 10px;padding-bottom: 10px;padding-left: 0; padding-right: 0;">
                             <a href="/contact" class="nav-link"

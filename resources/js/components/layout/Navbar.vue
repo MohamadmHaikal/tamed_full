@@ -90,11 +90,22 @@
                                 </router-link>
 
                             </li>
-
                             <li class="nav-item">
-                                <a href="javascript:void(0);" class="nav-link">
-                                    تمويل العقود
-                                </a>
+                                <router-link to="/jobs" class="nav-link">
+                                    الوظائف
+
+                                </router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link to="/ContractForms" class="nav-link">
+                                    نماذج العقود
+                                </router-link>
+
+                            </li>
+                            <li class="nav-item">
+                                 <router-link to="/GuideManual" class="nav-link">
+                                    الدليل الإرشادي
+                                </router-link>
 
                                 <!-- <ul class="dropdown-menu">
                                     <li class="nav-item">
@@ -161,18 +172,7 @@
                                     </li>
                                 </ul> -->
                             </li>
-                            <li class="nav-item">
-                                <router-link to="/jobs" class="nav-link">
-                                    الوظائف
 
-                                </router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link to="/ContractForms" class="nav-link">
-                                    نماذج العقود
-                                </router-link>
-
-                            </li>
                             <li class="nav-item">
                                 <router-link to="/contact" class="nav-link">
                                     الإتصال بنا

@@ -17,10 +17,25 @@ class QuotesController extends Controller
 
         }
         else{
-            if ($request->price==null){
+            if ($request->price==null && $request->type==null ){
                 return json_encode(['message'=>'السعر المخصص مطلوب !','code'=>'102'],true);
             }
 
+        }
+        if($request->type!=null){
+            $ads= get_ads_by_id($request->ads_id);
+            $request->to_id= $ads->user_id;
+            $request->title=$ads->title;
+        }
+        if($request->type=='with-cv' ){
+            if(!$request->hasFile('file')){
+               return json_encode(['message'=>'السيرة الذاتية مطلوبة !','code'=>'102'],true);  
+            }
+        }
+        else{
+            if(getfileByName('cv')==null){
+                return json_encode(['message'=>'لا يوجد سيرة ذاتية مرفقة في ملفك الشخصي !','code'=>'102'],true);  
+             }
         }
         $quotes = new Quote;
         $quotes->status = 'new';
@@ -35,6 +50,6 @@ class QuotesController extends Controller
             
             $this->fileUpload(request()->file, 'quotes', $quotes->id);
         }
-        return json_encode(['message'=>'تم ارسال العرض بنجاح','code'=>'200'],true);
+        return json_encode(['message'=>'تم ارسال الطلب بنجاح','code'=>'200'],true);
     }
 }

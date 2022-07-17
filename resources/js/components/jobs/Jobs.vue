@@ -28,7 +28,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mt-2">
-                                    <div class="row">
+                                    <div class="row align-items-center">
                                         <div class="col-md-1 col-1">
                                             <i class="fa fa-info-circle"></i>
                                         </div>
@@ -90,13 +90,24 @@
                                                         {{ ad.title }}
                                                     </span>
                                                 </a>
-                                                <p class="mt-2 job-activity">
-                                                    نشاط
-                                                    المنشآة:
-                                                    <span>
-                                                        {{ ad.activity }}
-                                                    </span>
-                                                </p>
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-6 col-6">
+                                                        <p class="mt-2 job-activity">
+                                                            نشاط
+                                                            المنشآة:
+                                                            <span>
+                                                                {{ ad.activity }}
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6" style="padding-bottom: 5px;">
+                                                        <a href="javascript:void(0);" class="salary">
+                                                            <span class="text">الراتب </span>
+                                                            <span class="number">{{ ad.salary }} ريال</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                             <div class="col-md-3  col-3 job-sq">
                                                 <p class="status">
@@ -106,32 +117,51 @@
                                                 <p class="title">
                                                     عاملين
                                                 </p>
-                                                <p class="ref-n">
-                                                    الرقم المرجعي:
-                                                    <span>{{ ad.reference_number }}</span>
-                                                </p>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <p class="ref-n">
+                                                            الرقم المرجعي:
+                                                            <span>{{ ad.reference_number }}</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="second-section">
                                         <div class="row text-end mt-4">
-                                            <div class="col-md-4 col-4">
+                                            <!-- <div class="col-md-4 col-4">
                                                 <a href="javascript:void(0);" class="salary">
                                                     <span class="text">الراتب </span>
-                                                    <span class="number"> 3,500 ريال</span>
+                                                    <span class="number"> {{ad.salary}} ريال</span>
+
+                                                </a>
+                                            </div> -->
+                                            <div class="col-md-3 col-3">
+                                                <a href="javascript:void(0);" class="contract-type">
+                                                    {{ ad.infoArray['work_hours'] }}
+                                                </a>
+                                            </div>
+                                            <div v-if="ad['employment_on_warranty'] != ''" class="col-md-3 col-3">
+                                                <a href="javascript:void(0);" class="transp-w">{{
+                                                        ad['employment_on_warranty']
+                                                }}
 
                                                 </a>
                                             </div>
-                                            <div class="col-md-3 col-4">
-                                                <a href="javascript:void(0);" class="contract-type">
-                                                    دوام
-                                                    كامل
+                                            <div v-if="ad['employment_rent_contract'] != ''" class="col-md-3 col-3">
+                                                <a href="javascript:void(0);" class="transp-rent">{{
+                                                        ad['employment_rent_contract']
+                                                }}
+
                                                 </a>
                                             </div>
-                                            <div class="col-md-3 col-4">
-                                                <a href="javascript:void(0);" class="transp-w">
-                                                    نقل
-                                                    كفالة
+                                            <div v-if="ad['residintal'] != ''" class="col-md-3 col-3">
+                                                <a href="javascript:void(0);" class="residintal">{{
+                                                        ad['residintal']
+                                                }}
+
                                                 </a>
                                             </div>
                                         </div>
@@ -162,13 +192,17 @@
                                             <div class="col-md-8">
                                                 <div class="row text-end">
                                                     <div class="col-md-12 col-sm-12 mt-3 mb-3"><span
-                                                            style="font-size:12px;color:#03a8c5;font-weight:500;">2596
+                                                            style="font-size:12px;color:#03a8c5;font-weight:500;">{{
+                                                                    ads['0']['seenCount']
+                                                            }}
                                                             <i class="far fa-eye"
                                                                 style="color:#b9b9b9;font-size:15px;margin-right:10px;"></i></span><i
                                                             class="fas fa-map-marker-alt"
                                                             style="color:#777777;font-size:15px;margin-right:25px;"></i><span
                                                             style="margin-right:6px;font-size:12px;"> المدينة: <span
-                                                                style="color:#00b0ac;font-weight:500;">الرياض
+                                                                style="color:#00b0ac;font-weight:500;">{{
+                                                                        ads['0']['city']
+                                                                }}
                                                             </span></span><i class="far fa-heart"
                                                             style="font-size:15px;margin-right:20px;"></i><span
                                                             style="margin-right:6px;margin-bottom:2px;font-size:12px;">المفضلة</span>
@@ -193,12 +227,28 @@
                                                     </div>
                                                 </div><a href="javascript:void(0);" class=""
                                                     style="padding-top: 21px;"><span
-                                                        style="color: rgb(1, 154, 162); font-size: 18px;">مطلوب عمال
-                                                        بناء في الرياض</span></a>
-                                                <p class="mt-2" style="color: rgb(87, 83, 77); padding-bottom: 10px;">
-                                                    نشاط المنشآة: <span
-                                                        style="color: rgb(0, 0, 0); font-weight: 400;">شركة
-                                                        مقاولات</span></p>
+                                                        style="color: rgb(1, 154, 162); font-size: 18px;">{{
+                                                                ads['0']['title']
+                                                        }}</span></a>
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-6">
+                                                        <p class="mt-2"
+                                                            style="color: rgb(87, 83, 77); padding-bottom: 10px;">
+                                                            نشاط المنشآة: <span
+                                                                style="color: rgb(0, 0, 0); font-weight: 400;">{{
+                                                                        ads['0']['activity']
+                                                                }}</span></p>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-bottom: 5px;">
+                                                        <a href="javascript:void(0);" class="author-deals"
+                                                            style="font-size: 13px;padding:0px 18px 0px 18px;"><span
+                                                                style="color:rgb(1, 154, 162);">الراتب </span><span
+                                                                style="color:#dc961c;    font-weight: 700;">{{
+                                                                        ads['0']['salary']
+                                                                }} ريال </span></a>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                             <div class="col-md-4"><a href="javascript:void(0);" @click="openModal"
                                                     class="btn btn-logo"
@@ -207,7 +257,10 @@
                                                     السيرة الذاتية</a>
                                                 <p
                                                     style="color: rgb(3, 156, 165); font-size: 10px; position: absolute; top: 95px; font-weight: 700; left: 60px;">
-                                                    الرقم المرجعي: <span style="color: rgb(0, 0, 0);">2589637</span></p>
+                                                    الرقم المرجعي: <span style="color: rgb(0, 0, 0);">{{
+                                                            ads['0']['reference_number']
+                                                    }}</span>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -217,21 +270,37 @@
                                                 <p class=""
                                                     style="color:rgb(1, 154, 162);font-size:12px;margin-bottom:3px;font-weight:500;padding-left:45px;">
                                                     اخر موعد للتقديم </p><i class="far fa-calendar-alt"
-                                                    style="color:rgb(55, 211, 55);"></i><span
-                                                    class="date-icon">02-06-2022</span><span class="time-icon"><i
-                                                        class="far fa-clock" style="color:rgb(55, 211, 55);"></i>
-                                                    03:43</span>
+                                                    style="color:rgb(55, 211, 55);"></i><span class="date-icon">{{
+                                                            ads['0']['deadline']
+                                                    }}</span><span class="time-icon"><i class="far fa-clock"
+                                                        style="color:rgb(55, 211, 55);"></i>
+                                                    12:00</span>
                                             </div>
-                                            <div class="col-md-8 mt-4" style="text-align:end;padding-left:25px;"><a
-                                                    href="#" class="author-deals"
-                                                    style="font-size:11px;padding:5px 25px 5px 25px;"><span
-                                                        style="color:rgb(1, 154, 162);">الراتب </span><span
-                                                        style="color:#dc961c;"> 3,500 ريال </span></a><a href="#"
+                                            <div class="col-md-8 mt-4" style=" text-align:center;padding-left:25px;"><a
+                                                    href="javascript:void(0);" class="author-deals"
+                                                    style="color:#000;font-size:11px;padding:5px 14px 5px 14px;margin-right:10px;">
+                                                    {{ ads['0']['infoArray']['work_hours'] }}&nbsp;
+                                                </a>
+                                                <a v-if="ads['0']['employment_on_warranty'] != ''"
+                                                    href="javascript:void(0);" class="author-deals"
+                                                    style="font-size:11px;padding:5px 15px 5px 15px;color:#7ace5e;margin-right:10px;">{{
+                                                            ads['0']['employment_on_warranty']
+                                                    }}
+                                                </a>
+                                                <a v-if="ads['0']['employment_rent_contract'] != ''"
+                                                    href="javascript:void(0);" class="author-deals"
+                                                    style="font-size:11px;padding:5px 15px 5px 15px;color:#000;margin-right:10px;">{{
+                                                            ads['0']['employment_rent_contract']
+                                                    }}
+                                                </a>
+                                                <a v-if="ads['0']['residintal'] != ''" href="javascript:void(0);"
                                                     class="author-deals"
-                                                    style="color:#000;font-size:11px;padding:5px 25px 5px 25px;margin-right:10px;">دوام
-                                                    كامل </a><a href="#" class="author-deals"
-                                                    style="font-size:11px;padding:5px 25px 5px 25px;color:#7ace5e;margin-right:10px;">نقل
-                                                    كفالة </a></div>
+                                                    style="font-size:11px;padding:5px 15px 5px 15px;color:#7ace5e;margin-right:10px;">{{
+                                                            ads['0']['residintal']
+                                                    }}
+                                                </a>
+
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12"
@@ -239,30 +308,10 @@
                                                 <h2
                                                     style="text-align:right;font-size:18px;font-weight:600;margin-right:15px;margin-top:25px;">
                                                     الوصف الوظيفي الكامل</h2>
-                                                <p
+                                                <p v-html="ads['0']['description']"
                                                     style="margin-top:20px;font-size:12px;text-align:right;padding-right:2px;margin-right:15px;">
-                                                    مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة او عقد
-                                                    اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة او
-                                                    عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة
-                                                    او عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل
-                                                    الكفالة او عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط
-                                                    نقل الكفالة او عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات
-                                                    شرط نقل الكفالة او عقد اجير مطلوب عمال بناء في الرياض من جميع
-                                                    الجنسيات شرط نقل الكفالة او عقد اجير مطلوب عمال بناء في الرياض من
-                                                    جميع الجنسيات شرط نقل الكفالة او عقد اجير مطلوب عمال بناء في الرياض
-                                                    من جميع الجنسيات شرط نقل الكفالة او عقد اجير مطلوب عمال بناء في
-                                                    الرياض من جميع الجنسيات شرط نقل الكفالة او عقد اجير مطلوب عمال بناء
-                                                    في الرياض من جميع الجنسيات شرط نقل الكفالة او عقد اجير مطلوب عمال
-                                                    بناء في الرياض من جميع الجنسيات شرط نقل الكفالة او عقد اجير مطلوب
-                                                    عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة او عقد اجير
-                                                    مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة او عقد
-                                                    اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة او
-                                                    عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة
-                                                    او عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل
-                                                    الكفالة او عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط
-                                                    نقل الكفالة او عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات
-                                                    شرط نقل الكفالة او عقد اجير مطلوب عمال بناء في الرياض من جميع
-                                                    الجنسيات شرط نقل الكفالة او عقد اجير </p>
+
+                                                </p>
                                             </div>
                                             <div class="col-md-7 mt-3 text-end"
                                                 style="padding: 8px 6px 8px 6px;background-color:rgb(240, 246, 242);border-radius: 20px;width:51%;margin-right:15px;">
@@ -286,7 +335,7 @@
                     </div>
 
                 </div>
-                <div id="myModal" class="job-modal">
+                <div id="myModal" class="job-modal" :data-id="ads['0']['id']">
                     <div class="job-modal-content">
                         <span class="close" @click="closeModal">
                             <span>Cancel</span>
@@ -295,7 +344,7 @@
                         <div class="row">
                             <div class="col-md-4 mt-2">
                                 <div class="green-btn">
-                                    <a href="javascript:void(0);" class="btn btn-logo">
+                                    <a @click="send('old-cv')" href="javascript:void(0);" class="btn btn-logo">
                                         <i class="fa fa-paper-plane">
                                         </i>
                                         ارسل
@@ -305,10 +354,11 @@
                                 <div class="mt-3 custom-cv">
                                     <img src="../../assets/images/projectB.png" />
                                     <span>
-                                        <a href="#" class="author-deals">
+                                        <a href="javascript:void(0);" @click="chooseFiles" class="author-deals">
                                             ارفاق
                                             سيرة ذاتية مخصصة
                                         </a>
+                                        <input type="file" class="cv" name="cv" id="cv-file" style="display:none;">
                                     </span>
                                 </div>
                             </div>
@@ -321,8 +371,8 @@
                                     </span>
                                 </small>
                                 <div class="content">
-                                    <textarea name="" id="" cols="38" class="mt-3" rows="4"></textarea>
-                                    <a href="javascript:void(0);" class="btn btn-logo">
+                                    <textarea name="" id="note" cols="38" class="mt-3" rows="4"></textarea>
+                                    <a href="javascript:void(0);" @click="send('with-cv')" class="btn btn-logo">
                                         <i class="fa fa-paper-plane"></i>
                                         ارسل سيرتي الذاتية المخصصة
                                     </a>
@@ -347,7 +397,7 @@
                 </div>
             </div>
             <div v-else class="containp container no-job">
-                <img src="../../assets/images/jobtameed.png" alt=""  width="662.5" height="662.5">
+                <img src="../../assets/images/jobtameed.png" alt="" width="662.5" height="662.5">
                 <br>
                 <a href="/login" class="btn">سجل الآن</a>
             </div>
@@ -379,6 +429,78 @@ export default {
             return {
                 adsDetails: '',
             }
+        },
+        send(type = '') {
+            var openModalButton = document.getElementById("myModal");
+            var id = openModalButton.getAttribute('data-id');
+            let formData = new FormData();
+            formData.append('from_id', window.Laravel.user.id);
+            formData.append('ads_id', id);
+            formData.append('note', document.getElementById('note').value);
+            formData.append('type', type);
+            if (type == 'with-cv') {
+                formData.append('file', document.getElementById('cv-file').files[0]);
+            }
+
+            const headers = {
+                "Authorization": "Bearer my-token",
+                "My-Custom-Header": "foobar"
+            };
+            axios.post("/api/quotes/send", formData, { headers })
+                .then(response => {
+
+                    if (response['data']['code'] == '200') {
+
+                        this.$toast(response['data']['message'], {
+                            duration: 2000,
+                            pauseOnHover: true,
+                            styles: {
+                                borderRadius: '5px',
+                                background: '#2ecc71',
+                                boxShadow: '0 1px 3px #0000',
+                                width: '340px'
+
+                            },
+                            slotRight: '<i class="fa fa-check"></i>', // Add icon to left
+                            class: 'local-class', // Added to this toast only
+                            type: 'error', // Default classes: 'success', 'error' and 'passive'
+                            positionX: 'left',
+                            positionY: 'bottom',
+                            disableClick: false,
+                        });
+                        setTimeout(function () {// wait for 5 secs(2)
+                            location.reload(); // then reload the page.(3)
+                        }, 1000);
+                    }
+                    else {
+
+                        this.$toast(response['data']['message'], {
+                            duration: 2000,
+                            pauseOnHover: true,
+                            styles: {
+                                borderRadius: '5px',
+                                background: '#cc2e2e',
+                                boxShadow: '0 1px 3px #0000',
+                                width: '340px'
+
+                            },
+                            slotRight: '<i class="fas fa-info-circle"></i>', // Add icon to left
+                            class: 'local-class', // Added to this toast only
+                            type: 'error', // Default classes: 'success', 'error' and 'passive'
+                            positionX: 'left',
+                            positionY: 'bottom',
+                            disableClick: false,
+                        });
+                    }
+
+
+                });
+
+
+
+        },
+        chooseFiles() {
+            document.getElementById("cv-file").click()
         },
         openModal() {
             var modal = document.getElementById("myModal");
@@ -436,12 +558,23 @@ export default {
                                                 </div><a href="javascript:void(0);" class=""
                                                     style="padding-top: 21px;"><span
                                                         style="color: rgb(1, 154, 162); font-size: 18px;">`+ data['title'] + `</span></a>
+                                                <div class="row align-items-center">
+                                               <div class="col-md-6">
                                                 <p class="mt-2" style="color: rgb(87, 83, 77); padding-bottom: 10px;">
                                                     نشاط المنشآة: <span
                                                         style="color: rgb(0, 0, 0); font-weight: 400;">`+ data['activity'] + `</span></p>
+                                                </div>
+                                                <div class="col-md-6 " style="padding-bottom:5px">
+                                                <a
+                                                    href="javascript:void(0);" class="author-deals"
+                                                    style="font-size:13px;padding:0px 18px 0px 18px;"><span 
+                                                        style="color:rgb(1, 154, 162);">الراتب </span><span
+                                                        style="color:#dc961c; font-weight: 700;"> `+ data['salary'] + ` ريال </span></a>
+                                                 </div>
+                                                 </div>
                                             </div>
-                                            <div class="col-md-4"><a href="javascript:void(0);" @click="openModal"
-                                                    class="btn btn-logo"
+                                            <div class="col-md-4"><a href="javascript:void(0);"
+                                                    class="btn btn-logo " id="openModal"
                                                     style="border-radius: 8px; background-color: rgb(3, 156, 164); width: 95%; color: white; font-size: 90%; margin-top: 25px; padding: 10px 23px;"><i
                                                         class="fa fa-paper-plane"></i>ارسل
                                                     السيرة الذاتية</a>
@@ -462,16 +595,23 @@ export default {
                                                         class="far fa-clock" style="color:rgb(55, 211, 55);"></i>
                                                     12:00</span>
                                             </div>
-                                            <div class="col-md-8 mt-4" style="text-align:end;padding-left:25px;"><a
-                                                    href="#" class="author-deals"
-                                                    style="font-size:11px;padding:5px 25px 5px 25px;"><span
-                                                        style="color:rgb(1, 154, 162);">الراتب </span><span
-                                                        style="color:#dc961c;"> 3,500 ريال </span></a><a href="#"
+                                            <div class="col-md-8 mt-4" style="text-align:center;padding-left:25px;"><a href="javascript:void(0);"
                                                     class="author-deals"
-                                                    style="color:#000;font-size:11px;padding:5px 25px 5px 25px;margin-right:10px;">دوام
-                                                    كامل </a><a href="#" class="author-deals"
-                                                    style="font-size:11px;padding:5px 25px 5px 25px;color:#7ace5e;margin-right:10px;">نقل
-                                                    كفالة </a></div>
+                                                    style="color:#000;font-size:11px;padding:5px 14px 5px 14px;margin-right:10px;">`+ data['infoArray']['work_hours'] + ` </a>
+                                                    
+                                                    <a href="javascript:void(0);" class="author-deals" id="employment_on_warranty"
+                                                    style="font-size:11px;padding:5px 15px 5px 15px;color:#7ace5e;margin-right:10px;">`+ data['employment_on_warranty'] + `
+                                                    
+                                                </a>
+                                                 <a   href="javascript:void(0);" class="author-deals " id="employment_rent_contract"
+                                                    style="font-size:11px;padding:5px 15px 5px 15px;color:#000;margin-right:10px;">`+ data['employment_rent_contract'] + `
+                                                    
+                                                </a>
+                                                 <a   href="javascript:void(0);" class="author-deals "  id="residintal"
+                                                    style="font-size:11px;padding:5px 15px 5px 15px;color:#7ace5e;margin-right:10px;"> `+ data['residintal'] + `
+                                                   
+                                                </a>
+                                                    </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12"
@@ -479,30 +619,7 @@ export default {
                                                 <h2
                                                     style="text-align:right;font-size:18px;font-weight:600;margin-right:15px;margin-top:25px;">
                                                     الوصف الوظيفي الكامل</h2>
-                                                <p
-                                                    style="margin-top:20px;font-size:12px;text-align:right;padding-right:2px;margin-right:15px;">
-                                                    مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة او عقد
-                                                    اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة او
-                                                    عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة
-                                                    او عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل
-                                                    الكفالة او عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط
-                                                    نقل الكفالة او عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات
-                                                    شرط نقل الكفالة او عقد اجير مطلوب عمال بناء في الرياض من جميع
-                                                    الجنسيات شرط نقل الكفالة او عقد اجير مطلوب عمال بناء في الرياض من
-                                                    جميع الجنسيات شرط نقل الكفالة او عقد اجير مطلوب عمال بناء في الرياض
-                                                    من جميع الجنسيات شرط نقل الكفالة او عقد اجير مطلوب عمال بناء في
-                                                    الرياض من جميع الجنسيات شرط نقل الكفالة او عقد اجير مطلوب عمال بناء
-                                                    في الرياض من جميع الجنسيات شرط نقل الكفالة او عقد اجير مطلوب عمال
-                                                    بناء في الرياض من جميع الجنسيات شرط نقل الكفالة او عقد اجير مطلوب
-                                                    عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة او عقد اجير
-                                                    مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة او عقد
-                                                    اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة او
-                                                    عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة
-                                                    او عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل
-                                                    الكفالة او عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات شرط
-                                                    نقل الكفالة او عقد اجير مطلوب عمال بناء في الرياض من جميع الجنسيات
-                                                    شرط نقل الكفالة او عقد اجير مطلوب عمال بناء في الرياض من جميع
-                                                    الجنسيات شرط نقل الكفالة او عقد اجير </p>
+                                                <p id="full-description" style="margin-top:20px;font-size:12px;text-align:right;padding-right:2px;margin-right:15px;"></p>
                                             </div>
                                             <div class="col-md-7 mt-3 text-end"
                                                 style="padding: 8px 6px 8px 6px;background-color:rgb(240, 246, 242);border-radius: 20px;width:51%;margin-right:15px;">
@@ -523,6 +640,26 @@ export default {
                                 </div>
                             </div>
                         </div>`;
+            document.getElementById("full-description").innerHTML = data['description'];
+            var openModalButton = document.getElementById("openModal");
+            if (openModalButton != null) {
+                openModalButton.addEventListener("click", function () {
+                    var modal = document.getElementById("myModal");
+                    modal.style.display = "block";
+                    modal.dataset.id = data['id'];
+                });
+            }
+            if (data['employment_on_warranty'] == '') {
+                document.getElementById('employment_on_warranty').style.display = 'none';
+            }
+            if (data['employment_rent_contract'] == '') {
+                document.getElementById('employment_rent_contract').style.display = 'none';
+            }
+            if (data['residintal'] == '') {
+                document.getElementById('residintal').style.display = 'none';
+            }
+
+
         },
         openAds(event, ads) {
             let width = screen.width;
@@ -578,13 +715,13 @@ export default {
                                                     اخر موعد للتقديم </p>
                                             </div>
                                             <div class="col-md-8 mt-4" style="text-align:end;padding-left:25px;"><a
-                                                    href="#" class="author-deals sk-salary"
+                                                    href="javascript:void(0);" class="author-deals sk-salary"
                                                     style="font-size:11px;padding:5px 25px 5px 25px;"><span
                                                         style="color:#f6f7f8;">الراتب </span><span
-                                                        style="color:#f6f7f8;"> 3,500 ريال </span></a><a href="#"
+                                                        style="color:#f6f7f8;"> 3,500 ريال </span></a><a href="javascript:void(0);"
                                                     class="author-deals sk-salary"
                                                     style="color:#f6f7f8;font-size:11px;padding:5px 25px 5px 25px;margin-right:10px;">دوام
-                                                    كامل </a><a href="#" class="author-deals sk-salary"
+                                                    كامل </a><a href="javascript:void(0);" class="author-deals sk-salary"
                                                     style="font-size:11px;padding:5px 25px 5px 25px;color:#f6f7f8;margin-right:10px;">نقل
                                                     كفالة </a></div>
                                         </div>
@@ -674,8 +811,7 @@ export default {
         let ads = ref(await loadUserData())['_rawValue']['data'];
         let currentPage = ads['current_page'], last_page = ads['last_page'], from = ads['from'];
         ads = ads['data'];
-        let first_ads = ads[0];
-        console.log(first_ads);
+  
         return {
             ads, currentPage, last_page, from
         }

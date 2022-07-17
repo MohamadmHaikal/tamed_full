@@ -52,11 +52,11 @@ class Activitie extends Model
                                 'ValueColumn' =>$ValueColumn->section,
                                 'options' =>    getArrayType()
                                 ] ,
-                    (object)   ['columnName' => 'type_id',
-                    'columnType' => 'select',
-                    'ValueColumn' =>$ValueColumn->relation->name,
-                    'options' => $userType
-                    ] ,
+                    // (object)   ['columnName' => 'type_id',
+                    // 'columnType' => 'select',
+                    // 'ValueColumn' =>$ValueColumn->relation->name,
+                    // 'options' => $userType
+                    // ] ,
             
             ];
  
@@ -68,10 +68,10 @@ class Activitie extends Model
                         'columnType' => 'hidden',
                         'value' => request()->route()->id
                         ] ,
-                        (object)   ['columnName' => 'type_id',
-                        'columnType' => 'select',
-                        'options' => $userType
-                        ] ,
+                        // (object)   ['columnName' => 'type_id',
+                        // 'columnType' => 'select',
+                        // 'options' => $userType
+                        // ] ,
                 
         ]; }
     }

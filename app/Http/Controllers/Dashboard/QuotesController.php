@@ -63,9 +63,10 @@ class QuotesController extends Controller
         $quotes = Quote::find($id);
         $quotes['file'] = getQuotesFile($id);
         $quotes['user'] = get_user_by_id($quotes->form_id);
-        $quotes['user']['address'] = getUserAddressByNeighborhoo($quotes['user']->neighbor_id);
+        $quotes['user']['address'] = getUserAddressByNeighborhoo($quotes['user']);
         $quotes['user']['project'] = get_user_projects($quotes->form_id)->count();
         $quotes['user']['customer'] = get_user_Customers_count($quotes->form_id);
+        $quotes['owner'] = get_current_user_id()==$quotes->form_id? true : false; 
         return $quotes;
     }
     public function changeStatus($status, $id)
