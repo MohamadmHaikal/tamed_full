@@ -87,15 +87,41 @@
                                         <table id="export-dt" class="table table-hover" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                    <th>{{ __('backend.id') }}</th>
-                                                    <th>{{ __('backend.name of company') }}</th>
-                                                    <th>{{ __('backend.project name') }}</th>
-                                                    <th>{{ __('backend.CompanyCompetence') }}</th>
+                                                    <th>{{ __('backend.Order number') }}</th>
+                                                    <th>{{ __('backend.reference number') }}</th>
+
+                                                    <th>{{ __('backend.type') }}</th>
+                                                    <th>{{ __('backend.Date') }}</th>
+                                                    <th>{{ __('backend.Price') }}</th>
+                                                    {{-- <th>{{ __('backend.Owners') }}</th> --}}
+                                                    <th>{{ __('backend.offered') }}</th>
+                                                    <th>{{ __('backend.status') }}</th>
+                                                   
                                                     <th class="no-content">{{ __('backend.QuotesDetails') }}</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                             
+                                                @foreach ($DealsAuctions as $item)
+                                                <tr>
+                                                    <td>{{  $item->refernce_num }}</td>
+                                                    <td>{{  $item->ads_id }}</td>
+                                                    <td>{{  $item->ads->title }}</td>
+                                                    <td>{{  $item->deals_date }}</td>
+                                                    <td>{{  $item->price }}</td>
+                                                    {{-- <td>{{ get_user_by_id($item->from_id)->name }}</td> --}}
+                                                    <td>{{ get_user_by_id($item->to_id)->name  }}</td>
+                                                    <td>{{  __('backend.'.$item->status ) }}</td>
+                                                    <td>
+                                                        <a class="dropdown-item get_invoice"
+                                                        data-id="{{  $item->id }}"
+                                                        data-toggle="modal"
+                                                        data-target="#modal-show-booking-invoice">
+                                                            <i class="las  la-file-invoice font-30"></i></a>
+                                                      
+                                                    </td>
+                                                 
+                                                </tr>
+                                                @endforeach
                                             </tbody>
 
                                         </table>
@@ -110,6 +136,64 @@
     </div>
 
     <!-- Main Body Ends -->
+
+    
+    
+    
+   
+    <div class="modal fade hh-get-modal-content" id="modal-show-booking-invoice" tabindex="-1" role="dialog"
+    aria-hidden="true"
+     {{-- data-url="{{ dashboard_url('get-booking-invoice') }}" --}}
+     >
+   <div class="modal-dialog">
+       <div class="modal-content">
+        
+           <div class="modal-header">
+               <h4 class="modal-title">{{__('Booking Detail')}}</h4>
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+               </button>
+           </div>
+           <div class="modal-body">
+     
+       
+                    <div class="statbox  box box-shadow">
+                     
+                        <div class="widget-content  tab-horizontal-line">
+                            <ul class="nav nav-tabs  mb-3" id="animateLine" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="animated-underline-home-tab" data-toggle="tab" href="#animated-underline-home" role="tab" aria-controls="animated-underline-home" aria-selected="true"> {{__('backend.Invoices')}}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="animated-underline-about-tab" data-toggle="tab" href="#animated-underline-about" role="tab" aria-controls="animated-underline-about" aria-selected="false"> {{__('backend.receipt photo')}}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="negotiate-tab" data-toggle="tab" href="#negotiate" role="tab" aria-controls="negotiate" aria-selected="false"> {{__('backend.negotiate')}}</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="animateLineContent-4">
+                                <div class="tab-pane fade show active" id="animated-underline-home" role="tabpanel" aria-labelledby="animated-underline-home-tab">
+                        
+                                </div>
+                                <div class="tab-pane fade" id="animated-underline-about" role="tabpanel" aria-labelledby="animated-underline-about-tab">
+                                    <img src="{{ asset('images/recet.jpeg') }}" alt="" width="100%" height="100%" srcset="">
+                                  
+                                </div>
+                                <div class="tab-pane fade" id="negotiate" role="tabpanel" aria-labelledby="negotiate-tab">
+                                    <h3>تفاصيل الطلب</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        
+           <div class="modal-footer">
+               {{-- <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">{{__('Close')}}</button> --}}
+           </div>
+       </div>
+   </div>
+</div>
+</div>
 @endsection
 
 @push('plugin-scripts')
@@ -281,5 +365,133 @@
                 $(this).toggleClass("toggle-clicked");
             });
         });
+
+        
+        $('.get_invoice').on('click', function(e) {
+            $(document).find('#animated-underline-home').empty();
+            $(document).find('#negotiate').empty();
+
+            var id = $(this).data('id');
+         
+
+            $.ajax({
+            url: '/DealsAuctions/get_invoice/'+ id,
+            type: "get",
+            contentType: 'application/json',
+            success: function (data) {
+
+                $(document).find('#animated-underline-home').append(`  
+                    <div class="item row align-items-center">
+                                    <div class="col-md-4">
+                                        <h5 class="title">{{ __('backend.invoice number') }}</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span>${data.inv.id}</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="item row align-items-center">
+                                    <div class="col-md-4">
+                                        <h5 class="title">{{ __('backend.customer name') }}</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span>${data.inv.customer_name}</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="item row align-items-center">
+                                    <div class="col-md-4">
+                                        <h5 class="title">{{ __('backend.Tax Number') }}</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span>${data.inv.TaxNumber}</span>
+                                    </div>
+
+                                </div>
+                                <div class="item row align-items-center">
+                                    <div class="col-md-4">
+                                        <h5 class="title">{{ __('backend.status') }}</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span>${data.inv.status}</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="item row align-items-center">
+                                    <div class="col-md-4">
+                                        <h5 class="title">{{ __('backend.Invoice date') }}</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span>${data.inv.invoice_date}</span>
+                                    </div>
+
+                                </div>
+                                
+                                
+                                <a class="btn btn-success btn-rounded"
+                                target="_blank"
+                                                                    href="/eBills/show/${data.invoice_num} "
+                                                                    role="button" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                    {{ __('backend.Invoice details') }}
+                                                                </a>`);
+
+                                $(document).find('#negotiate').append(` 
+                    <div class="item row align-items-center">
+                                    <div class="col-md-4">
+                                        <h5 class="title">{{ __('backend.Order number') }}</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span>${data.refernce_num}</span>
+                                    </div>
+
+                                </div>
+                                <div class="item row align-items-center">
+                                    <div class="col-md-4">
+                                        <h5 class="title">{{ __('backend.reference number') }}</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span>${data.ads_id}</span>
+                                    </div>
+
+                                </div>
+                                <div class="item row align-items-center">
+                                    <div class="col-md-4">
+                                        <h5 class="title">{{ __('backend.price required') }}</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span>${data.ads.price}</span>
+                                    </div>
+
+                                </div>
+                                <div class="item row align-items-center">
+                                    <div class="col-md-4">
+                                        <h5 class="title">{{ __('backend.Price') }}</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span>${data.price}</span>
+                                    </div>
+
+                                </div>
+                                <div class="item row align-items-center">
+                                    <div class="col-md-4">
+                                        <h5 class="title">{{ __('frontend.notes') }}</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span>${data.negotiate_note}</span>
+                                    </div>
+
+                                </div>
+                                
+                                `);
+
+
+            },
+            error: function (xhr) {}
+            });
+            })
     </script>
 @endpush

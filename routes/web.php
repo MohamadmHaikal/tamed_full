@@ -128,6 +128,11 @@ Route::group(['prefix' => 'FinancialAnalysis', 'middleware' => ['LanguageSwitche
 //Facility Customers
 Route::group(['prefix' => 'FacilityCustomers', 'middleware' => ['LanguageSwitcher','auth:customer']], function () {
     Route::get('/', [CustomersController::class, 'index'])->name('FacilityCustomers');
+    Route::get('/customer_get/{id}', [CustomersController::class, 'customer_get'])->name('customer_get');
+    Route::get('/customer_edit/{id}', [CustomersController::class, 'edit'])->name('customer_edit');
+    Route::get('/customer_delete/{id}', [CustomersController::class, 'customer_delete'])->name('customer_delete');
+    Route::post('/FacilityCustomersAdd', [CustomersController::class, 'store'])->name('FacilityCustomersAdd');
+    Route::post('/customer_update/{id}', [CustomersController::class, 'customer_update'])->name('customer_update');
 });
 
 //Electronic Contracts 
@@ -160,7 +165,7 @@ Route::post('delete-item', 'App\Http\Controllers\Controller@_deleteItem')->name(
 Route::post('add-item', 'App\Http\Controllers\Controller@_addItem')->name('add-item');
 Route::post('get-item', 'App\Http\Controllers\Controller@_getItem')->name('get-item');
 Route::post('update-item', 'App\Http\Controllers\Controller@_updateItem')->name('update-item');
-
+Route::post('bulkActions', 'App\Http\Controllers\Controller@_bulkActions');
 Route::get('Item/{model}/{id?}', 'App\Http\Controllers\Controller@indexItem')->name('Item');
 // Route::get('/showcustomer/{id}','admin\SupplierController@showcustomer')->name('showcustomer');
 
@@ -181,6 +186,8 @@ Route::group(['prefix' => 'Quotes', 'middleware' => ['LanguageSwitcher','auth:cu
 
 //Deals Auctions route
 Route::group(['prefix' => 'DealsAuctions', 'middleware' => ['LanguageSwitcher','auth:customer']], function () {
+    Route::get('/get_invoice/{id}', 'App\Http\Controllers\Dashboard\DealsAuctionsController@get_invoice')->name('get_invoice');
+
     Route::get('/{source}/{filter?}', 'App\Http\Controllers\Dashboard\DealsAuctionsController@index')->name('DealsAuctions');
 });
 

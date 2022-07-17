@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Neighborhood;
 use App\Models\File;
 use App\Models\invoice;
+use App\Models\User;
 use App\Models\Products;
 use App\Models\Quote;
 use App\Models\UserType;
@@ -88,6 +89,12 @@ function getUserAddressByNeighborhoo($user)
     $city = City::find($user->city_id);
     if($city!=null){ $city= $city->name;}
     return 'المملكة العربية السعودية' . ' , ' . $city . ' , ' . $neigh;
+}
+function getUserBymobile($id)
+{
+    $user = User::where('phone','!=',null)->where('phone', $id)->first();
+  
+    return ($user == null) ? null : $user->id;
 }
 function getQuotesFile($id)
 {

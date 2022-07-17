@@ -1,4 +1,95 @@
 
+            (function ($) {
+                'use strict';
+            
+                let body = $('body');
+            
+                let HHActions = {
+                    tmp_data: {},
+                    is_running: {
+                        run: true
+                    },
+                    interval: {
+                        interval: true
+                    },
+                    isValidated: {},
+                    init: function (el) {
+                       
+                        this.initBulkAction(el);
+                        this.initCheckAll(el);
+                     
+                    },
+                    initCheckAll: function (el) {
+                        $('.hh-check-all', el).each(function () {
+                            let t = $(this),
+                                checkAll = $('input', t),
+                                parent = t.closest('table'),
+                                checkboxItem = $('.hh-check-all-item', parent),
+                                checkboxCheckedItem = $('.hh-check-all-item:checked', parent);
+            
+                            if (checkboxItem.length > 0 && checkboxItem.length === checkboxCheckedItem.length) {
+                                checkAll.prop('checked', true);
+                            }
+                            checkAll.on('change', function () {
+                                if ($(this).is(':checked')) {
+                                    checkboxItem.prop('checked', true);
+                                } else {
+                                    checkboxItem.prop('checked', false);
+                                }
+                            });
+            
+                            checkboxItem.on('change', function () {
+                                let checked = $('.hh-check-all-item:checked', parent).length,
+                                    total = checkboxItem.length;
+            
+                                if (checked === total) {
+                                    checkAll.prop('checked', true);
+                                } else {
+                                    checkAll.prop('checked', false);
+                                }
+                            });
+                        });
+                    },
+                    initBulkAction: function (el) {
+                        let base = this;
+            
+                        $('.action-toolbar form', el).submit(function (e) {
+                           
+                            e.preventDefault();
+                            let form = $(this),
+                                action = form.attr('action'),
+                                model = form.data('model'),
+                                target = form.data('target'),
+                                checkboxItem = $('.hh-check-all-item:checked', target),
+                                loader = $('.page-loading', el);
+            
+                            let selectAction = $('select', form).val();
+                            if (checkboxItem.length && selectAction !== 'none') {
+                                let ids = [];
+                                checkboxItem.each(function () {
+                                    ids.push($(this).val());
+                                });
+                                ids = ids.join(',');
+                                let data = {
+                                    '_token': $('meta[name="csrf-token"]').attr('content'),
+                                    'action': selectAction,
+                                    'post_id': ids,
+                                    'model' :model
+                                };
+                                // loader.show();
+                                $.post(action, data, function (respon) {
+                                    if (typeof respon == 'object') {
+                                        // base.alert(respon);
+                                        setTimeout(function () {
+                                            window.location.reload();
+                                        }, 1000);
+                                    }
+                                    loader.hide();
+                                }, 'json');
+                            }
+                        });
+                    },   }; HHActions.init(body);
+                })(jQuery);
 function Create(element) {
     let base = this;
     $(document).on('click', '#createItem', function (ev) {
@@ -254,20 +345,43 @@ $('.confirmDelete').on('click', function () {
                 cache: false,
                 contentType: false,
                 processData: false,
-                success: (data) => {
-                    if (data['status'] == '1') {
-                        swal(
-                            window.translation.deleted,
-                            window.translation.success,
-                            'success'
-                        )
-                    }
-                    if (data['reload']) {
-                        setTimeout(function () {
-                            window.location.reload();
-                        }, 1000);
 
+
+                success: (data) => {
+                    if (typeof data != 'object') {
+
+                       var jsonobj = $.parseJSON(data)
+                        if (jsonobj['status'] == '1') {
+                            swal(
+                                window.translation.deleted,
+                                window.translation.success,
+                                'success'
+                            )
+                        }
+                        if (jsonobj['reload']) {
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 1000);
+    
+                        }
+
+                    }else{
+                        if (data['status'] == '1') {
+                            swal(
+                                window.translation.deleted,
+                                window.translation.success,
+                                'success'
+                            )
+                        }
+                        if (data['reload']) {
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 1000);
+    
+                        }
                     }
+                    
+                  
                 },
                 error: function (data) {
                     console.log(data);

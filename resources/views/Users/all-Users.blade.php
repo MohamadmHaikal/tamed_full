@@ -65,6 +65,21 @@
                                     </div>
 
                                     <div class="table-responsive mb-4">
+                                        <div class="action-toolbar">
+                                            <form class="hh-form form-inline" action="{{dashboard_url('bulkActions')}}"
+                                            data-model="AuthManger"
+                                                  data-target="#export-dt" method="post">
+                                                <select class="mr-1 min-w-100" name="action" data-plugin="customselect">
+                                                    {{-- <option value="none">{{__('Bulk Actions')}}</option>
+                                                    <option value="publish">{{__('Publish')}}</option>
+                                                    <option value="pending">{{__('Pending')}}</option>
+                                                    <option value="draft">{{__('Draft')}}</option>
+                                                    <option value="trash">{{__('Trash')}}</option> --}}
+                                                    <option value="delete">{{__('Delete')}}</option>
+                                                </select>
+                                                <button type="submit" class="btn btn-success">{{__('Apply')}}</button>
+                                            </form>
+                                        </div>
                                      @if( request('id')!=null)
                                         <div id="hh-options-wrapper" class="hh-options-wrapper">
                                             <div class="hh-options-tab" style="padding-bottom: 0px; margin-right:5%;"
@@ -92,6 +107,15 @@
                                         <table id="export-dt" class="table table-hover" style="width:100%">
                                             <thead>
                                                 <tr>
+                                                    <th data-priority="-1" class="hh-checkbox-td">
+                                                        <div class="checkbox-inline">
+                                                        <div class="checkbox checkbox-success hh-check-all d-none d-md-block ">
+                                                            <input id="hh-checkbox-all--my-experience inp-cbx" type="checkbox">
+                                                            <label for="hh-checkbox-all--my-experience"><span
+                                                                    class="d-none">{{__('Check All')}}</span></label>
+                                                        </div>
+                                                    </div>
+                                                    </th>
                                                     <th>{{ __('backend.id') }}</th>
                                                     <th>{{ __('backend.Avatar') }}</th>
                                                     <th>{{ __('backend.name') }}</th>
@@ -108,6 +132,13 @@
                                             <tbody>
                                                 @foreach ($users as $user)
                                                     <tr>
+                                                        <td class="align-middle hh-checkbox-td">
+                                                            <div class="checkbox checkbox-success d-none d-md-block">
+                                                                <input type="checkbox" name="post_id" value="{{$user->id}}"
+                                                                       id="hh-check-all-item-{{$user->id}}" class="hh-check-all-item">
+                                                                <label for="hh-check-all-item-{{$user->id}}"></label>
+                                                            </div>
+                                                        </td>
                                                         <td>{{ $user->id }}</td>
                                                         <td> <img
                                                                 src="{{ $user->logo ? url("image/$user->logo") : url('assets/img/avatar.png') }}"

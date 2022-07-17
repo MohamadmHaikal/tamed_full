@@ -114,4 +114,5 @@ return array (
   'yourEmail' => 'بريدك الإلكتروني',
   'yourName' => 'إسمك',
   'yourQuantity' => 'برجاء إضافة الكمية المطلوبة',
+
 );

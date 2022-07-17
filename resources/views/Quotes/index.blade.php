@@ -56,6 +56,21 @@
                                         </div>
                                     </div>
                                     <div class="table-responsive mb-4">
+                                        <div class="action-toolbar">
+                                            <form class="hh-form form-inline" action="{{dashboard_url('bulkActions')}}"
+                                            data-model="Quote"
+                                                  data-target="#export-dt" method="post">
+                                                <select class="mr-1 min-w-100" name="action" data-plugin="customselect">
+                                                    {{-- <option value="none">{{__('Bulk Actions')}}</option>
+                                                    <option value="publish">{{__('Publish')}}</option>
+                                                    <option value="pending">{{__('Pending')}}</option>
+                                                    <option value="draft">{{__('Draft')}}</option>
+                                                    <option value="trash">{{__('Trash')}}</option> --}}
+                                                    <option value="delete">{{__('Delete')}}</option>
+                                                </select>
+                                                <button type="submit" class="btn btn-success">{{__('Apply')}}</button>
+                                            </form>
+                                        </div>
                                         <div class="widget-content widget-content-area text-center">
                                             <div class="button-list">
                                                 <a href="{{ route('Quotes', ['filter' => 'new', 'source' => $source]) }}">
@@ -87,6 +102,15 @@
                                         <table id="export-dt" class="table table-hover" style="width:100%">
                                             <thead>
                                                 <tr>
+                                                    <th data-priority="-1" class="hh-checkbox-td">
+                                                        <div class="checkbox-inline">
+                                                        <div class="checkbox checkbox-success hh-check-all d-none d-md-block ">
+                                                            <input id="hh-checkbox-all--my-experience inp-cbx" type="checkbox">
+                                                            <label for="hh-checkbox-all--my-experience"><span
+                                                                    class="d-none">{{__('Check All')}}</span></label>
+                                                        </div>
+                                                    </div>
+                                                    </th>
                                                     <th>{{ __('backend.id') }}</th>
                                                     <th>{{ __('backend.name of company') }}</th>
                                                     <th>{{ __('backend.project name') }}</th>
@@ -97,6 +121,13 @@
                                             <tbody>
                                                 @foreach ($quotes as $quote)
                                                     <tr>
+                                                        <td class="align-middle hh-checkbox-td">
+                                                            <div class="checkbox checkbox-success d-none d-md-block">
+                                                                <input type="checkbox" name="post_id" value="{{$quote->id}}"
+                                                                       id="hh-check-all-item-{{$quote->id}}" class="hh-check-all-item">
+                                                                <label for="hh-check-all-item-{{$quote->id}}"></label>
+                                                            </div>
+                                                        </td>
                                                         <td>{{ $quote->id }}</td>
                                                         <td>{{ $source == 'received' ? get_user_by_id($quote->form_id)->name : get_user_by_id($quote->to_id)->name }}
                                                         </td>
