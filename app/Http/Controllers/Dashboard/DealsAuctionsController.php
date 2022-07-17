@@ -16,16 +16,16 @@ class DealsAuctionsController extends Controller
     public function index($source, $filter = '')
     {
         $DealsAuctions = null;
-        // if ($source == "received") {
-        //     $DealsAuctions = DealsAuctions::where('to_id', '=', get_current_user_id());
-        // } else {
-        //     $DealsAuctions = DealsAuctions::where('form_id', '=', get_current_user_id());
-        // }
-        // if ($filter) {
-        //     $DealsAuctions->where('status', '=', $filter);
-        // }
+        if ($source == "received") {
+            $DealsAuctions = DealsAuctions::where('to_id', '=', get_current_user_id());
+        } else {
+            $DealsAuctions = DealsAuctions::where('from_id', '=', get_current_user_id());
+        }
+        if ($filter) {
+            $DealsAuctions->where('status', '=', $filter);
+        }
 
-        // $DealsAuctions = $DealsAuctions->get();
+        $DealsAuctions = $DealsAuctions->get();
 
         return view('Deals Auctions.index', compact('DealsAuctions','source'));
     }
@@ -38,6 +38,13 @@ class DealsAuctionsController extends Controller
     public function create()
     {
         //
+    }
+
+    public function get_invoice($id)
+    {
+        
+        $DealsAuctions = DealsAuctions::where('id', $id)->with('ads','inv')->first();
+        return    $DealsAuctions;
     }
 
     /**

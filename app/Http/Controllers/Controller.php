@@ -68,6 +68,53 @@ class Controller extends BaseController
 
     }
 
+    public function _bulkActions(Request $request)
+    {
+    
+        $action = request()->get('action', '');
+        $post_id = request()->get('post_id', '');
+      
+        if (!empty($action) && !empty($post_id)) {
+            $post_id = explode(',', $post_id);
+            $modelName = 'App\\Models\\' .$request->model;
+            $model = new $modelName();
+            // $experienceModel = new Experience();
+            switch ($action) {
+                case 'delete':
+                 
+                    $model->whereIn('id', $post_id)->delete();
+                    // $commentModel = new Comment();
+                    // $commentModel->whereIn('post_id', $post_id)->where('post_type', 'experience')->delete();
+                    // $termRelationModel = new TermRelation();
+                    // $termRelationModel->whereIn('service_id', $post_id)->delete();
+                    // $experiencePriceModel = new ExperiencePrice();
+                    // $experiencePriceModel->whereIn('experience_id', $post_id)->delete();
+                    // $experienceAvailabilityModel = new ExperienceAvailability();
+                    // $experienceAvailabilityModel->whereIn('experience_id', $post_id)->delete();
+                    break;
+                case 'publish':
+                case 'pending':
+                case 'draft':
+                case 'trash':
+                    $experienceModel->updateMultiExperience([
+                        'status' => $action
+                    ], $post_id);
+                    break;
+            }
+            $this->sendJson([
+                'status' => 1,
+                'title' => __('System Alert'),
+                'message' => __('Bulk action successfully')
+            ], true);
+            
+        }
+        $this->sendJson([
+            'status' => 0,
+            'title' => __('System Alert'),
+            'message' => __('Data invalid')
+        ], true);
+    }
+
     public function _addItem(Request $request)
     {
         

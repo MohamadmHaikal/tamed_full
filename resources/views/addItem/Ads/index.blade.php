@@ -61,10 +61,34 @@
                             <div class="widget-content widget-content-area br-6">
                                 <h4 class="table-header">{{__('backend.All Ads')}}</h4>
                                 <div class="table-responsive mb-4">
+                                    <div class="action-toolbar">
+                                        <form class="hh-form form-inline" action="{{dashboard_url('bulkActions')}}"
+                                        data-model="Ads"
+                                              data-target="#export-dt" method="post">
+                                            <select class="mr-1 min-w-100" name="action" data-plugin="customselect">
+                                                {{-- <option value="none">{{__('Bulk Actions')}}</option>
+                                                <option value="publish">{{__('Publish')}}</option>
+                                                <option value="pending">{{__('Pending')}}</option>
+                                                <option value="draft">{{__('Draft')}}</option>
+                                                <option value="trash">{{__('Trash')}}</option> --}}
+                                                <option value="delete">{{__('Delete')}}</option>
+                                            </select>
+                                            <button type="submit" class="btn btn-success">{{__('Apply')}}</button>
+                                        </form>
+                                    </div>
                                     <table id="last-page-dt" class="table table-hover" 
 ">
                                         <thead>
                                             <tr>
+                                                <th data-priority="-1" class="hh-checkbox-td">
+                                                    <div class="checkbox-inline">
+                                                    <div class="checkbox checkbox-success hh-check-all d-none d-md-block ">
+                                                        <input id="hh-checkbox-all--my-experience inp-cbx" type="checkbox">
+                                                        <label for="hh-checkbox-all--my-experience"><span
+                                                                class="d-none">{{__('Check All')}}</span></label>
+                                                    </div>
+                                                </div>
+                                                </th>
                                                 <th style="">{{__('backend.ID')}}</th>
                                                 <th>{{__('backend.Title')}}</th>
                                                 <th>{{__('backend.publish Date')}}</th>
@@ -85,6 +109,13 @@
                          
                                          @endphp
                                             <tr>
+                                                <td class="align-middle hh-checkbox-td">
+                                                    <div class="checkbox checkbox-success d-none d-md-block">
+                                                        <input type="checkbox" name="post_id" value="{{$item->id}}"
+                                                               id="hh-check-all-item-{{$item->id}}" class="hh-check-all-item">
+                                                        <label for="hh-check-all-item-{{$item->id}}"></label>
+                                                    </div>
+                                                </td>
                                                 <td>{{ $item->id }}</td>
                                                 <td>{{ $item->title }}</td>
                                                 <td>{{  date('Y-m-d', strtotime($item->created_at)) }}</td>
