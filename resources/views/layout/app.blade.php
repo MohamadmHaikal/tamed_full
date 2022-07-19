@@ -15,6 +15,7 @@
     <?php
     $favicon = get_option('favicon');
     $favicon_url = get_attachment_url($favicon);
+    $site_name = get_site_name();
     ?>
     <link rel="icon" href="{{ asset("$favicon_url") }}">
     <title>منصة تعميد </title>
@@ -33,21 +34,24 @@
     @if (is_user_logged_in())
         <script>
             window.Laravel = {!! json_encode([
-    'isLoggedin' => true,
-    'user' => get_current_user_data(),
-]) !!}
+                'isLoggedin' => true,
+                'user' => get_current_user_data(),
+            ]) !!}
         </script>
     @else
         <script>
             window.Laravel = {!! json_encode([
-    'isLoggedin' => false,
-]) !!}
+                'isLoggedin' => false,
+            ]) !!}
         </script>
     @endif
     <script>
         window.language = {!! json_encode([
-    'currentLanguage' => session()->get('lang'),
-]) !!}
+            'currentLanguage' => session()->get('lang'),
+        ]) !!}
+        window.site = {!! json_encode([
+            'site_name' => $site_name,
+        ]) !!}
     </script>
 </body>
 

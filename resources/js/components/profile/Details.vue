@@ -481,6 +481,7 @@ export default {
             '/api/profile/' + id + '/details'
         );
         this.user = data;
+         document.title = window.site.site_name+' - '+data['name'] +' - '+'الملف الشخصي';
         this.projects = data['projects'];
         console.log(data);
     },

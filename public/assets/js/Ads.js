@@ -876,7 +876,7 @@ else if( id==3 || id==2 || id==5)
     <span class="switch switch-outline switch-icon switch-primary">
     <label>
 
-        <input type="checkbox" id="Pricing_with_materials" value="off" name="PricingWithMaterials">
+        <input type="checkbox" id="conforming" value="off" name="conforming">
             
         <span></span>
     </label>

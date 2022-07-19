@@ -341,14 +341,14 @@
                                 <span class="close cursor" @click="closeModal()"
                                     style=" cursor: pointer; color: #999;position: fixed;top: 10px;right: 25px;font-size: 35px;font-weight: bold;">&times;</span>
                                 <div class="modal-content" @click.stop=""
-                                    style="position: relative;background-color: #fefefe;margin: auto; padding: 0; width: 60%; max-width: 1200px;    height: 80%;    direction: ltr;">
+                                    style="position: relative;background-color: #FEFEFE00;margin: auto; padding: 0; width: 60%; max-width: 1200px;    height: 80%;    direction: ltr;">
 
                                     <div v-for="i in AllImage.length" :key="i" class="mySlides">
                                         <div class="numbertext"
                                             style="font-size: 18px; color: #999;padding: 8px 12px;position: fixed;top: 10px; left: 60px;">
                                             {{ i }} / {{ AllImage.length }}</div>
                                         <img :src="'/image/' + AllImage[i - 1].file">
-                                        <a class="close cursor" href="" :download="'/image/' + AllImage[i - 1].file"
+                                        <a class="close cursor" :href="'/image/' + AllImage[i - 1].file" download=""
                                             style="cursor: pointer; color: #999; position: fixed; top: 22px;right: 100px; font-size: 18px;"><i
                                                 class="fa fa-download"></i></a>
                                     </div>
@@ -516,20 +516,28 @@
                                             <h3 v-else style="color:#000000">تحميل ملفات المشروع</h3>
                                             <div class="mt-5"
                                                 style="border: 1px solid rgb(204, 204, 204); border-radius: 25px; padding: 20px; padding-top: 0px;">
-                                                <div class="row mt-4">
-                                                    <div class="col-md-4 col-6 text-center"
+                                                <div v-if="ads.specificationsFiles.length == 0 && ads['3D_Files'].length == 0 && ads['planFiles'].length == 0"
+                                                    class="row mt-4"
+                                                    style="text-align: center;height: 163px;align-items: center;">
+                                                    <p>لا يوجد ملفات مرفقة للإعلان </p>
+                                                </div>
+                                                <div v-else class="row mt-4">
+                                                    <div v-if="ads.specificationsFiles.length != 0"
+                                                        class="col-md-4 col-6 text-center"
                                                         style="border-left: 1px solid #ccc;">
                                                         <small style="">الكميات والمواصفات</small>
                                                         <br>
                                                         <br>
-                                                        <img src="../../assets/images/pdf.png" alt=""
+                                                        <img src="../../assets/images/pdficon.png" alt=""
                                                             style="width: 70px;">
                                                         <br>
                                                         <br>
                                                         <a href="javascript:void(0);"
+                                                            @click="openModalFile('specificationsFiles')"
                                                             style="color: rgb(1, 154, 162);">حمل الأن</a>
                                                     </div>
-                                                    <div class="col-md-4 col-6 text-center"
+                                                    <div v-if="ads['3D_Files'].length != 0"
+                                                        class="col-md-4 col-6 text-center"
                                                         style="border-left: 1px solid #ccc;">
                                                         <small style="">تصاميم </small>
                                                         <br>
@@ -538,10 +546,11 @@
                                                             style="width: 70px;">
                                                         <br>
                                                         <br>
-                                                       <a href="javascript:void(0);"
+                                                        <a href="javascript:void(0);" @click="openModalFile('3D_Files')"
                                                             style="color: rgb(1, 154, 162);">حمل الأن</a>
                                                     </div>
-                                                    <div class="col-md-4 col-6 text-center">
+                                                    <div v-if="ads['planFiles'].length != 0"
+                                                        class="col-md-4 col-6 text-center">
                                                         <small style=""> مخططات</small>
                                                         <br>
                                                         <br>
@@ -550,6 +559,7 @@
                                                         <br>
                                                         <br>
                                                         <a href="javascript:void(0);"
+                                                            @click="openModalFile('planFiles')"
                                                             style="color: rgb(1, 154, 162);">حمل الأن</a>
                                                     </div>
                                                 </div>
@@ -565,39 +575,72 @@
                                             <div class="mt-5"
                                                 style="    border: 1px solid #ccc;border-radius: 25px;padding: 20px;">
                                                 <div class="row mt-4">
-                                                    <div class="col-md-4 col-6  text-center">
+                                                    <div v-if="ads['type']=='1' ||ads['type']=='4'||ads['type']=='7'" class="col-md-4 col-6  text-center mt-2">
                                                         <img src="../../assets/images/amala.png" alt=""
                                                             style="width:45px;">
                                                         <br>
                                                         <small style="color:#333333 ;">العمالة</small>
                                                         <br>
                                                         <small
-                                                            v-if="application_conditions['employment'] == 'on warranty'"
+                                                            v-if="application_conditions['employment_on_warranty'] == 'on'"
                                                             style="color:#019aa2 ;">على الكفالة</small>
-                                                        <small v-else style="color:#019aa2 ;"> عقد اجير</small>
+                                                            <small
+                                                            v-if="application_conditions['employment_on_warranty'] == 'on' && application_conditions['employment_rent_contract'] == 'on' "
+                                                            style="color:#019aa2 ;"> او </small>
+                                                        <small v-if="application_conditions['employment_rent_contract'] == 'on'" style="color:#019aa2 ;"> عقد اجير</small>
                                                     </div>
 
-                                                    <div class="col-md-4  col-6 text-center">
+                                                    <div v-if="ads['type']=='1' ||ads['type']=='4'||ads['type']=='7'" class="col-md-4  col-6 text-center mt-2">
                                                         <img src="../../assets/images/tasnef.png" alt=""
                                                             style="width:40px;">
                                                         <br>
-                                                        <small style="color:#333333 ;">فئة التصنيف</small>
+                                                        <small style="color:#333333 ;">فئة تصنيف المنشآة</small>
                                                         <br>
-                                                        <small v-if="arrayInfo['Category_Category'] == null"
+                                                        <small v-if="application_conditions['Category_Category'] == null"
                                                             style="color:#019aa2 ;">لايهم</small>
                                                         <small v-else style="color:#019aa2 ;">{{
-                                                                arrayInfo['Category_Category']
+                                                                application_conditions['Category_Category']
                                                         }}</small>
                                                     </div>
-                                                    <div class="col-md-4 col-6 text-center">
+                                                    <div  class="col-md-4 col-6 text-center mt-2">
                                                         <img src="../../assets/images/daman.png" alt=""
                                                             style="width:50px;">
                                                         <br>
                                                         <small style="color:#333333 ;">ضمان بنكي</small>
                                                         <br>
-                                                        <small v-if="application_conditions['Bank_guarantee'] == 0"
+                                                        <small v-if="application_conditions['Bank_guarantee'] == null"
                                                             style="color:#019aa2 ;">لايهم</small>
                                                         <small v-else style="color:#019aa2 ;">مطلوب</small>
+                                                    </div>
+                                                    <div v-if="ads['type']!='4'" class="col-md-4 col-6 text-center mt-2">
+                                                        <img src="../../assets/images/daman.png" alt=""
+                                                            style="width:50px;">
+                                                        <br>
+                                                        <small style="color:#333333 ;">مطابق للكود السعودي</small>
+                                                        <br>
+                                                        <small v-if="application_conditions['CodeKSA'] == null"
+                                                            style="color:#019aa2 ;">لايهم</small>
+                                                        <small v-else style="color:#019aa2 ;">مطلوب</small>
+                                                    </div>
+                                                    <div v-if="ads['type']=='2' ||ads['type']=='3' ||ads['type']=='5' " class="col-md-4 col-6 text-center mt-2">
+                                                        <img src="../../assets/images/daman.png" alt=""
+                                                            style="width:50px;">
+                                                        <br>
+                                                        <small style="color:#333333 ;">مطابق لهيئة المواصفات السعودية</small>
+                                                        <br>
+                                                        <small v-if="application_conditions['conforming'] != 'on'"
+                                                            style="color:#019aa2 ;">لايهم</small>
+                                                        <small v-else style="color:#019aa2 ;">مطلوب</small>
+                                                    </div>
+                                                     <div v-if="ads['type']=='1' && application_conditions['Building_Category'] =='off'  " class="col-md-4 col-6 text-center mt-2">
+                                                        <img src="../../assets/images/daman.png" alt=""
+                                                            style="width:50px;">
+                                                        <br>
+                                                        <small style="color:#333333 ;">فئة البناء</small>
+                                                        <br>
+                                                        <small v-if="application_conditions['Building_Category_choices'] == null"
+                                                            style="color:#019aa2 ;">لايهم</small>
+                                                        <small v-else style="color:#019aa2 ;">{{application_conditions['Building_Category_choices']}}</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -630,13 +673,24 @@
                                             style="padding-top: 8%;text-align: right;padding-right: 10%;color: #62bbc0;">
                                             قيمة المشروع
                                         </h5>
+                                        <div class="row">
+                                        <div class="col-md-6">
                                         <h6 v-if="ads.pricestatus == 'on'"
-                                            style="color: #f4a23e; text-align: right;padding-right: 15%;">
+                                            style="color: #f4a23e; text-align: center;">
                                             الأفضل سعر
                                         </h6>
-                                        <h6 v-else style="color: #f4a23e; text-align: right;padding-right: 15%;">
+                                        <h6 v-else style="color: #f4a23e; text-align: center;">
                                             {{ ads.price }} ريال
                                         </h6>
+                                        </div>
+                                        <div class="col-md-6 text-center">
+                                         <span v-if="(ads.type == 1 ||ads.type == 7 ) && application_conditions['PricingWithMaterials'] != null" style="color: #f4a23e;">
+                                        التسعير بالمواد
+                                        </span>
+                                        </div>
+                                        </div>
+                                        
+                                       
                                     </div>
                                     <div style="text-align: right;">
                                         <p
@@ -749,7 +803,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h5 class="title">مشاريع مشابهة</h5>
+                            <!-- <h5 class="title">مشاريع مشابهة</h5> -->
                             <div class="mobile-quotes-action"
                                 style="background: #f5f5f5;position: fixed;width: 100%;bottom: 0;left: 0;padding: 9px 0;z-index: 9;    border-top-left-radius: 20px;border-top-right-radius: 20px;">
                                 <div class="container">
@@ -794,8 +848,161 @@
 
                     </div>
                 </div>
+                <div id="specificationsFiles" class="job-modal">
+                    <div class="job-modal-content">
+                        <span class="close" @click="closeModalFile('specificationsFiles')">
+                            <span>Cancel</span>
+                            &times;
+                        </span>
+                        <div class="row">
+                            <div class="col-md-2 mt-4">
+                                <div class="text-center">
+                                    <p style="    margin: 0;color:#000000;font-size: 13px;">حمل بالنقر على الملفات
+                                        المتاحة</p>
+                                    <img src="../../assets/images/Files_Download_File_Icon_256.png" />
+                                </div>
 
+                            </div>
+                            <div class="col-md-10 note-area">
+                                <small
+                                    style="position: relative;color:#25b7bf; top: 12px;right: 35px; background-color: #ffffff;padding: 0px 10px 0px 10px;">
+                                    جميع الملفات المتاحة
+                                </small>
+                                <div v-if="specificationsFiles.length > 6"
+                                    style="border: 1px solid #ccc;border-radius: 25px;padding: 20px;">
+                                    <div class="row">
 
+                                        <div v-for="i in specificationsFiles.length" :key="i"
+                                            class="col-md-4 col-6 text-center">
+                                            <a :href="'/image/' + specificationsFiles[i - 1].file"
+                                                :download="specificationsFiles[i - 1].name" class="btn paper">
+                                                {{ specificationsFiles[i - 1].name }}
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div v-else
+                                    style="border: 1px solid #ccc;border-radius: 25px;padding: 20px; height:165px ;">
+                                    <div class="row">
+
+                                        <div v-for="i in specificationsFiles.length" :key="i"
+                                            class="col-md-4 col-6 text-center">
+                                            <a :href="'/image/' + specificationsFiles[i - 1].file"
+                                                :download="specificationsFiles[i - 1].name" class="btn paper">
+                                                {{ specificationsFiles[i - 1].name }}
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="3D_Files" class="job-modal">
+                    <div class="job-modal-content">
+                        <span class="close" @click="closeModalFile('3D_Files')">
+                            <span>Cancel</span>
+                            &times;
+                        </span>
+                        <div class="row">
+                            <div class="col-md-2 mt-4">
+                                <div class="text-center">
+                                    <p style="    margin: 0;color:#000000;font-size: 13px;">حمل بالنقر على الملفات
+                                        المتاحة</p>
+                                    <img src="../../assets/images/Files_Download_File_Icon_256.png" />
+                                </div>
+
+                            </div>
+                            <div class="col-md-10 note-area">
+                                <small
+                                    style="position: relative;color:#25b7bf; top: 12px;right: 35px; background-color: #ffffff;padding: 0px 10px 0px 10px;">
+                                    جميع الملفات المتاحة
+                                </small>
+                                <div v-if="threeFile.length > 6"
+                                    style="border: 1px solid #ccc;border-radius: 25px;padding: 20px;">
+                                    <div class="row">
+
+                                        <div v-for="i in threeFile.length" :key="i" class="col-md-4 col-6 text-center">
+                                            <a :href="'/image/' + threeFile[i - 1].file"
+                                                :download="threeFile[i - 1].name" class="btn paper">
+                                                {{ threeFile[i - 1].name }}
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div v-else
+                                    style="border: 1px solid #ccc;border-radius: 25px;padding: 20px; height: 165px;">
+                                    <div class="row">
+
+                                        <div v-for="i in threeFile.length" :key="i" class="col-md-4 col-6 text-center">
+                                            <a :href="'/image/' + threeFile[i - 1].file"
+                                                :download="threeFile[i - 1].name" class="btn paper">
+                                                {{ threeFile[i - 1].name }}
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="planFiles" class="job-modal">
+                    <div class="job-modal-content">
+                        <span class="close" @click="closeModalFile('planFiles')">
+                            <span>Cancel</span>
+                            &times;
+                        </span>
+                        <div class="row">
+                            <div class="col-md-2 mt-4">
+                                <div class="text-center">
+                                    <p style="    margin: 0;color:#000000;font-size: 13px;">حمل بالنقر على الملفات
+                                        المتاحة</p>
+                                    <img src="../../assets/images/Files_Download_File_Icon_256.png" />
+                                </div>
+
+                            </div>
+                            <div class="col-md-10 note-area">
+                                <small
+                                    style="position: relative;color:#25b7bf; top: 12px;right: 35px; background-color: #ffffff;padding: 0px 10px 0px 10px;">
+                                    جميع الملفات المتاحة
+                                </small>
+                                <div v-if="planFiles.length > 6"
+                                    style="border: 1px solid #ccc;border-radius: 25px;padding: 20px;">
+                                    <div class="row">
+
+                                        <div v-for="i in planFiles.length" :key="i" class="col-md-4 col-6 text-center">
+                                            <a :href="'/image/' + planFiles[i - 1].file"
+                                                :download="planFiles[i - 1].name" class="btn paper">
+                                                {{ planFiles[i - 1].name }}
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div v-else
+                                    style="border: 1px solid #ccc;border-radius: 25px;padding: 20px; height: 165px;">
+                                    <div class="row">
+
+                                        <div v-for="i in planFiles.length" :key="i" class="col-md-4 col-6 text-center">
+                                            <a :href="'/image/' + planFiles[i - 1].file"
+                                                :download="planFiles[i - 1].name" class="btn paper">
+                                                {{ planFiles[i - 1].name }}
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
 
@@ -834,6 +1041,14 @@ export default {
         },
         closeModal() {
             document.getElementById("myModal").style.display = "none";
+        },
+        openModalFile(type = '') {
+            var modal = document.getElementById(type);
+            modal.style.display = "block";
+        },
+        closeModalFile(type = '') {
+            var modal = document.getElementById(type);
+            modal.style.display = "none";
         },
         plusSlides(n) {
             this.showSlides(slideIndex += n);
@@ -878,6 +1093,7 @@ export default {
             this.isLoggedIn = true;
 
         }
+
     },
 
     async mounted() {
@@ -891,11 +1107,12 @@ export default {
     async setup() {
         const ads = ref(await loadUserData())['_rawValue']['data'];
         console.log(ads);
-        var author = [], papers = [], files = [], arrayInfo = [], images = [], AllImage = [], application_conditions = [];
+        var author = [], papers = [], files = [], arrayInfo = [], images = [], AllImage = [], application_conditions = [], specificationsFiles = [], planFiles = [], threeFile = [];
         author = ads['author'];
         papers = ads['req_paper'];
         arrayInfo = ads['infoArray'];
         application_conditions = ads['application_conditions'];
+        console.log();
         ads['files'].forEach(element => {
 
             files[element['info']['type']] = element['file'];
@@ -908,9 +1125,22 @@ export default {
 
             AllImage.push(element);
         });
+        ads['specificationsFiles'].forEach(element => {
+
+            specificationsFiles.push(element);
+        });
+        ads['3D_Files'].forEach(element => {
+
+            threeFile.push(element);
+        });
+        ads['planFiles'].forEach(element => {
+
+            planFiles.push(element);
+        });
+        document.title = window.site.site_name+' - '+ads['title'];
         console.log(images);
         return {
-            ads, author, papers, files, arrayInfo, images, AllImage, application_conditions
+            ads, author, papers, files, arrayInfo, images, AllImage, application_conditions, specificationsFiles, threeFile, planFiles
         }
     },
 }

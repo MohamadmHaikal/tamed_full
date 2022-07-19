@@ -6,10 +6,10 @@
                     <div class="col-lg-6 col-md-12">
                         <div class="about-content">
                             <div class="row">
-                                <div class="col-md-11">
+                                <div class="col-md-11 col-11">
                                     <h2> نبذة مختصرة عن منصة تعميد</h2>
                                 </div>
-                                <div class="col-md-1"><i class="fa fa-quote-left"></i></div>
+                                <div class="col-md-1 col-1"><i class="fa fa-quote-left"></i></div>
                             </div>
 
 
