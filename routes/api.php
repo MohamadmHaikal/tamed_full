@@ -30,3 +30,4 @@ Route::get('currentUserData', function (Request $request) {
 });
 //quotes
 Route::post('quotes/send', 'App\Http\Controllers\Api\QuotesController@send');
+Route::post('quotes/send-employment', 'App\Http\Controllers\Api\QuotesController@SendEmployment');

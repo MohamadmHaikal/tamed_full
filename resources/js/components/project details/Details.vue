@@ -27,6 +27,7 @@
     margin-right: 20px;"></i>
                                     <span style=" margin-right: 6px;">{{ ads.city }} - {{ ads.neighborhood }}</span>
                                     <br class="bg-hidden">
+
                                     <span style="margin-bottom: 2px;
                                         margin-right: 12px;
                                         height: 5px;
@@ -36,17 +37,21 @@
                                         display: inline-block;"></span>
                                     <i class="far fa-clock project-header"></i>
                                     <span style=" margin-right: 6px;">التاريخ : {{ ads.created }}</span>
-                                    <span style="margin-bottom: 2px;
-                                        margin-right: 12px;
-                                        height: 5px;
-                                        width: 5px;
-                                        background-color: #bbb;
-                                        border-radius: 50%;
-                                        display: inline-block;"></span>
-
+                                    <span
+                                        style="margin-bottom: 2px;margin-right: 12px;height: 5px; width: 5px;background-color: #bbb;border-radius: 50%; display: inline-block;"></span>
+                                    <i class="fas fa-file-contract"
+                                        style="color: #019aa2;font-size: 20px;margin-right: 20px;"></i>
+                                    <span style="    margin-right: 6px;">نوع
+                                        العقد : <span> {{ ads.infoArray.contractType }}</span></span>
+                                    <span
+                                        style="margin-bottom: 2px;margin-right: 12px;height: 5px; width: 5px; background-color: #bbb;border-radius: 50%; display: inline-block;"></span>
                                     <span style="margin-right: 20px;">{{ ads.seenCount }}</span>
-                                    <i class="far fa-eye" style="color: #019aa2;font-size: 20px;
-    margin-right: 10px;"></i>
+                                    <i class="far fa-eye"
+                                        style="color: #019aa2;font-size: 20px;margin-right: 10px;"></i>
+
+
+
+
                                 </div>
                                 <div class="col-md-3 col-sm-12 text-center fav-share">
                                     <i class="far fa-heart" style="font-size:20px ;"></i>
@@ -422,9 +427,12 @@
                                     </div>
                                     <div class="col-md-12 mt-4">
                                         <div class="tab">
-                                            <button id="buttonlinks" class="tablinks first"
+                                            <button v-if="ads.type == '1'" id="buttonlinks" class="tablinks first"
                                                 @click="openCity($event, 'London')">الميزات
                                                 المقدمة</button>
+                                            <button v-else id="buttonlinks" class="tablinks first"
+                                                @click="openCity($event, 'London')">
+                                                معلومات إضافية</button>
                                             <button v-if="ads.type == 5" class="tablinks"
                                                 @click="openCity($event, 'Paris')">ملفات
                                                 ال{{ ads.infoArray.dealsOrAuction }}</button>
@@ -439,8 +447,12 @@
                                         </div>
 
                                         <div id="London" class="tabcontent">
-                                            <h3 style="color:#000000; display: block;">المواصفات والميزات</h3>
-                                            <div class="row mt-5"
+
+                                            <h3 v-if="ads.type == '1' || ads.type == '7'"
+                                                style="color:#000000; display: block;">المواصفات
+                                                والميزات</h3>
+                                            <h3 v-else style="color:#000000; display: block;">معلومات إضافية</h3>
+                                            <div v-if="ads.type == '1' || ads.type == '7'" class="row mt-5"
                                                 style=" border-bottom: 1px solid rgb(238, 239, 241);padding-bottom: 3%;">
                                                 <div class="row"
                                                     style=" border-bottom: 1px solid rgb(238, 239, 241);padding-bottom: 3%;">
@@ -507,6 +519,57 @@
                                                 </div>
 
                                             </div>
+                                            <div v-else class="row mt-5"
+                                                style=" border: 1px solid rgb(204, 204, 204); border-radius: 25px; padding: 20px; ">
+                                                <div v-if="ads.type == '2' || ads.type == '3'" class="col-md-12 row">
+
+                                                    <div class="col-md-3"><span>نوع الطلب:
+                                                            <span>{{ ads.infoArray.Available }}</span></span></div>
+                                                    <div class="col-md-3"> <span>بلد الصنع:
+                                                            <span>{{ ads.infoArray.countryManufacture }}</span> </span>
+                                                    </div>
+                                                    <div class="col-md-3"><span>الكمية:
+                                                            <span>{{ ads.infoArray.quantityMaterial }}</span> </span>
+                                                    </div>
+
+                                                    <div class="col-md-3"><span>فترة الضمان :
+                                                            <span>{{ ads.infoArray.warrantyPeriod }}</span></span></div>
+                                                </div>
+                                                <div v-if="ads.type == '4'" class="col-md-12 row text-center">
+
+                                                    <div class="col-md-4"><span>نوع الطلب:
+                                                            <span>{{ ads.infoArray.requestType }}</span></span></div>
+                                                    <div class="col-md-4"> <span> استقبال الطلبات : 
+                                                            <span>{{ ads.infoArray.ReceivingOrders['1'] }}</span> <span
+                                                                v-if="ads.infoArray.ReceivingOrders.length > 1"> - {{
+                                                                        ads.infoArray.ReceivingOrders['2']
+                                                                }}</span> </span>
+                                                    </div>
+
+                                                    <div class="col-md-4 "><span>الكمية:
+                                                            <span>{{ ads.infoArray.quantityEquipment }}</span> </span>
+                                                    </div>
+                                                    <div class="col-md-4 mt-2"><span> حالة المعدات :
+                                                            <span>{{ ads.infoArray.equipmentStatus }}</span></span>
+                                                    </div>
+
+                                                </div>
+                                                <div v-if="ads.type == '5'" class="col-md-12 row">
+
+                                                    <div class="col-md-3"><span> حالة المواد:
+                                                            <span>{{ ads.infoArray.materialStatus }}</span></span></div>
+                                                    <div class="col-md-3"> <span>بلد الصنع:
+                                                            <span>{{ ads.infoArray.countryManufacture }}</span> </span>
+                                                    </div>
+                                                    <div class="col-md-3"><span>الكمية:
+                                                            <span>{{ ads.infoArray.Count }}</span> </span>
+                                                    </div>
+
+                                                    <div class="col-md-3"><span>فترة الضمان :
+                                                            <span>{{ ads.infoArray.warrantyPeriod }}</span></span></div>
+                                                </div>
+                                            </div>
+
                                         </div>
 
                                         <div id="Paris" class="tabcontent">
@@ -574,8 +637,9 @@
                                             <h3 v-else style="color:#000000">شروط التقديم للمشروع</h3>
                                             <div class="mt-5"
                                                 style="    border: 1px solid #ccc;border-radius: 25px;padding: 20px;">
-                                                <div class="row mt-4">
-                                                    <div v-if="ads['type']=='1' ||ads['type']=='4'||ads['type']=='7'" class="col-md-4 col-6  text-center mt-2">
+                                                <div class="row">
+                                                    <div v-if="ads['type'] == '1' || ads['type'] == '4' || ads['type'] == '7'"
+                                                        class="col-md-4 col-6  text-center mt-2">
                                                         <img src="../../assets/images/amala.png" alt=""
                                                             style="width:45px;">
                                                         <br>
@@ -584,25 +648,29 @@
                                                         <small
                                                             v-if="application_conditions['employment_on_warranty'] == 'on'"
                                                             style="color:#019aa2 ;">على الكفالة</small>
-                                                            <small
-                                                            v-if="application_conditions['employment_on_warranty'] == 'on' && application_conditions['employment_rent_contract'] == 'on' "
+                                                        <small
+                                                            v-if="application_conditions['employment_on_warranty'] == 'on' && application_conditions['employment_rent_contract'] == 'on'"
                                                             style="color:#019aa2 ;"> او </small>
-                                                        <small v-if="application_conditions['employment_rent_contract'] == 'on'" style="color:#019aa2 ;"> عقد اجير</small>
+                                                        <small
+                                                            v-if="application_conditions['employment_rent_contract'] == 'on'"
+                                                            style="color:#019aa2 ;"> عقد اجير</small>
                                                     </div>
 
-                                                    <div v-if="ads['type']=='1' ||ads['type']=='4'||ads['type']=='7'" class="col-md-4  col-6 text-center mt-2">
+                                                    <div v-if="ads['type'] == '1' || ads['type'] == '4' || ads['type'] == '7'"
+                                                        class="col-md-4  col-6 text-center mt-2">
                                                         <img src="../../assets/images/tasnef.png" alt=""
                                                             style="width:40px;">
                                                         <br>
                                                         <small style="color:#333333 ;">فئة تصنيف المنشآة</small>
                                                         <br>
-                                                        <small v-if="application_conditions['Category_Category'] == null"
+                                                        <small
+                                                            v-if="application_conditions['Category_Category'] == null"
                                                             style="color:#019aa2 ;">لايهم</small>
                                                         <small v-else style="color:#019aa2 ;">{{
                                                                 application_conditions['Category_Category']
                                                         }}</small>
                                                     </div>
-                                                    <div  class="col-md-4 col-6 text-center mt-2">
+                                                    <div class="col-md-4 col-6 text-center mt-2">
                                                         <img src="../../assets/images/daman.png" alt=""
                                                             style="width:50px;">
                                                         <br>
@@ -612,7 +680,8 @@
                                                             style="color:#019aa2 ;">لايهم</small>
                                                         <small v-else style="color:#019aa2 ;">مطلوب</small>
                                                     </div>
-                                                    <div v-if="ads['type']!='4'" class="col-md-4 col-6 text-center mt-2">
+                                                    <div v-if="ads['type'] != '4'"
+                                                        class="col-md-4 col-6 text-center mt-2">
                                                         <img src="../../assets/images/daman.png" alt=""
                                                             style="width:50px;">
                                                         <br>
@@ -622,38 +691,57 @@
                                                             style="color:#019aa2 ;">لايهم</small>
                                                         <small v-else style="color:#019aa2 ;">مطلوب</small>
                                                     </div>
-                                                    <div v-if="ads['type']=='2' ||ads['type']=='3' ||ads['type']=='5' " class="col-md-4 col-6 text-center mt-2">
+                                                    <div v-if="ads['type'] == '2' || ads['type'] == '3' || ads['type'] == '5'"
+                                                        class="col-md-4 col-6 text-center mt-2">
                                                         <img src="../../assets/images/daman.png" alt=""
                                                             style="width:50px;">
                                                         <br>
-                                                        <small style="color:#333333 ;">مطابق لهيئة المواصفات السعودية</small>
+                                                        <small style="color:#333333 ;">مطابق لهيئة المواصفات
+                                                            السعودية</small>
                                                         <br>
                                                         <small v-if="application_conditions['conforming'] != 'on'"
                                                             style="color:#019aa2 ;">لايهم</small>
                                                         <small v-else style="color:#019aa2 ;">مطلوب</small>
                                                     </div>
-                                                     <div v-if="ads['type']=='1' && application_conditions['Building_Category'] =='off'  " class="col-md-4 col-6 text-center mt-2">
+                                                    <div v-if="ads['type'] == '1' && application_conditions['Building_Category'] == 'off'"
+                                                        class="col-md-4 col-6 text-center mt-2">
                                                         <img src="../../assets/images/daman.png" alt=""
                                                             style="width:50px;">
                                                         <br>
                                                         <small style="color:#333333 ;">فئة البناء</small>
                                                         <br>
-                                                        <small v-if="application_conditions['Building_Category_choices'] == null"
+                                                        <small
+                                                            v-if="application_conditions['Building_Category_choices'] == null"
                                                             style="color:#019aa2 ;">لايهم</small>
-                                                        <small v-else style="color:#019aa2 ;">{{application_conditions['Building_Category_choices']}}</small>
+                                                        <small v-else style="color:#019aa2 ;">{{
+                                                                application_conditions['Building_Category_choices']
+                                                        }}</small>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <small
-                                                style="position: relative; top: 26px;right: 40px; background-color: #ffffff;padding: 0px 10px 0px 10px;">الاوراق
-                                                المطلوبة</small>
-                                            <div class="mt-3"
-                                                style="border: 1px solid #ccc;border-radius: 25px;padding: 20px;">
-                                                <div class="row">
-                                                    <div v-for="paper in papers" v-bind:key="paper"
-                                                        class="col-md-4 col-6 text-center">
-                                                        <a href="javascript:void(0);" class="btn paper">{{ paper }}</a>
+                                            <div v-if="ads.req_paper.length != 0">
+                                                <small
+                                                    style="position: relative; top: 26px;right: 40px; background-color: #ffffff;padding: 0px 10px 0px 10px;">الاوراق
+                                                    المطلوبة</small>
+                                                <div class="mt-3"
+                                                    style="border: 1px solid #ccc;border-radius: 25px;padding: 20px;">
+                                                    <div class="row">
+                                                        <div v-for="paper in papers" v-bind:key="paper"
+                                                            class="col-md-4 col-6 text-center" v-if="paper != ''">
+                                                            <a href="javascript:void(0);" class="btn paper">{{ paper
+                                                            }}</a>
+                                                        </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div v-if="application_conditions['nots'] != null">
+
+                                                <small
+                                                    style="position: relative; top: 26px;right: 40px; background-color: #ffffff;padding: 0px 10px 0px 10px;">ملاحظات
+                                                    إضافية</small>
+                                                <div class="mt-3"
+                                                    style="border: 1px solid #ccc;border-radius: 25px;padding: 20px;">
+                                                    <p>{{ application_conditions['nots'] }}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -674,23 +762,25 @@
                                             قيمة المشروع
                                         </h5>
                                         <div class="row">
-                                        <div class="col-md-6">
-                                        <h6 v-if="ads.pricestatus == 'on'"
-                                            style="color: #f4a23e; text-align: center;">
-                                            الأفضل سعر
-                                        </h6>
-                                        <h6 v-else style="color: #f4a23e; text-align: center;">
-                                            {{ ads.price }} ريال
-                                        </h6>
+                                            <div class="col-md-6">
+                                                <h6 v-if="ads.pricestatus == 'on'"
+                                                    style="color: #f4a23e; text-align: center;">
+                                                    الأفضل سعر
+                                                </h6>
+                                                <h6 v-else style="color: #f4a23e; text-align: center;">
+                                                    {{ ads.price }} ريال
+                                                </h6>
+                                            </div>
+                                            <div class="col-md-6 text-center">
+                                                <span
+                                                    v-if="(ads.type == 1 || ads.type == 7) && application_conditions['PricingWithMaterials'] != null"
+                                                    style="color: #f4a23e;">
+                                                    التسعير بالمواد
+                                                </span>
+                                            </div>
                                         </div>
-                                        <div class="col-md-6 text-center">
-                                         <span v-if="(ads.type == 1 ||ads.type == 7 ) && application_conditions['PricingWithMaterials'] != null" style="color: #f4a23e;">
-                                        التسعير بالمواد
-                                        </span>
-                                        </div>
-                                        </div>
-                                        
-                                       
+
+
                                     </div>
                                     <div style="text-align: right;">
                                         <p
@@ -1137,7 +1227,7 @@ export default {
 
             planFiles.push(element);
         });
-        document.title = window.site.site_name+' - '+ads['title'];
+        document.title = window.site.site_name + ' - ' + ads['title'];
         console.log(images);
         return {
             ads, author, papers, files, arrayInfo, images, AllImage, application_conditions, specificationsFiles, threeFile, planFiles

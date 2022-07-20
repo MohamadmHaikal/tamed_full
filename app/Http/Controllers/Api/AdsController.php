@@ -148,6 +148,7 @@ class AdsController extends Controller
         if(array_key_exists("conforming", $ads->application_conditions)){
             $ads->application_conditions->conforming='on';
         }
+        $ads['userFile']=get_current_user_id()!=null ? count(getUserfile())!=0 ? getUserfile() : null :null;
         $ads['author'] = get_user_by_id($ads->user_id);
         $gallery = $ads['gallery'] != null ? explode(',', $ads['gallery']) : [];
         $ads['files'] = File::whereIn('id', $gallery)->get();

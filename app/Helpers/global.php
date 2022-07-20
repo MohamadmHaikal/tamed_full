@@ -106,6 +106,16 @@ function getQuotesFile($id)
     }
     return $file;
 }
+function getEmploymentFile($id)
+{
+    $file = File::where('FK', '=', $id)->where('model', '=', 'EmploymentApplications')->first();
+    if ($file != null) {
+        $file = $file->file;
+    } else {
+        $file = '';
+    }
+    return $file;
+}
 function is_dashboard()
 {
     $route = Route::current();
@@ -273,6 +283,30 @@ function getfileByName($name = '')
 {
 
     return  File::where('model', '=', $name)->where('FK', '=', get_current_user_id())->first();
+}
+function getUserfile()
+{
+ $userFileName=['Commercial'=>__('backend.Commercial record'),
+ 'TaxCertificate'=>__('backend.value-added certificate'),
+ 'Saudization'=>__('backend.Saudization certificate'),
+ 'ChamberCommerce'=>__('backend.Chamber of Commerce certificate'),
+ 'insurances'=>__('backend.Social insurance certificate'),
+ 'Enterprise'=>__('backend.Establishment Certificate'),
+ 'profileFile'=>__('backend.Establishment Profile'),
+ 'classification'=>__('backend.rating certificate'),
+];   
+ $userFile=['Commercial','TaxCertificate','Saudization','ChamberCommerce','insurances','Enterprise','profileFile','classification'];
+ $files=File::whereIn('model', $userFile)->where('FK', '=', get_current_user_id())->get();
+ foreach($files as $item){
+    $item->name=$userFileName[$item->model];
+ }
+ return  $files;
+
+}
+function getfileByNameByUserId($name = '',$id='')
+{
+
+    return  File::where('model', '=', $name)->where('FK', '=', $id)->first();
 }
 function get_user_file_By_Name($name = '', $id)
 {

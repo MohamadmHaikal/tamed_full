@@ -72,6 +72,7 @@ return array(
     'App\\Models\\ElectronicContracts' => $baseDir . '/app/Models/ElectronicContracts.php',
     'App\\Models\\EmployeeQuantity' => $baseDir . '/app/Models/EmployeeQuantity.php',
     'App\\Models\\EmploymentAds' => $baseDir . '/app/Models/EmploymentAds.php',
+    'App\\Models\\EmploymentApplications' => $baseDir . '/app/Models/EmploymentApplications.php',
     'App\\Models\\File' => $baseDir . '/app/Models/File.php',
     'App\\Models\\FinancialAnalysis' => $baseDir . '/app/Models/FinancialAnalysis.php',
     'App\\Models\\Language' => $baseDir . '/app/Models/Language.php',

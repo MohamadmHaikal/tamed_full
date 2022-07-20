@@ -746,6 +746,7 @@ class ComposerStaticInitdef00ff10eb0d3f73b21b47c404ee35a
         'App\\Models\\ElectronicContracts' => __DIR__ . '/../..' . '/app/Models/ElectronicContracts.php',
         'App\\Models\\EmployeeQuantity' => __DIR__ . '/../..' . '/app/Models/EmployeeQuantity.php',
         'App\\Models\\EmploymentAds' => __DIR__ . '/../..' . '/app/Models/EmploymentAds.php',
+        'App\\Models\\EmploymentApplications' => __DIR__ . '/../..' . '/app/Models/EmploymentApplications.php',
         'App\\Models\\File' => __DIR__ . '/../..' . '/app/Models/File.php',
         'App\\Models\\FinancialAnalysis' => __DIR__ . '/../..' . '/app/Models/FinancialAnalysis.php',
         'App\\Models\\Language' => __DIR__ . '/../..' . '/app/Models/Language.php',

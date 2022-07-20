@@ -132,6 +132,17 @@
     width: fit-content;
     z-index: 1;
 }
+.general-info .info .custom-file-upload{
+    color: #2f44b2;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 0px;
+    background: #ffffff;
+    position: unset;
+    padding: 0px 7px;
+    width: fit-content;
+    z-index: 1;
+}
 .general-info .info .form-control {
     padding: 1rem 1.25rem;
     color: #555;

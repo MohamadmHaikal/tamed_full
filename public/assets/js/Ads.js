@@ -545,7 +545,7 @@ $('#createItem').on('click', function () {
         }
        
     });
-  
+    fd.append('pricestatus', document.getElementById('bestPrice').value);
 
     $.ajaxSetup({
         headers: {
@@ -1366,7 +1366,7 @@ $('#createItem').on('click', function () {
         }
        
     });
-  
+    fd.append('pricestatus', document.getElementById('bestPrice').value);
 
     $.ajaxSetup({
         headers: {

@@ -156,7 +156,9 @@
         Institutions:"{{__('backend.Institutions')}}",
         Both:"{{__('backend.Both')}}",
         waitingForAcceptance:"{{__('backend.waiting for acceptance')}}",
-
+        OrderDetails:"{{__('backend.Order details')}}",
+        RequestAccept:"{{__('backend.Request Accept')}}",
+        RejectionApplication:"{{__('backend.Rejection of the application')}}",
     };
 </script>
 <!-- Stack array for including inline js or scripts -->

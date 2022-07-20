@@ -184,6 +184,13 @@ Route::group(['prefix' => 'Quotes', 'middleware' => ['LanguageSwitcher','auth:cu
 
 });
 
+//employment route
+Route::group(['prefix' => 'employment', 'middleware' => ['LanguageSwitcher','auth:customer']], function () {
+    Route::get('/changeStatus/{status}/{id}','App\Http\Controllers\Dashboard\EmploymentApplicationsController@changeStatus')->name('employment.changeStatus');
+    Route::get('/show/{id}', 'App\Http\Controllers\Dashboard\EmploymentApplicationsController@show')->name('employment.show');
+    Route::get('/{filter?}', 'App\Http\Controllers\Dashboard\EmploymentApplicationsController@index')->name('employment');
+});
+
 //Deals Auctions route
 Route::group(['prefix' => 'DealsAuctions', 'middleware' => ['LanguageSwitcher','auth:customer']], function () {
     Route::get('/get_invoice/{id}', 'App\Http\Controllers\Dashboard\DealsAuctionsController@get_invoice')->name('get_invoice');
