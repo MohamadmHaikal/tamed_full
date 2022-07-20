@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="22y1xTWkfiqb4201MxgxUTIOgSbIPLmCUGAxVUzN">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="منصة تعميد عالم التشيد والبناء ">
+    <meta name="keywords"
+        content="تعميد,منصة,موقع,الرياض,السعودية,تطبيق,مشاريع,عقود,مقاولات,مناقصات,في,صفقات,مزادات,سكراب,إنشاء,بناء,وظائف,جديدة,حديد,تسليم مفتاح,تسجيل الدخول,إعتماد,مقاولة,مكتب هندسي,مخططات,مشروع,مواد,المواد,بدون,جدة,الدمام">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" href="http://localhost:8000/image/1648718574.png">
+    <title>منصة تعميد</title>
+    <!-- Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Noto%20Kufi%20Arabic:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap">
+    <script src="http://localhost:8000/js/app.js" defer></script>
+</head>
+
+<body>
+    <div id="app">
+        <main>
+            <router-view />
+        </main>
+    </div>
+            <script>
+            window.Laravel = {"isLoggedin":true,"user":{"id":20,"name":"\u0645\u0646\u0635\u0629 \u062a\u0639\u0645\u064a\u062f","phone":"0581333357","email":"info@tamed.sa","description":"test","v-code":"7842","IdCard":"","verified":1,"last_login":"2022-07-20 06:22:53","evaluation":null,"projectCount":null,"clientCount":null,"seenCount":80,"logo":"1652721446.png","activityArray":null,"invoiceLogo":"1650804342.png","Signature":"1650837466.png","TaxNumber":"310122393500003","specialNumber":"010300185","CRecord":"010300185","remember_token":null,"created_at":"2022-04-07T12:52:04.000000Z","updated_at":"2022-07-20T06:22:53.000000Z","city_id":1,"neighborhood":"\u0627\u0644\u064a\u0631\u0645\u0648\u0643","activitie_id":27,"type_id":24,"active_status":0,"avatar":"avatar.png","dark_mode":0,"messenger_color":"#2180f3","wallet_balance":80,"views":0,"status":"active"}}
+        </script>
+        <script>
+        window.language = {"currentLanguage":null}
+        window.site = {"site_name":"\u0645\u0646\u0635\u0629 \u062a\u0639\u0645\u064a\u062f"}
+    </script>
+</body>
+
+</html>
