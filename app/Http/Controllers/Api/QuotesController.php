@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DealsAuctions;
 use App\Models\EmploymentApplications;
 use App\Models\File;
+use App\Models\invoice;
 use App\Models\Quote;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class QuotesController extends Controller
 {
     public function Send(Request $request)
     {
-       
+
         if ($request->category == 'project') {
             if (!$request->hasFile('file')) {
                 return json_encode(['message' => 'ملف عرض السعر مطلوب !', 'code' => '102'], true);
@@ -61,6 +62,27 @@ class QuotesController extends Controller
             request()->file->move(public_path('image'), $filename);
             $deals->receipt_img = $filename;
             $deals->save();
+            $DealsAuctions = DealsAuctions::where('id', $deals->id)->first();
+            $invoice = invoice::create([
+                'invoice_date' => date('Y-m-d H:i:s'),
+                'supply_date' => $DealsAuctions->deals_date,
+                'customer_name' => $DealsAuctions->customer->name,
+                'address' =>  $DealsAuctions->customer->address,
+                // 'invice_type' => $request->invice_type,
+                // 'type' => $request->type,
+                'TaxNumber' => $DealsAuctions->customer->TaxNumber,
+                // 'responsible' => $request->responsible,
+                'phone' => $DealsAuctions->customer->phone,
+                'email' => $DealsAuctions->customer->email,
+                // 'Banks' => serialize($request->bank),
+                'user_id' => 20,
+                'isDeals' => 1,
+                // 'contracts_id' => $request->route('id') != null ? $request->route('id') : null,
+            ]);
+
+         
+            $DealsAuctions->invoice_num = $invoice->id;
+            $DealsAuctions->save();
         } else if ($request->category == 'deposit') {
             if (!$request->hasFile('file')) {
                 return json_encode(['message' => ' إيصال الدفع مطلوب  !', 'code' => '102'], true);

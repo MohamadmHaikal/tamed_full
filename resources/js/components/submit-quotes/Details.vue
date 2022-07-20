@@ -475,7 +475,7 @@
                                     من
                                     جميع المواصفات المطلوبة لك مقابل 2.5% من إجمالي الصفقة</p>
 
-                                <a href="/dashboard" class="btn btn-logo"
+                                <a href="/dashboard" class="btn btn-logo  mb-5"
                                     style="border-radius: 10px; background-color: rgb(3, 156, 164);  color: white; margin-top: 10px; padding: 7px 12px;">
                                     تقديم طلب وسيط استكمال صفقة من تعميد</a>
 

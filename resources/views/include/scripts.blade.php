@@ -159,6 +159,9 @@
         OrderDetails:"{{__('backend.Order details')}}",
         RequestAccept:"{{__('backend.Request Accept')}}",
         RejectionApplication:"{{__('backend.Rejection of the application')}}",
+        uploadRecipt:"{{__('backend.uploadRecipt')}}",
+        AwaitingPayment:"{{__('backend.Awaiting payment')}}",
+        sendPrice:"{{__('backend.send new price')}}",
     };
 </script>
 <!-- Stack array for including inline js or scripts -->
