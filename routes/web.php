@@ -187,7 +187,11 @@ Route::group(['prefix' => 'Quotes', 'middleware' => ['LanguageSwitcher','auth:cu
 //Deals Auctions route
 Route::group(['prefix' => 'DealsAuctions', 'middleware' => ['LanguageSwitcher','auth:customer']], function () {
     Route::get('/get_invoice/{id}', 'App\Http\Controllers\Dashboard\DealsAuctionsController@get_invoice')->name('get_invoice');
-
+    Route::get('/change_status/{id}/{status}', 'App\Http\Controllers\Dashboard\DealsAuctionsController@change_status')->name('change_status');
+    Route::get('/show/{id}', 'App\Http\Controllers\Dashboard\DealsAuctionsController@show')->name('show');
+    Route::post('/createInvoice', 'App\Http\Controllers\Dashboard\DealsAuctionsController@createInvoice')->name('createInvoice');
+    Route::post('/updateNegotiate', 'App\Http\Controllers\Dashboard\DealsAuctionsController@updateNegotiate')->name('updateNegotiate');
+    
     Route::get('/{source}/{filter?}', 'App\Http\Controllers\Dashboard\DealsAuctionsController@index')->name('DealsAuctions');
 });
 

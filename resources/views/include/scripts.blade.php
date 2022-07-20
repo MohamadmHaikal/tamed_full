@@ -156,6 +156,9 @@
         Institutions:"{{__('backend.Institutions')}}",
         Both:"{{__('backend.Both')}}",
         waitingForAcceptance:"{{__('backend.waiting for acceptance')}}",
+        uploadRecipt:"{{__('backend.uploadRecipt')}}",
+        AwaitingPayment:"{{__('backend.Awaiting payment')}}",
+        sendPrice:"{{__('backend.send new price')}}",
 
     };
 </script>

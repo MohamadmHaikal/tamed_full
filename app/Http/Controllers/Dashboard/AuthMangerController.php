@@ -104,14 +104,14 @@ class AuthMangerController extends Controller
                 'message' => view('common.alert', ['type' => 'danger', 'message' => 'الرقم المدخل غير موجود'])->render()
             ]);
         }
-        $msg = " منصة تعميد \r\n كود التفعيل: ".$code;
-        $a=  Http::post("https://www.msegat.com/gw/sendsms.php", [
-         "userName"=> "tamedksa",
-         "numbers"=> $input['mobile'],
-         "userSender" => "tamed.sa",
-         "apiKey"=> "ad8fe82ffa00761d1fc36b2cdb15a516",
-         "msg"=> "$msg"
-         ]);
+        // $msg = " منصة تعميد \r\n كود التفعيل: ".$code;
+        // $a=  Http::post("https://www.msegat.com/gw/sendsms.php", [
+        //  "userName"=> "tamedksa",
+        //  "numbers"=> $input['mobile'],
+        //  "userSender" => "tamed.sa",
+        //  "apiKey"=> "ad8fe82ffa00761d1fc36b2cdb15a516",
+        //  "msg"=> "$msg"
+        //  ]);
          
         //  if($a['code']!=1){
         //     return $this->sendJson([
