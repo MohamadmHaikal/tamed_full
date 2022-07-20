@@ -107,7 +107,23 @@ class AdsController extends Controller
         return view('addItem.Ads.create'); 
 
     }
-
+    public function uploadFile(Request $request){
+            $file=[];
+            foreach ($request->file($request->name) as $key => $value) {
+                array_push($file, $this->fileUpload($value,'Ads', '0' ));
+            }
+        $all=File::whereIn('id',$file)->get();
+        return[$file,$all];
+    }
+    
+  public function removeFile(Request $request,$id)
+  {  $a = [];
+    array_push($a, $id);
+    $arr = array_merge(array_diff(explode(',', $request->gallery), $a));
+    $file = File::find($id);
+    $file != null ? $file->delete() : '';
+    return $arr;
+  }
     /**
      * Store a newly created resource in storage.
      *
@@ -115,11 +131,8 @@ class AdsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-   
+    { 
         $services=$this->getServices($request->activitie_Add_id);
-        
-    
         $x = TypeAds::getTypeName($request->model);
         $infoArray=[];
         foreach ($x[0] as $key => $value) {
@@ -127,6 +140,9 @@ class AdsController extends Controller
              $infoArray += [$value['name'] => $request->get($value['name']) ];
          }
         }
+        // if($request->salary!=null){
+        //     $infoArray += ['salary' => $request->get('salary') ];
+        // }
         foreach ( $services as $key => $servicesvalue) {
 
             if (  $request->exists(str_replace(" ","_",$servicesvalue['name'])) ) {
@@ -134,13 +150,28 @@ class AdsController extends Controller
             }
            }
            $application_conditions=[];
-           if (  $request->exists('Certificate','employment','Bank_guarantee','nots','Category_conditions') ) {
+           foreach ($request->all() as $key => $v){
+            $model = new Ads();
+            if(!in_array($key, $model->getFillable())){
+                $application_conditions+=[$key => $request->get($key)];
+                unset($request[$key]);
+            }
+           
+              }
+           if (  $request->exists('Certificate','employment','PricingWithMaterials','CodeKSA','Building_Category','Building_Category_choices','Classification','Category_Category','Bank_guarantee','nots','Category_conditions') ) {
             $application_conditions=[
                 'Certificate'=>$request->Certificate,
                 'employment' =>$request->employment,
                 'Bank_guarantee' =>$request->exists('Bank_guarantee')  ? 1 : 0,
                 'nots' =>$request->nots,
                 'Category_conditions' =>$request->exists('Category_conditions') ? 1 : 0,
+                'PricingWithMaterials' =>$request->exists('PricingWithMaterials') ? 1 : 0,
+                'CodeKSA' =>$request->exists('CodeKSA') ? 1 : 0,
+                'Building_Category' =>$request->exists('Building_Category') ? 1 : 0,
+                'Building_Category_choices' =>$request->exists('Building_Category_choices') ? 1 : 0,
+                'Classification' =>$request->exists('Classification') ? 1 : 0,
+                'Category_Category' =>$request->exists('Category_Category') ? 1 : 0,
+
             ];
         }
 
@@ -171,8 +202,8 @@ class AdsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-       
+    {  $ads=Ads::find($id);
+       return  unserialize($ads->infoArray);
     }
 
     /**
@@ -197,7 +228,7 @@ class AdsController extends Controller
      */
     public function update(Request $request, $id)
     {
-      
+        
         $services=$this->getServices($request->activitie_Add_id);
 
         $x = TypeAds::getTypeName($request->model);
@@ -218,14 +249,22 @@ class AdsController extends Controller
            }
         $infoArray +=['model' => $request->model];
         unset($request['model']);
-
+        $application_conditions=[];
+        foreach ($request->all() as $key => $v){
+            $model = new Ads();
+            if(!in_array($key, $model->getFillable())){
+                $application_conditions+=[$key => $request->get($key)];
+                unset($request[$key]);
+            }
+           
+              }
         foreach ($request->file() as $key => $v) {
             $Adsfile = File::where('FK',$id)->where('model','Ads')->delete();
             foreach ($request->file($key) as $key => $value) {
                 $this->fileUpload($value,'Ads', $id );
             }
         }
-        $application_conditions=[];
+   
      
         if (  $request->exists('Certificate','employment','Bank_guarantee','nots','Category_conditions') ) {
          $application_conditions=[

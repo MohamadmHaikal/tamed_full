@@ -75,12 +75,12 @@
                                 <a id="newAccount" style="color:#0298a7;" href="{{ route('Business.login') }}">لديك حساب
                                     بالفعل </a>
                             </div>
-                            <div class="d-flex align-items-center justify-content-center mt-4 text-center">
+                            {{-- <div class="d-flex align-items-center justify-content-center mt-4 text-center">
                                 <a class="soonImg" style="color:#0298a7;" href="javascript:void(0);">
 
                                     <img class="cardlogB" src="{{ asset('assets/img/soonNafaz.png') }}" width="75%">
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
 
                     </div>

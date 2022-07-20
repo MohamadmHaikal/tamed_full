@@ -97,7 +97,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing ">
+            {{-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing ">
                 <div class="widget widget-chart-one">
                     <div class="widget-heading">
                         <h5 class=""> {{ __('Weather Report') }}</h5>
@@ -275,7 +275,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="col-xl-4 col-lg-12 col-md-6 col-sm-12 col-12 layout-spacing">
                 <div class="widget " style="height: 100%">
                     <div class="widget-heading mb-4">
@@ -314,9 +314,10 @@
                         <div class="confetti-piece"></div>
                     </div>
                     <img src="{{ url('assets/img/new-badge.png') }}" height="100px" />
-                    <h5 class="mt-4 mb-3">New Badge Earned</h5>
-                    <p class="text-muted mb-3">Congratulations! You have earned a new badge today.</p>
-                    <button class="btn btn-sm bg-gradient-primary text-white">Check Now</button>
+                    <h5 class="mt-4 mb-3">{{__('backend.Regular Membership')}}</h5>
+                    <p class="text-muted mb-3">{{__('backend.You can upgrade your membership here')}}</p>
+                    <br>
+                    <button class="btn btn-sm bg-gradient-primary text-white">{{__('backend.upgrade Membership')}}</button>
                 </div>
 
             </div>
@@ -356,7 +357,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+            {{-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
                 <div class="widget widget-expense-summary dashboard-table">
                     <div class="widget-heading">
                         <h5 class=""> {{ __('Expense Summary') }}</h5>
@@ -508,7 +509,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
           
         </div>
 

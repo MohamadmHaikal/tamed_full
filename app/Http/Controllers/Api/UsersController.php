@@ -27,7 +27,7 @@ class UsersController extends Controller
         $user['Customers']=get_user_Customers_count($id);
         $user['activity']= getActivityById($user->activitie_id)->name;
         $user['city']= getCityById($user->city_id)->name;
-        $user['neighborhood']= getNeighborhoodById($user->neighbor_id)->name;
+        // $user['neighborhood']= getNeighborhoodById($user->neighbor_id)->name;
         $user['profile']=get_user_file_By_Name('profileFile',$id);
         $user['projects']=get_user_projects($id);
         return $user;

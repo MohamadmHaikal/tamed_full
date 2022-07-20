@@ -145,6 +145,21 @@
         ProjectTitleRequired:"{{__('backend.Project title is required')}}",
         MainActivityRequired:"{{__('backend.Main activity required')}}",
         AdditionalActivitRequired:"{{__('backend.Additional activity is required')}}",
+        ShortDescriptionRequired:"{{__('backend.Short description required')}}",
+        ApplicationDeadlineIsRequired:"{{__('backend.Application deadline is required')}}",
+        neighborhoodIsRequired:"{{__('backend.neighborhood is required')}}",
+        ClassificationCategoryRequired:"{{__('backend.Classification category required')}}",
+        ServicesProvided:"{{__('backend.Services provided')}}",
+        send:"{{__('backend.send')}}",
+        ReceivingOrders:"{{__('backend.Receiving orders')}}",
+        Individuals:"{{__('backend.Individuals')}}",
+        Institutions:"{{__('backend.Institutions')}}",
+        Both:"{{__('backend.Both')}}",
+        waitingForAcceptance:"{{__('backend.waiting for acceptance')}}",
+        uploadRecipt:"{{__('backend.uploadRecipt')}}",
+        AwaitingPayment:"{{__('backend.Awaiting payment')}}",
+        sendPrice:"{{__('backend.send new price')}}",
+
     };
 </script>
 <!-- Stack array for including inline js or scripts -->

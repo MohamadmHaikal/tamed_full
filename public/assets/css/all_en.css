@@ -16028,7 +16028,14 @@ code {
     background: #4a5ec5;
     transition: all ease 0.4s;
     border: 1px solid transparent;
+    color: white;
 }
+
+.labelNAV{
+    font-size: 12px;
+    color: #000000;
+}
+
 
 .right-bar .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link.active:hover {

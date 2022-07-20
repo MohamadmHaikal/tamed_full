@@ -75,6 +75,12 @@
     font-weight: 900;
     font-size: 25px;
 }
+.multiple-form-one #progressbar #conditions:before {
+    content: "\f2bd";
+    font-family: "Line Awesome Free";
+    font-weight: 900;
+    font-size: 25px;
+}
 .multiple-form-one #progressbar #personal:before {
     content: "\f505";
     font-family: "Line Awesome Free";
@@ -278,7 +284,7 @@
 .attached-files span.delete-label {
     position: absolute;
     top: -6px;
-    background: #e91e7c;
+    background: #f27261;
     height: 20px;
     width: 20px;
     display: flex;

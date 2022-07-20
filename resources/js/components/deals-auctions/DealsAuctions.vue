@@ -8,19 +8,19 @@
                             style="width: 100%; border-radius: 20px;    border-radius: 20px;border-color: #c1c1c1;border-top-color: #ffffff;border-width: 1px;border-left-color: #ffffff;padding: 8px 19px 11px 4px;">
                         <i class='fas fa-search' style="right: 85%;bottom: 48%;color: #b7b7b7;position: relative;"></i>
                     </div>
-                    <div class="col-md-2  text-center btn-filter"><a href="/login" class="btn btn-logo"
+                    <div class="col-md-2  text-center btn-filter"><a href="javascript:void(0);" class="btn btn-logo"
                             style="border-radius: 25px;background-color: #ffffff;border: 1px solid #019aa2;color: #019aa2; padding: 7px 20px 7px 20px;">
                             جميع المزادات / الصفقات </a></div>
-                    <div class="col-md-2 text-center btn-filter"><a href="/login" class="btn btn-logo"
+                    <div class="col-md-2 text-center btn-filter"><a href="javascript:void(0);" class="btn btn-logo"
                             style="border-radius: 25px;background-color: #9fcf95;color: white;padding: 7px 42px 7px 42px;">مزادات
                             قائمة </a></div>
-                    <div class="col-md-2  text-center btn-filter"><a href="/login" class="btn btn-logo"
+                    <div class="col-md-2  text-center btn-filter"><a href="javascript:void(0);" class="btn btn-logo"
                             style="border-radius: 25px;background-color: #ffffff;border: 1px solid #fba534;color: #fba534; padding: 7px 42px 7px 42px;">
                             مزادات قريبة </a></div>
-                    <div class="col-md-2 text-center btn-filter"><a href="/login" class="btn btn-logo"
+                    <div class="col-md-2 text-center btn-filter"><a href="javascript:void(0);" class="btn btn-logo"
                             style="border-radius: 25px; background-color: #ffffff;border: 1px solid #019aa2;color: #019aa2; padding: 7px 42px 7px 42px; btn-filter">
                             جميع الصفقات </a></div>
-                    <div class="col-md-2 text-center"><a href="/login" class="btn btn-logo"
+                    <div class="col-md-2 text-center"><a href="javascript:void(0);" class="btn btn-logo"
                             style="border-radius: 25px;background-color: #039ca4;color: white;padding: 7px 42px 7px 42px;">بحث
                             متقدم </a></div>
                 </div>
@@ -56,7 +56,7 @@
                                             <div class="col-md-3 counter-title " style="padding-right: 20px;">
                                                 <span style="color: #019aa2;padding-right: 8px;">
                                                     {{ 'بداية ال' + ad.infoArray.dealsOrAuction }}</span>
-                                                <Countdown :deadline="ad.startdate" :showLabels="false"
+                                                <Countdown :deadline="ad.deadline" :showLabels="false"
                                                     :mainFlipBackgroundColor="ad.infoArray.dealsOrAuction == 'مزاد' ? '#d7a358' : '#019aa2'"
                                                     :secondFlipBackgroundColor="ad.infoArray.dealsOrAuction == 'مزاد' ? '#d7a358' : '#019aa2'"
                                                     countdownSize="1.1rem" mainColor="#ffff" />
@@ -69,11 +69,11 @@
                                                 <router-link :to="{ name: 'details', params: { projectId: ad.id } }">
                                                     <span style="color: #019aa2;"> {{ ad.title }} </span>
                                                 </router-link>
-                                                <p class="mt-2" style="color: rgb(87 83 77);">{{ ad.description }}</p>
+                                                <p class="mt-2" style="color: rgb(87 83 77);">{{ ad.BriefDescription }}</p>
                                             </div>
                                             <div class="col-md-4 mt-1 lg-counter">
 
-                                                <Countdown :deadline="ad.startdate" :showLabels="false"
+                                                <Countdown :deadline="ad.deadline" :showLabels="false"
                                                     :mainFlipBackgroundColor="ad.infoArray.dealsOrAuction == 'مزاد' ? '#d7a358' : '#019aa2'"
                                                     :secondFlipBackgroundColor="ad.infoArray.dealsOrAuction == 'مزاد' ? '#d7a358' : '#019aa2'"
                                                     countdownSize="1.1rem" mainColor="#ffff" />

@@ -95,11 +95,17 @@
                                                     @endif
                                                     @if(method_exists( $item, 'showRelation'))
                                                     <td>
+                                                        @if ($model=='Section' && $item['name']=='job')
+                                                        <a href="{{route('Item',['model'=>'TypeEmployment' ])}}" 
+                                                            class="btn btn-outline-primary">
+                                                            {{ __('backend.View Jobs') }}
+                                                        </a>
+                                                        @else
                                                         <a href="{{route('Item',['model'=>$item->showRelation(),'id'=>$item->id ])}}" 
                                                             class="btn btn-outline-primary">
                                                             {{ __('backend.Show'.$item->showRelation() ) }}
                                                         </a>
-                                                    
+                                                        @endif
                                                     </td>
                                                     @endif
                                                     <td class="text-center">

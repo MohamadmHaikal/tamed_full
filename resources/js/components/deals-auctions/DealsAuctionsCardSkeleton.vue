@@ -8,19 +8,19 @@
                             style="width: 100%;    border-radius: 20px;border-color: #c1c1c1;border-top-color: #ffffff;border-width: 1px;border-left-color: #ffffff;padding: 8px 19px 11px 4px;">
                         <i class='fas fa-search' style="right: 85%;bottom: 48%;color: #b7b7b7;position: relative;"></i>
                     </div>
-                    <div class="col-md-2  text-center btn-filter"><a href="/login" class="btn btn-logo"
+                    <div class="col-md-2  text-center btn-filter"><a href="javascript:void(0);" class="btn btn-logo"
                             style="border-radius: 25px;background-color: #ffffff;border: 1px solid #019aa2;color: #019aa2; padding: 7px 20px 7px 20px;">
                             جميع المزادات / الصفقات </a></div>
-                    <div class="col-md-2 text-center btn-filter"><a href="/login" class="btn btn-logo"
+                    <div class="col-md-2 text-center btn-filter"><a href="javascript:void(0);" class="btn btn-logo"
                             style="border-radius: 25px;background-color: #9fcf95;color: white;padding: 7px 42px 7px 42px;">مزادات
                             قائمة </a></div>
-                    <div class="col-md-2  text-center btn-filter"><a href="/login" class="btn btn-logo"
+                    <div class="col-md-2  text-center btn-filter"><a href="javascript:void(0);" class="btn btn-logo"
                             style="border-radius: 25px;background-color: #ffffff;border: 1px solid #fba534;color: #fba534; padding: 7px 42px 7px 42px;">
                             مزادات قريبة </a></div>
-                    <div class="col-md-2 text-center btn-filter"><a href="/login" class="btn btn-logo"
+                    <div class="col-md-2 text-center btn-filter"><a href="javascript:void(0);" class="btn btn-logo"
                             style="border-radius: 25px; background-color: #ffffff;border: 1px solid #019aa2;color: #019aa2; padding: 7px 42px 7px 42px; btn-filter">
                             جميع الصفقات </a></div>
-                    <div class="col-md-2 text-center"><a href="/login" class="btn btn-logo"
+                    <div class="col-md-2 text-center"><a href="javascript:void(0);" class="btn btn-logo"
                             style="border-radius: 25px;background-color: #039ca4;color: white;padding: 7px 42px 7px 42px;">بحث
                             متقدم </a></div>
                 </div>

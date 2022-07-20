@@ -35,7 +35,7 @@ use App\Http\Controllers\UserController;
 Route::get('/dashboard', [DashboardController::class,'index'])->middleware('LanguageSwitcher', 'auth:customer')->name('dashboard');
 Route::post('store-file', [FileController::class, 'store']);
 
-Route::get('login', [AuthController::class, 'Login'])->middleware('is_login:customer')->name('login.switch');
+Route::get('login', [AuthController::class, 'Login'])->middleware('has_auth','is_login:customer')->name('login.switch');
 
 Route::group(['prefix' => 'Business', 'middleware' => ['LanguageSwitcher']], function () {
     Route::post('checkCardToReset', [AuthMangerController::class, 'checkCardToReset'])->name('Business.checkCardToReset');
@@ -187,7 +187,11 @@ Route::group(['prefix' => 'Quotes', 'middleware' => ['LanguageSwitcher','auth:cu
 //Deals Auctions route
 Route::group(['prefix' => 'DealsAuctions', 'middleware' => ['LanguageSwitcher','auth:customer']], function () {
     Route::get('/get_invoice/{id}', 'App\Http\Controllers\Dashboard\DealsAuctionsController@get_invoice')->name('get_invoice');
-
+    Route::get('/change_status/{id}/{status}', 'App\Http\Controllers\Dashboard\DealsAuctionsController@change_status')->name('change_status');
+    Route::get('/show/{id}', 'App\Http\Controllers\Dashboard\DealsAuctionsController@show')->name('show');
+    Route::post('/createInvoice', 'App\Http\Controllers\Dashboard\DealsAuctionsController@createInvoice')->name('createInvoice');
+    Route::post('/updateNegotiate', 'App\Http\Controllers\Dashboard\DealsAuctionsController@updateNegotiate')->name('updateNegotiate');
+    
     Route::get('/{source}/{filter?}', 'App\Http\Controllers\Dashboard\DealsAuctionsController@index')->name('DealsAuctions');
 });
 
@@ -271,6 +275,9 @@ Route::post('get-list-item', [OptionController::class, '_getListItem'])->name('g
         Route::get('/deleteFile/{id}','AdsController@deleteFile')->name('deleteFile');
         Route::get('/deleteADS/{id}','AdsController@delete')->name('delete');
         Route::post('/updateADS/{id}','AdsController@update')->name('update');
+        Route::post('/uploadFile','AdsController@uploadFile')->name('uploadFile');
+        Route::post('/removeFile/{id}','AdsController@removeFile')->name('removeFile');
+        Route::get('/ads/{id}','AdsController@show')->name('showAds');
 
     });
     Route::group(['prefix' => 'project'], function () {

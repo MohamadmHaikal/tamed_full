@@ -57,8 +57,8 @@ $("#updateProfile").click(function () {
     fd.append('TaxNumber', $("[name='TaxNumber']").val());
     fd.append('city', $("[name='city']").val());
     fd.append('neighbor', $("[name='Neighborhood']").val());
-    fd.append('activitie_id', $("[name='facility_activity']").val());
-
+    fd.append('activitie_id', $("[name='facility_activity']").val()); 
+    fd.append('type_id', $("[name='facility_type']").val()); 
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -299,7 +299,7 @@ $(window).on('load', function () {
 
 
             }
-            document.getElementById("facility_activity").innerHTML = options_str;
+          //  document.getElementById("facility_activity").innerHTML = options_str;
 
         },
         error: function (data) {
@@ -371,7 +371,7 @@ $(window).on('load', function () {
 
 
             }
-            document.getElementById("Neighborhood").innerHTML = options_str;
+            //document.getElementById("Neighborhood").innerHTML = options_str;
 
         },
         error: function (data) {
@@ -407,7 +407,7 @@ $('#city').change(function () {
 
 
             }
-            document.getElementById("Neighborhood").innerHTML = options_str;
+           // document.getElementById("Neighborhood").innerHTML = options_str;
 
         },
         error: function (data) {
@@ -416,7 +416,7 @@ $('#city').change(function () {
     });
 });
 $('#facility_type').change(function () {
-    document.getElementById('subActivity').innerHTML='';
+   
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -439,7 +439,7 @@ $('#facility_type').change(function () {
 
 
             }
-            document.getElementById("facility_activity").innerHTML = options_str;
+           // document.getElementById("facility_activity").innerHTML = options_str;
 
         },
         error: function (data) {
@@ -449,6 +449,7 @@ $('#facility_type').change(function () {
 });
 
 $('#facility_activity').change(function () {
+    document.getElementById('subActivity').innerHTML='';
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

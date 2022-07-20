@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'LanguageSwitcher' => \App\Http\Middleware\LanguageSwitcher::class,
         'is_login' => \App\Http\Middleware\IsLoginMiddleware::class,
         'is_verified' => \App\Http\Middleware\IsVerified::class,
+        'has_auth' => \App\Http\Middleware\HasAuth::class,
     ];
 }

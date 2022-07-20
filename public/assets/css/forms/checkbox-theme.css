@@ -207,8 +207,8 @@
     display: block; 
 }
 .checkbox > span {
-    height: 18px;
-    width: 18px; 
+    height: 22px;
+    width: 22px; 
 }
 .checkbox > span:after {
     width: 5px;
@@ -246,7 +246,7 @@
     border: 1px solid transparent;
 }
 .checkbox > input:checked ~ span {
-    background-color: #3699ff;
+    background-color: #039ca5;
 }
 .checkbox > input:checked ~ span:after {
     border-color: #ffffff;
@@ -634,7 +634,7 @@
     flex-wrap: wrap;
 }
 .checkbox-inline .checkbox {
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
     margin-bottom: 0.35rem;
 }
 .checkbox-inline .checkbox span {

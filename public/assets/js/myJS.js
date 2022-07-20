@@ -723,16 +723,23 @@ $(".QuotesDetails").click(function () {
                 + '</div>'
                 + '<p style="color:gray;">المشروع المقدم إليه</p>'
                 + '<p style="color:blue;">' + data['name'] + ' </p>'
-                + ' <div class="col-md-12"> <div class="form-group text-center"><label for="aboutBio">ملاحظات</label> <textarea id="aboutBio" class="form-control" name="description" rows="5" disabled>' + data['note'] + '</textarea><a href="/images/' + data['file'] + '" download><button class="btn btn-outline-primary btn-rounded mt-3" style="padding:7px;">تحميل ملف عرض السعر</button></a> </div></div>'
+                + ' <div class="col-md-12"> <div class="form-group text-center"><label for="aboutBio">ملاحظات</label> <textarea id="aboutBio" class="form-control" name="description" rows="5" disabled>' + data['note'] + '</textarea><a href="/images/' + data['file'] + '" download><button class="btn btn-outline-primary btn-rounded qoutes-file-download mt-3" style="padding:7px;">تحميل ملف عرض السعر</button></a> </div></div>'
                 + '</div><div class="modal-footer" style="display: initial;"></div></div></div></div></div>');
-            if (data['status'] == 'new') {
+            if (data['status'] == 'new' && data['owner'] == false) {
                 $(".modal-footer").html('<div class="row text-center"> <div class="col-md-6"><button type="button" data-action="waiting"  class="btn  btn-success btn-rounded quotes-action">' + window.translation.Accepttheoffer + '</button></div><div class="col-md-6"><button type="button" data-action="rejected"  class="btn btn-danger btn-rounded quotes-action">' + window.translation.offerrejected + '</button></div></div> ');
+
+            }
+            if (data['status'] == 'new' && data['owner'] == true) {
+                $(".modal-footer").html('<div class="row text-center"> <div class="col-md-6"><button type="button" data-action="waiting"  class="btn  btn-warning btn-rounded">' + window.translation.waitingForAcceptance + '</button></div><div class="col-md-6"><button type="button"  class="btn btn-danger btn-rounded ">' + window.translation.offerrejected + '</button></div></div> ');
 
             }
             if (data['status'] == 'waiting') {
 
                 $(".modal-footer").html('<div class="row text-center"><div class="col-md-6"><a href="/ElectronicContracts/create?ads_id='+data['ads_id']+'&quotes_id='+data['id']+'"> <button type="button"  class="btn  btn-success btn-rounded ">إنشاء عقد</button></a></div> <div class="col-md-6"><button type="button" data-action="rejected"  class="btn btn-danger btn-rounded quotes-action">إلغاء العرض</button></div></div> ');
 
+            }
+            if(data['file']==''){
+                $('.qoutes-file-download').hide();
             }
             $('.quotes-action').click(function () {
                 $(this).attr('disabled', 'disabled');

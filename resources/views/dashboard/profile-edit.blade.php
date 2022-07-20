@@ -16,7 +16,8 @@
     $projects = get_current_user_projects();
     $cities = get_cities();
     $userType = get_users_type();
-    $curentType = get_facility_type($user->activitie_id);
+    $curentType = get_facility_type($user->type_id);
+    $allActivity=get_all_activity();
     ?>
     <!--  Navbar Starts / Breadcrumb Area  -->
     <div class="sub-header-container">
@@ -159,10 +160,12 @@
                                                                         for="country">{{ __('backend.facility type') }}</label>
                                                                     <select class="form-control" name="facility_type"
                                                                         id="facility_type"
-                                                                        data-now="{{ $curentType->id }}"
+                                                                        data-now="{{ $curentType }}"
                                                                         data-current="{{ $user->activitie_id }}">
+                                                                        <option value="">
+                                                                        </option>
                                                                         @foreach ($userType as $type)
-                                                                            @if ($curentType->id == $type->id)
+                                                                            @if ($user->type_id == $type->id)
                                                                                 <option value="{{ $type->id }}"
                                                                                     selected>
                                                                                     {{ $type->name }}
@@ -183,7 +186,18 @@
                                                                         for="country">{{ __('backend.facility activity') }}</label>
                                                                     <select class="form-control" name="facility_activity"
                                                                         id="facility_activity">
-
+                                                                        @foreach ($allActivity as $item)
+                                                                        @if ($user->activitie_id == $item->id)
+                                                                            <option value="{{ $item->id }}"
+                                                                                selected>
+                                                                                {{ $item->name }}
+                                                                            </option>
+                                                                        @else
+                                                                            <option value="{{ $item->id }}">
+                                                                                {{ $item->name }}
+                                                                            </option>
+                                                                        @endif
+                                                                    @endforeach
 
                                                                     </select>
                                                                 </div>
@@ -255,12 +269,16 @@
                                                                     <div class="form-group">
                                                                         <label
                                                                             for="country">{{ __('backend.Neighborhood') }}</label>
-                                                                        <select class="form-control" name="Neighborhood"
+                                                                        {{-- <select class="form-control" name="Neighborhood"
                                                                             id="Neighborhood">
 
 
 
-                                                                        </select>
+                                                                        </select> --}}
+                                                                        <input type="text" class="form-control mb-4"
+                                                                            name="Neighborhood"
+                                                                            placeholder="{{ __('backend.Neighborhood') }}"
+                                                                            value="{{ $user->neighborhood }}">
                                                                     </div>
                                                                 </div>
 

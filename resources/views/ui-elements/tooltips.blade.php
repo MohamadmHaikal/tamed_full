@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="widget-content widget-content-area">
                                         <button type="button" class="btn btn-success mb-2 rounded bs-tooltip" data-placement="top" title="{__('Tooltip on top')}}">
-                                            {{__('Top')}}
+                                            {{__('Top')}} 
                                         </button>
                                         <button type="button" class="btn btn-danger mb-2 rounded bs-tooltip" data-placement="right" title="{__('Tooltip on right')}}">
                                             {{__('Right')}}

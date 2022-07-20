@@ -27,7 +27,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mt-2">
-                                    <div class="row">
+                                    <div class="row align-items-center">
                                         <div class="col-md-1 col-1">
                                             <i class="fa fa-info-circle"></i>
                                         </div>
@@ -88,13 +88,7 @@
                                     </div>
                                     <div class="second-section">
                                         <div class="row text-end mt-4">
-                                            <div class="col-md-4 col-4">
-                                                <a href="#" class="salary sk-salary">
-                                                    <span class="text" style="color:#f6f7f8">الراتب </span>
-                                                    <span class="number" style="color:#f6f7f8"> 3,500 ريال</span>
-
-                                                </a>
-                                            </div>
+                                           
                                             <div class="col-md-3 col-4">
                                                 <a href="#" class="contract-type sk-type ">
                                                     دوام
@@ -147,13 +141,7 @@
                                     </div>
                                     <div class="second-section">
                                         <div class="row text-end mt-4">
-                                            <div class="col-md-4 col-4">
-                                                <a href="#" class="salary sk-salary">
-                                                    <span class="text" style="color:#f6f7f8">الراتب </span>
-                                                    <span class="number" style="color:#f6f7f8"> 3,500 ريال</span>
-
-                                                </a>
-                                            </div>
+                                           
                                             <div class="col-md-3 col-4">
                                                 <a href="#" class="contract-type sk-type ">
                                                     دوام
@@ -206,13 +194,7 @@
                                     </div>
                                     <div class="second-section">
                                         <div class="row text-end mt-4">
-                                            <div class="col-md-4 col-4">
-                                                <a href="#" class="salary sk-salary">
-                                                    <span class="text" style="color:#f6f7f8">الراتب </span>
-                                                    <span class="number" style="color:#f6f7f8"> 3,500 ريال</span>
-
-                                                </a>
-                                            </div>
+                                            
                                             <div class="col-md-3 col-4">
                                                 <a href="#" class="contract-type sk-type ">
                                                     دوام
@@ -265,13 +247,7 @@
                                     </div>
                                     <div class="second-section">
                                         <div class="row text-end mt-4">
-                                            <div class="col-md-4 col-4">
-                                                <a href="#" class="salary sk-salary">
-                                                    <span class="text" style="color:#f6f7f8">الراتب </span>
-                                                    <span class="number" style="color:#f6f7f8"> 3,500 ريال</span>
-
-                                                </a>
-                                            </div>
+                                            
                                             <div class="col-md-3 col-4">
                                                 <a href="#" class="contract-type sk-type ">
                                                     دوام
@@ -324,13 +300,7 @@
                                     </div>
                                     <div class="second-section">
                                         <div class="row text-end mt-4">
-                                            <div class="col-md-4 col-4">
-                                                <a href="#" class="salary sk-salary">
-                                                    <span class="text" style="color:#f6f7f8">الراتب </span>
-                                                    <span class="number" style="color:#f6f7f8"> 3,500 ريال</span>
-
-                                                </a>
-                                            </div>
+                                           
                                             <div class="col-md-3 col-4">
                                                 <a href="#" class="contract-type sk-type ">
                                                     دوام
@@ -347,7 +317,7 @@
                                         <p class="description sk-type ">
                                             مطلوب عمال بناء في الرياض من جميع الجنسيات شرط نقل الكفالة او عقد اجير......
                                         </p>
-                                        <p class="since sk-type ">
+                                        <p class="since sk-type ">  
                                             منذ يوم
                                         </p>
                                     </div>

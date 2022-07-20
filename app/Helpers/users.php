@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\ChMessage;
+use App\Models\City;
 use App\Models\Neighborhood;
 use App\Models\Notification;
 use App\Models\User;
@@ -180,10 +181,11 @@ function get_current_user_data()
 {
     return Sentinel::getUser();
 }
-function get_location_by_id($id)
-{
-    $neighbor = Neighborhood::find($id);
-    return $neighbor->relation->name . ' , ' . $neighbor->name;
+function get_location_by_id($user)
+{   $neigh = $user->neighborhood;
+    $city = City::find($user->city_id);
+    if($city!=null){ $city= $city->name;}
+    return $city . ' , ' . $neigh;
 }
 function get_user_by_id($user_id)
 {

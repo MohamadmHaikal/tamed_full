@@ -62,7 +62,7 @@
 
 
                                     <table class="table table-sm mb-0"
-                                        style="width:50%; border: 1px solid #dee2e6; background-color: #f6f7f8;">
+                                        style="width:50%; border: 1px solid #dee2e6; background-color: #f5f5f585;">
 
                                         <tbody>
                                             <tr>
@@ -172,7 +172,7 @@
                                                                 <div class="form-group">
 
                                                                     <button
-                                                                        class="btn btn-secondary btn-lg btn btn-secondary btn-rounded send-message-support"
+                                                                        class="btn btn-success  btn-lg btn btn-success  btn-rounded send-message-support"
                                                                         data-id="{{ $report->id }}"
                                                                         style="margin-top: 7%; height: 43px; ">{{ __('frontend.sendComment') }}</button>
 

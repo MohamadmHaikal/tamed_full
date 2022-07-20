@@ -10,8 +10,9 @@
                                 <router-link to="/" style="text-align: right;"><img
                                         src="../../assets/images/tamed-1.png" alt="logo" style="width: 50%; ">
                                 </router-link>
-                                <p>منصة تعميد منصة وطنية خدمية تم إنشائها لتقديم حلول متكاملة لقطاع التشيد والبناء
-                                    والمصانع من طالبي الخدمات ومورين ومنفذين المشاريع في المملكةالعربية السعودية بنظام
+                                <p>منصة تعميد لخدمات الأعمال بسجل تجاري رقم (1010811943) هي منصة خدمية للمنشآت والخدمات
+                                    التسويقية بالنيابة عن الغير تم إنشائها لتقديم حلول متكاملة لقطاع التشيد والبناء
+                                    والمصانع من طالبي الخدمات ومورين ومنفذين المشاريع في المملكة العربية السعودية بنظام
                                     سلس وسهل</p>
                             </div>
 
@@ -25,14 +26,17 @@
 
                             <ul class="list">
                                 <li>
-                                    <a href="javascript:void(0);">إنشاء عقد الكتروني</a>
+                                    <a href="/login"> تسجيل حساب جديد </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">إنشاء الفواتير</a>
+                                    <a href="/blog/contracts">إنشاء عقد الكتروني</a>
                                 </li>
                                 <li>
+                                    <a href="/blog/contracts">إنشاء الفواتير</a>
+                                </li>
+                                <!-- <li>
                                     <a href="javascript:void(0);">طلب تمويل عقد <span>قريباً</span></a>
-                                </li>
+                                </li> -->
 
                             </ul>
                         </div>
@@ -48,7 +52,7 @@
                                             <router-link to="/projects">المشاريع</router-link>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0);">المواد</a>
+                                            <router-link to="/factory-materials">المواد</router-link>
                                         </li>
                                         <li>
                                             <router-link to="/DealsAuctions">الصفقات / المزادات</router-link>
@@ -59,13 +63,13 @@
                                 <div class="col-md-6">
                                     <ul class="list">
                                         <li>
-                                            <a href="javascript:void(0);">الوظائف</a>
+                                            <router-link to="/jobs">الوظائف</router-link>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0);">المعدات</a>
+                                            <router-link to="/equipment">المعدات</router-link>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0);">مكاتب هندسية <span>قريباً</span>
+                                            <a href="javascript:void(0);">مكاتب هندسية <span style="color: #039ca5;">قريباً</span>
                                             </a>
                                         </li>
 
@@ -87,9 +91,12 @@
                                 </li>
                                 <li><span><i class="fas fa-envelope" style="font-size: 20px;    color: #62c1b6;"></i>
                                         &nbsp;</span>
-                                    support@tamedksa.com
+                                   tsf@tamed.sa ( أعمال )
                                 </li>
-
+                                <li><span><i class="fas fa-envelope" style="font-size: 20px;    color: #62c1b6;"></i>
+                                        &nbsp;</span>
+                                    tsi@tamed.sa ( أفراد )
+                                </li>
                             </ul>
                         </div>
                     </div>

@@ -405,9 +405,9 @@
                                                                     <div class="text-center mt-5">
                                                                         <p class="mb-2 text-muted font-20">
                                                                             {{ __('backend.net value added') }}</p>
-                                                                        <h4 class="stronger">
-                                                                            {{ $date != '' ? number_format((((Received($date) - Paid($date)))-((Received($date) - Paid($date))/1.15)),2,",",".") : number_format((((Received() - Paid()))-((Received() - Paid())/1.15)),2,",",".") }}
-                                                                            {{ __('backend.Rial') }}</h4>
+                                                                            <h4 class="stronger">
+                                                                                {{ $date != '' ? number_format((((Received($date) - Paid($date))/1.15)*0.15),2,",",".")  : number_format((((Received() - Paid())/1.15)*0.15),2,",",".") }}
+                                                                                {{ __('backend.Rial') }}</h4>
 
                                                                     </div>
 

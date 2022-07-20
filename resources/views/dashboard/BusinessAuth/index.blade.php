@@ -304,12 +304,15 @@
                                                                             <div class="form-group">
                                                                                 <label
                                                                                     for="country">{{ __('backend.Neighborhood') }}</label>
-                                                                                <select class="form-control"
+                                                                                {{-- <select class="form-control"
                                                                                     name="Neighborhood" id="Neighborhood">
 
 
 
-                                                                                </select>
+                                                                                </select> --}}
+                                                                                 <input type="text" class="form-control mb-4 "
+                                                                                placeholder="{{ __('backend.neighborhood') }}"
+                                                                                name="Neighborhood">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -376,7 +379,7 @@
                                                                 <div class=" text-center img-thumbnail">
                                                                     <input type="file" id="UploadLogo"
                                                                         class="dropify"
-                                                                        data-default-file="{{url('https://tamedksa.com/assets/img/avatar.png') }}"
+                                                                        data-default-file="{{url('assets/img/avatar.png') }}"
                                                                         data-max-file-size="2M" name="logo" />
                                                                     <p class="mt-2"><i
                                                                             class="flaticon-cloud-upload mr-1"></i>

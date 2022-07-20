@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="about-area pb-70">
-            <div class="containp container">
+            <div class="containp1 container">
 
                 <div class="mt-2" style="text-align: -webkit-center;">
-                    <div class="col-md-9 col-sm-12 mt-3 text-center">
+                    <div class="col-md-12 col-sm-12 mt-3 text-center">
                         <div class="ref-header">
                             <h3 class="title mt-5 mb-3">{{ ads.title }}</h3>
                             <span class="ref-header" style="color: #019aa2;    font-size: 14px;"> الرقم المرجعي:</span>
@@ -79,8 +79,7 @@
                                         class="view-gallery item-link">
                                         <img alt=""
                                             srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
-                                            src="../../assets/images/photos.svg" decoding="async"
-                                            data-nimg="intrinsic">
+                                            src="../../assets/images/photos.svg" decoding="async" data-nimg="intrinsic">
                                         <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
@@ -138,15 +137,20 @@
                                 style=" position: relative; Height: 30%;Overflow: hidden;">
                                 <div class="controls">
                                     <a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                        class="view-gallery item-link"
-                                        style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                        <span>عرض كل الصور</span>
+                                        class="view-gallery item-link">
+                                        <img alt=""
+                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                            src="../../assets/images/photos.svg" decoding="async" data-nimg="intrinsic">
+                                        <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
                                     <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                            class="view-gallery item-link"
-                                            style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                            <span>عرض كل الفيديوهات</span>
+                                            class="view-gallery item-link">
+                                            <img alt=""
+                                                srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                                src="../../assets/images/photos.svg" decoding="async"
+                                                data-nimg="intrinsic">
+                                            <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -187,15 +191,20 @@
                                 style=" position: relative; Height: 30%;Overflow: hidden;">
                                 <div class="controls">
                                     <a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                        class="view-gallery item-link"
-                                        style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                        <span>عرض كل الصور</span>
+                                        class="view-gallery item-link">
+                                        <img alt=""
+                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                            src="../../assets/images/photos.svg" decoding="async" data-nimg="intrinsic">
+                                        <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
                                     <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                            class="view-gallery item-link"
-                                            style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                            <span>عرض كل الفيديوهات</span>
+                                            class="view-gallery item-link">
+                                            <img alt=""
+                                                srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                                src="../../assets/images/photos.svg" decoding="async"
+                                                data-nimg="intrinsic">
+                                            <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -230,15 +239,20 @@
                                 style=" position: relative; Height: 30%;Overflow: hidden;">
                                 <div class="controls">
                                     <a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                        class="view-gallery item-link"
-                                        style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                        <span>عرض كل الصور</span>
+                                        class="view-gallery item-link">
+                                        <img alt=""
+                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                            src="../../assets/images/photos.svg" decoding="async" data-nimg="intrinsic">
+                                        <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
                                     <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                            class="view-gallery item-link"
-                                            style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                            <span>عرض كل الفيديوهات</span>
+                                            class="view-gallery item-link">
+                                            <img alt=""
+                                                srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                                src="../../assets/images/photos.svg" decoding="async"
+                                                data-nimg="intrinsic">
+                                            <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -262,15 +276,20 @@
                                 style=" position: relative;  Height: 30%;Overflow: hidden;">
                                 <div class="controls">
                                     <a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                        class="view-gallery item-link"
-                                        style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                        <span>عرض كل الصور</span>
+                                        class="view-gallery item-link">
+                                        <img alt=""
+                                            srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                            src="../../assets/images/photos.svg" decoding="async" data-nimg="intrinsic">
+                                        <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
                                     <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                            class="view-gallery item-link"
-                                            style="  margin-right: 5px;  background: #eee; border-radius: 3px; font-size: 13px;font-weight: 500;padding: 5px 10px;color: #333;display: flex;align-items: center;">
-                                            <span>عرض كل الفيديوهات</span>
+                                            class="view-gallery item-link">
+                                            <img alt=""
+                                                srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
+                                                src="../../assets/images/photos.svg" decoding="async"
+                                                data-nimg="intrinsic">
+                                            <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -292,8 +311,7 @@
                                         class="view-gallery item-link">
                                         <img alt=""
                                             srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
-                                            src="../../assets/images/photos.svg" decoding="async"
-                                            data-nimg="intrinsic">
+                                            src="../../assets/images/photos.svg" decoding="async" data-nimg="intrinsic">
                                         <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
@@ -302,7 +320,8 @@
                                             <img alt=""
                                                 srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
                                                 src="../../assets/images/photos.svg" decoding="async"
-                                                data-nimg="intrinsic"> <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
+                                                data-nimg="intrinsic"> <span style="padding-right: 5px;">عرض كل
+                                                الفيديوهات</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -317,17 +336,18 @@
 
 
                             </div>
-                            <div id="myModal" class="modal" style=" padding-top: 130px;background-color: black;">
+                            <div id="myModal" class="modal" style=" padding-top: 130px;background-color: black;"
+                                @click="closeModal()">
                                 <span class="close cursor" @click="closeModal()"
                                     style=" cursor: pointer; color: #999;position: fixed;top: 10px;right: 25px;font-size: 35px;font-weight: bold;">&times;</span>
-                                <div class="modal-content"
+                                <div class="modal-content" @click.stop=""
                                     style="position: relative;background-color: #fefefe;margin: auto; padding: 0; width: 60%; max-width: 1200px;    height: 80%;    direction: ltr;">
 
                                     <div v-for="i in AllImage.length" :key="i" class="mySlides">
                                         <div class="numbertext"
                                             style="font-size: 18px; color: #999;padding: 8px 12px;position: fixed;top: 10px; left: 60px;">
                                             {{ i }} / {{ AllImage.length }}</div>
-                                        <img :src="'/image/' + AllImage[i - 1].file" style=" width: 100%;height: 100%;">
+                                        <img :src="'/image/' + AllImage[i - 1].file">
                                         <a class="close cursor" href="" :download="'/image/' + AllImage[i - 1].file"
                                             style="cursor: pointer; color: #999; position: fixed; top: 22px;right: 100px; font-size: 18px;"><i
                                                 class="fa fa-download"></i></a>
@@ -343,10 +363,10 @@
 
                 </div> -->
                                     <a class="next" @click="plusSlides(-1)"
-                                        style=" right: 0; border-radius: 3px 0 0 3px;background-color: rgba(0, 0, 0, 0.5); cursor: pointer;position: fixed;top: 50%;width: auto; padding: 16px; margin-top: -50px; color: white; font-weight: bold; font-size: 20px;transition: 0.6s ease; border-radius: 0 3px 3px 0;user-select: none;-webkit-user-select: none;"><i
+                                        style=" right: 0; border-radius: 3px 0 0 3px;background-color: rgba(0, 0, 0, 0.5); cursor: pointer;position: fixed;top: 50%;width: auto; padding: 16px; color: white; font-weight: bold; font-size: 20px;transition: 0.6s ease; border-radius: 0 3px 3px 0;user-select: none;-webkit-user-select: none;"><i
                                             class="fa fa-arrow-right"></i></a>
                                     <a class="prev" @click="plusSlides(1)"
-                                        style="top: 50%;font-size: 22px;left: 10px; cursor: pointer; position: fixed;width: auto; padding: 16px; margin-top: -50px; color: white;font-weight: bold; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none; -webkit-user-select: none; "><i
+                                        style="top: 50%;font-size: 22px;left: 10px; cursor: pointer; position: fixed;width: auto; padding: 16px;  color: white;font-weight: bold; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none; -webkit-user-select: none; "><i
                                             class="fa fa-arrow-left"></i></a>
 
                                 </div>
@@ -369,14 +389,14 @@
                         <div class="row" style="    padding-right: 0px; 
     padding-left: 0px;">
                             <div class="col-md-7  col-sm-12 text-end mt-3">
-                                <div  style="border-bottom: 1px solid rgb(238, 239, 241); padding-bottom: 10%;">
+                                <div style="border-bottom: 1px solid rgb(238, 239, 241); padding-bottom: 10%;">
 
                                     <h6 style="color:#0d0d0d ;padding-top: 5%; font-weight: 700;">الوصف</h6>
                                     <!-- <p style="max-width: 52ch; color: rgb(13, 13, 13);font-weight: 400;" >
                                         {{ ads.description }}</p> -->
-                                        <div id="description">
-                                        
-                                        </div>
+                                    <div id="description">
+
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-8  project-deadline">
@@ -494,65 +514,47 @@
                                             <h3 v-if="ads.type == 5" style="color:#000000">تحميل ملفات
                                                 ال{{ ads.infoArray.dealsOrAuction }}</h3>
                                             <h3 v-else style="color:#000000">تحميل ملفات المشروع</h3>
-                                            <table class="mt-5" style=" border-collapse: separate;border-spacing: 0;">
+                                            <div class="mt-5"
+                                                style="border: 1px solid rgb(204, 204, 204); border-radius: 25px; padding: 20px; padding-top: 0px;">
+                                                <div class="row mt-4">
+                                                    <div class="col-md-4 col-6 text-center"
+                                                        style="border-left: 1px solid #ccc;">
+                                                        <small style="">الكميات والمواصفات</small>
+                                                        <br>
+                                                        <br>
+                                                        <img src="../../assets/images/pdf.png" alt=""
+                                                            style="width: 70px;">
+                                                        <br>
+                                                        <br>
+                                                        <a href="javascript:void(0);"
+                                                            style="color: rgb(1, 154, 162);">حمل الأن</a>
+                                                    </div>
+                                                    <div class="col-md-4 col-6 text-center"
+                                                        style="border-left: 1px solid #ccc;">
+                                                        <small style="">تصاميم </small>
+                                                        <br>
+                                                        <br>
+                                                        <img src="../../assets/images/3d.png" alt=""
+                                                            style="width: 70px;">
+                                                        <br>
+                                                        <br>
+                                                       <a href="javascript:void(0);"
+                                                            style="color: rgb(1, 154, 162);">حمل الأن</a>
+                                                    </div>
+                                                    <div class="col-md-4 col-6 text-center">
+                                                        <small style=""> مخططات</small>
+                                                        <br>
+                                                        <br>
+                                                        <img src="../../assets/images/autoca.png" alt=""
+                                                            style="width: 70px;">
+                                                        <br>
+                                                        <br>
+                                                        <a href="javascript:void(0);"
+                                                            style="color: rgb(1, 154, 162);">حمل الأن</a>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                                <tr>
-                                                    <td
-                                                        style=" border-right: 1px solid #ccc; border-top: 1px solid #ccc; border-top-right-radius: 20px;">
-                                                        <div style="padding: 30px;"> <img class="files-img"
-                                                                src="../../assets/images/pdf.png" alt=""> <span
-                                                                style=" color:#019aa2;  padding-right: 2px;  font-size: 20px;">
-                                                                <a v-if="files['pdf'] == null"
-                                                                    href="javascript:void(0);"
-                                                                    class="files-text-download"
-                                                                    style=" color:#019aa2;">غير متوفر</a>
-                                                                <a v-else href="" class="files-text-download"
-                                                                    :download="'/image/' + files['pdf']"
-                                                                    style=" color:#019aa2;">تحميل</a>
-                                                            </span>
-                                                        </div>
-                                                    </td>
-                                                    <td
-                                                        style=" border-top: 1px solid #ccc;    border-left: 1px solid #ccc; border-right: 1px solid #ccc; border-top-left-radius: 20px;">
-                                                        <div style="padding: 30px;"><img
-                                                                src="../../assets/images/3d.png" alt=""
-                                                                class="files-img"> <span
-                                                                style=" color:#019aa2;  padding-right: 2px;  font-size: 20px;">
-                                                                <a href="javascript:void(0);"
-                                                                    class="files-text-download"
-                                                                    style=" color:#019aa2;">تحميل</a></span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td
-                                                        style="border-right: 1px solid #ccc;     border-bottom: 1px solid #ccc;   border-top: 1px solid #ccc; border-bottom-right-radius: 20px;">
-                                                        <div style="padding: 30px;"><img
-                                                                src="../../assets/images/Excel.png" alt=""
-                                                                class="files-img"> <span
-                                                                style=" color:#019aa2; padding-right: 2px;   font-size: 20px;">
-                                                                <a v-if="files['xlsx'] == null"
-                                                                    href="javascript:void(0);"
-                                                                    class="files-text-download"
-                                                                    style=" color:#019aa2;">غير متوفر</a>
-                                                                <a v-else href="" class="files-text-download"
-                                                                    :download="'/image/' + files['xlsx']"
-                                                                    style=" color:#019aa2;">تحميل</a>
-                                                            </span>
-                                                        </div>
-                                                    </td>
-                                                    <td style="border: 1px solid #ccc;border-bottom-left-radius: 20px;">
-                                                        <div style="padding: 30px;"><img
-                                                                src="../../assets/images/autoca.png" alt=""
-                                                                class="files-img"> <span
-                                                                style=" color:#019aa2;   padding-right: 2px; font-size: 20px;">
-                                                                <a href="javascript:void(0);"
-                                                                    class="files-text-download"
-                                                                    style=" color:#019aa2;">تحميل</a></span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
                                         </div>
 
                                         <div id="Tokyo" class="tabcontent">

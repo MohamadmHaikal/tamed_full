@@ -208,7 +208,7 @@ class Controller extends BaseController
         $file->FK = $fk;
         $file->file = $filename;
         $file->save();
-    
+    return $file->id;
 
         // return $this->sendJson([
         //     'status' => 1,

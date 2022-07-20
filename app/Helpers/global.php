@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Activitie;
+use App\Models\Ads;
 use App\Models\City;
 use App\Models\Neighborhood;
 use App\Models\File;
@@ -82,11 +83,12 @@ function getNeighborhoodById($id)
 {
     return Neighborhood::where('id', '=', $id)->first();
 }
-function getUserAddressByNeighborhoo($id)
+function getUserAddressByNeighborhoo($user)
 {
-    $neigh = Neighborhood::where('id', '=', $id)->first();
-    $city = City::find($neigh->city_id)->name;
-    return 'المملكة العربية السعودية' . ' , ' . $city . ' , ' . $neigh->name;
+    $neigh = $user->neighborhood;
+    $city = City::find($user->city_id);
+    if($city!=null){ $city= $city->name;}
+    return 'المملكة العربية السعودية' . ' , ' . $city . ' , ' . $neigh;
 }
 function getUserBymobile($id)
 {
@@ -891,24 +893,40 @@ function get_users_type()
 {
     return UserType::all();
 }
+function get_ads_by_id($id)
+{
+    return Ads::find($id)!=null?Ads::find($id):null;
+}
 function get_activity_id_by_user_type($id)
 {
-    return Activitie::where('type_id', '=', $id)->get();
+    return UserType::where('id','=',$id)->get();
 }
 function get_users_type_by_id($id)
 {
     return UserType::all();
 }
 function get_facility_type($id)
-{
-
-    $activity = Activitie::find($id);
-    return UserType::find($activity->type_id);
+{ $type=UserType::find($id);
+    return $type==null?null:$type->name;
 }
 function get_facility_activity($id)
 {
-
     return  Activitie::find($id);
+}
+function get_all_activity()
+{
+    return Activitie::all();
+}
+function get_ads_cover($id){
+$ads=Ads::find($id);
+$cover=explode(',', $ads->gallery)[0];
+$file= File::find($cover);
+return $file!=null? $file->file:null;
+
+}
+function get_ads_attachment($id){
+    $file= File::find($id);
+    return $file;
 }
 function page_title($is_dashboard = false)
 {

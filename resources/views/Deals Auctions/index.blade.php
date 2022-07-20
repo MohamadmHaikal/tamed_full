@@ -5,9 +5,14 @@
     {!! Html::style('plugins/table/datatable/dt-global_style.css') !!}
     {!! Html::style('plugins/notification/snackbar/snackbar.min.css') !!}
     {!! Html::style('assets/css/ui-elements/buttons.css') !!}
+    {!! Html::style('plugins/sweetalerts/sweetalert2.min.css') !!}
+{!! Html::style('plugins/sweetalerts/sweetalert.css') !!}
+{!! Html::style('assets/css/basic-ui/custom_sweetalert.css') !!}
 @endpush
 
+
 @section('content')
+
     <!--  Navbar Starts / Breadcrumb Area  -->
     <div class="sub-header-container">
         <header class="header navbar navbar-expand-sm">
@@ -56,7 +61,7 @@
                                         </div>
                                     </div>
                                     <div class="table-responsive mb-4">
-                                        <div class="widget-content widget-content-area text-center">
+                                        <div class="widget-content widget-content-area                                                                                                                                                                                                                                                                                              ">
                                             <div class="button-list">
                                                 <a href="{{ route('DealsAuctions', ['filter' => 'new', 'source' => $source]) }}">
                                                     <button type="button"
@@ -93,7 +98,7 @@
                                                     <th>{{ __('backend.type') }}</th>
                                                     <th>{{ __('backend.Date') }}</th>
                                                     <th>{{ __('backend.Price') }}</th>
-                                                    {{-- <th>{{ __('backend.Owners') }}</th> --}}
+                                                    <th>{{ __('backend.deserved amount') }}</th>
                                                     <th>{{ __('backend.offered') }}</th>
                                                     <th>{{ __('backend.status') }}</th>
                                                    
@@ -108,13 +113,29 @@
                                                     <td>{{  $item->ads->title }}</td>
                                                     <td>{{  $item->deals_date }}</td>
                                                     <td>{{  $item->price }}</td>
-                                                    {{-- <td>{{ get_user_by_id($item->from_id)->name }}</td> --}}
+                                                    @php
+                                                    $p=$item->price * 5 /100;
+                                                @endphp
+                                                    <td>{{  $p + (($p) * 15 / 100) }}</td>
                                                     <td>{{ get_user_by_id($item->to_id)->name  }}</td>
-                                                    <td>{{  __('backend.'.$item->status ) }}</td>
+                                                    @if ($item->status == 'waiting')
+                                                    <td style=" color: var(--orange);">{{  __('backend.'.$item->status ) }}</td>
+                                                    @elseif ($item->status == 'done')
+                                                    <td style="color: green">{{  __('backend.'.$item->status ) }}</td>
+                                                        
+                                                    @elseif ($item->status == 'rejected')
+                                                    <td style="color: red">{{  __('backend.'.$item->status ) }}</td>
+                                                    @else
+                                                    <td >{{  __('backend.'.$item->status ) }}</td>
+
+                                                    
+                                                    @endif
+                                                  
                                                     <td>
                                                         <a class="dropdown-item get_invoice"
                                                         data-id="{{  $item->id }}"
                                                         data-toggle="modal"
+                                                        style="color:#007697"
                                                         data-target="#modal-show-booking-invoice">
                                                             <i class="las  la-file-invoice font-30"></i></a>
                                                       
@@ -161,7 +182,7 @@
                         <div class="widget-content  tab-horizontal-line">
                             <ul class="nav nav-tabs  mb-3" id="animateLine" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="animated-underline-home-tab" data-toggle="tab" href="#animated-underline-home" role="tab" aria-controls="animated-underline-home" aria-selected="true"> {{__('backend.Invoices')}}</a>
+                                    <a class="nav-link " id="animated-underline-home-tab" data-toggle="tab" href="#animated-underline-home" role="tab" aria-controls="animated-underline-home" aria-selected="true"> {{__('backend.Invoices')}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="animated-underline-about-tab" data-toggle="tab" href="#animated-underline-about" role="tab" aria-controls="animated-underline-about" aria-selected="false"> {{__('backend.receipt photo')}}</a>
@@ -171,11 +192,11 @@
                                 </li>
                             </ul>
                             <div class="tab-content" id="animateLineContent-4">
-                                <div class="tab-pane fade show active" id="animated-underline-home" role="tabpanel" aria-labelledby="animated-underline-home-tab">
+                                <div class="tab-pane fade show " id="animated-underline-home" role="tabpanel" aria-labelledby="animated-underline-home-tab">
                         
                                 </div>
                                 <div class="tab-pane fade" id="animated-underline-about" role="tabpanel" aria-labelledby="animated-underline-about-tab">
-                                    <img src="{{ asset('images/recet.jpeg') }}" alt="" width="100%" height="100%" srcset="">
+                                   
                                   
                                 </div>
                                 <div class="tab-pane fade" id="negotiate" role="tabpanel" aria-labelledby="negotiate-tab">
@@ -194,9 +215,65 @@
    </div>
 </div>
 </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="uplodeRecipt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="{{ route('createInvoice') }}" method="POST" enctype="multipart/form-data"
+        class="form form-action">
+        @csrf
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ __('uploadRecipt') }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <input name="file" id="file" type="file"
+                        data-behaviour="custom-upload-input" value="multiple" onchange="readURL(this);" />
+                    <img id="blah" >
+                    <input type="hidden" name="deals" id="deals">
+        </div>
+        <div class="modal-footer">
+      
+          <input type="submit" class="btn btn-primary" value="Save changes">
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="newPrice" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form action="{{ route('updateNegotiate') }}" method="POST" enctype="multipart/form-data"
+            class="form form-action">
+            @csrf
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{__('backend.send new price')}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="">{{ __('new price') }}</label>
+                <input name="price"  type="text" class="form-control"/>
+                        
+                <input type="hidden" name="deals" id="dealsprice">
+            </div>
+            <div class="modal-footer">
+          
+              <input type="submit" class="btn btn-primary" value="Save changes">
+            </div>
+        </form>
+          </div>
+        </div>
+      </div>
+
 @endsection
 
 @push('plugin-scripts')
+{!! Html::script('plugins/sweetalerts/sweetalert2.min.js') !!}
+{!! Html::script('assets/js/basicui/sweet_alerts.js') !!}
     {!! Html::script('assets/js/loader.js') !!}
     {!! Html::script('plugins/table/datatable/datatables.js') !!}
     <!--  The following JS library files are loaded to use Copy CSV Excel Print Options-->
@@ -368,7 +445,11 @@
 
         
         $('.get_invoice').on('click', function(e) {
+            $('#animated-underline-home-tab').css('display','block');
+            $('#negotiate-tab').css('display','block');
+            $('#animated-underline-about-tab').css('display','block');
             $(document).find('#animated-underline-home').empty();
+            $(document).find('#animated-underline-about').empty();
             $(document).find('#negotiate').empty();
 
             var id = $(this).data('id');
@@ -380,10 +461,16 @@
             contentType: 'application/json',
             success: function (data) {
 
-                $(document).find('#animated-underline-home').append(`  
-                    <div class="item row align-items-center">
+                if (data.status == 'done') {
+                    $('#animated-underline-home-tab').addClass('active');
+                $('#animated-underline-home').addClass('show active');
+              
+
+                   $('#negotiate-tab').css('display','none');
+                 
+                        var d=`  <div class="item row align-items-center">
                                     <div class="col-md-4">
-                                        <h5 class="title">{{ __('backend.invoice number') }}</h5>
+                                        <label class="labelNAV">{{ __('backend.invoice number') }}</label>
                                     </div>
                                     <div class="col-md-8">
                                         <span>${data.inv.id}</span>
@@ -393,7 +480,7 @@
 
                                 <div class="item row align-items-center">
                                     <div class="col-md-4">
-                                        <h5 class="title">{{ __('backend.customer name') }}</h5>
+                                        <label class="labelNAV">{{ __('backend.customer name') }}</label>
                                     </div>
                                     <div class="col-md-8">
                                         <span>${data.inv.customer_name}</span>
@@ -403,7 +490,7 @@
 
                                 <div class="item row align-items-center">
                                     <div class="col-md-4">
-                                        <h5 class="title">{{ __('backend.Tax Number') }}</h5>
+                                        <label class="labelNAV">{{ __('backend.Tax Number') }}</label>
                                     </div>
                                     <div class="col-md-8">
                                         <span>${data.inv.TaxNumber}</span>
@@ -412,17 +499,24 @@
                                 </div>
                                 <div class="item row align-items-center">
                                     <div class="col-md-4">
-                                        <h5 class="title">{{ __('backend.status') }}</h5>
+                                        <label class="labelNAV">{{ __('backend.status') }}</label>
                                     </div>
-                                    <div class="col-md-8">
-                                        <span>${data.inv.status}</span>
+                                    <div class="col-md-8"> `
+                                        
+                                        if(data.inv.status =='un paid') {
+                                         d +=`<span style=" color: var(--orange);">${data.inv.status}</span>`
+                                        } else {
+                                            d +=` <span>${data.inv.status}</span>`
+                                        }
+                                        d +=`    
+                                      
                                     </div>
 
                                 </div>
 
                                 <div class="item row align-items-center">
                                     <div class="col-md-4">
-                                        <h5 class="title">{{ __('backend.Invoice date') }}</h5>
+                                        <label class="labelNAV">{{ __('backend.Invoice date') }}</label>
                                     </div>
                                     <div class="col-md-8">
                                         <span>${data.inv.invoice_date}</span>
@@ -433,65 +527,138 @@
                                 
                                 <a class="btn btn-success btn-rounded"
                                 target="_blank"
-                                                                    href="/eBills/show/${data.invoice_num} "
+                                                                    href="/DealsAuctions/show/${data.invoice_num} "
                                                                     role="button" aria-haspopup="true"
                                                                     aria-expanded="false">
                                                                     {{ __('backend.Invoice details') }}
-                                                                </a>`);
+                                                                </a>`;
+                                                                
+                                                                
+                $(document).find('#animated-underline-home').append(d);
+                $(document).find('#animated-underline-about').append(` <img src="{{ asset('image/${data.receipt_img} ') }}" alt="" width="100%" height="100%" srcset="">`);
+                
+            } else {
+                console.log(window.location.href.indexOf("issued") != -1);
+                   
+                $('#negotiate-tab').addClass('active');
+                $('#negotiate').addClass('show active');
+                $('#animated-underline-home-tab').css('display','none');
+                   $('#animated-underline-about-tab').css('display','none');
 
-                                $(document).find('#negotiate').append(` 
-                    <div class="item row align-items-center">
-                                    <div class="col-md-4">
-                                        <h5 class="title">{{ __('backend.Order number') }}</h5>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <span>${data.refernce_num}</span>
-                                    </div>
+                
+           var x=     '<div class="text-center"<p>مقدم الطلب : ' + data.customer.name + ' </p>';                                                                                                                                                                                    
+               x += '<a href="/profile/' + data.customer.id + '/details"><button class="btn btn-outline-dark btn-rounded mt-2" style="padding:7px;">مشاهدة الملف الشخصي</button></a></div>';
+               x += '<div class="text-left mt-3 mr-2">';
+               x += '<p class="text-left mt-3">المناقصة : ' + data.ads.title + ' </p>';
+               x += '<p class="text-left mt-3"> السعر الاساسي : (' + data.ads.price + ') </p>';
+               x += '<p class="text-left mt-3"> السعر المقدم: ' + data.price + ' </p></div>';
+               x += ' <div class="col-md-12"> <div class="form-group text-center"><label for="aboutBio">ملاحظات</label> <textarea id="aboutBio" class="form-control" name="description" rows="5" disabled>' + data.negotiate_note + '</textarea> </div></div>';
+                if (window.location.href.indexOf("issued") != -1){
 
-                                </div>
-                                <div class="item row align-items-center">
-                                    <div class="col-md-4">
-                                        <h5 class="title">{{ __('backend.reference number') }}</h5>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <span>${data.ads_id}</span>
-                                    </div>
+                 
 
-                                </div>
-                                <div class="item row align-items-center">
-                                    <div class="col-md-4">
-                                        <h5 class="title">{{ __('backend.price required') }}</h5>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <span>${data.ads.price}</span>
-                                    </div>
+                            if (data.status == 'done'  ) {
+                                x  +='<div class="row text-center"> <div class="col-md-12"><button type="button" data-action="waiting"  class="btn  btn-success btn-rounded " style="background-color: #aeaeae;border-color: #b1b1b1;">' + window.translation.AwaitingPayment + '</button></div></div> ';
 
-                                </div>
-                                <div class="item row align-items-center">
-                                    <div class="col-md-4">
-                                        <h5 class="title">{{ __('backend.Price') }}</h5>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <span>${data.price}</span>
-                                    </div>
+                            } else if(data.status == 'waiting' ) {
+                                x  +='<div class="row text-center"> </div> ';
 
-                                </div>
-                                <div class="item row align-items-center">
-                                    <div class="col-md-4">
-                                        <h5 class="title">{{ __('frontend.notes') }}</h5>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <span>${data.negotiate_note}</span>
-                                    </div>
+                            }else if(data.status ==  'Awaiting payment' ) {
+                                x  +='<div class="row text-center"> <div class="col-md-12"><button type="button" id="Recipt" data-bs-toggle="modal" data-bs-target="#uplodeRecipt" data-deals="' + data.id + '"   class="btn  btn-success btn-rounded ">' + window.translation.uploadRecipt + '</button></div></div> ';
 
-                                </div>
-                                
-                                `);
 
+                            }
+                            else{
+                                x  +='<div class="row text-center"> <div class="col-md-12"><button id="sendNewPrice" type="button" data-bs-toggle="modal" data-bs-target="#newPrice" class="btn btn-primary btn-rounded" data-deals=" ' + data.id + '">' + window.translation.sendPrice + '</button></div></div> ';
+
+                            }
+
+                        }else{
+                            if (data.status == 'done'  ) {
+                                x  +='<div class="row text-center"> <div class="col-md-12"><button type="button" data-action="waiting"  class="btn  btn-success btn-rounded " style="background-color: #aeaeae;border-color: #b1b1b1;">' + window.translation.AwaitingPayment + '</button></div></div> ';
+
+                            } else if(data.status == 'rejected' ) {
+                                x  +='<div class="row text-center"> </div> ';
+
+                            }else if(data.status ==  'Awaiting payment' ) {
+                                x  +='<div class="row text-center"> <div class="col-md-12"><button type="button" data-action="waiting"  class="btn  btn-warning btn-rounded">' + window.translation.AwaitingPayment + '</button></div></div>';
+
+
+                            }
+                            else{
+                                x  +='<div class="row text-center"> <div class="col-md-6"><button type="button" data-action="waiting"  class="btn  btn-success btn-rounded change_status" data-id=" ' + data.id + '" data-status="Awaiting payment">' + window.translation.Accepttheoffer + '</button></div><div class="col-md-6"><button type="button" data-id=" ' + data.id + '" data-status="rejected" class="btn btn-danger btn-rounded change_status">' + window.translation.offerrejected + '</button></div></div> ';
+
+                            }
+                                     };
+                
+                        $(document).find('#negotiate').append( x);
+                            }
 
             },
             error: function (xhr) {}
             });
             })
+
+            $(document).on('click','.change_status', function(e) {
+  
+
+            var id = $(this).data('id');
+            var status = $(this).data('status');
+         
+
+            $.ajax({
+            url: '/DealsAuctions/change_status/'+id+'/'+status,
+            type: "get",
+            contentType: 'application/json',
+            success: function (data) {
+                var jsonobj = $.parseJSON(data)
+                document.getElementById("alert").innerHTML = respon.message.substring(0, respon.message
+                                .length);
+
+                            $('.toast').toast('show');
+
+                            if (respon.redirect) {
+                                setTimeout(function () {
+                                    window.location.href = respon.redirect;
+                                }, 1500);
+                            }
+
+                            if (respon.reload) {
+                                setTimeout(function () {
+                                    window.location.reload();
+                                }, 1000);
+                            }
+
+            }
+        });
+        });
+
+        $(document).on('click','#Recipt', function(e) {
+            $(document).find('#deals').val($(this).data('deals'));
+            $('#modal-show-booking-invoice').modal('hide');
+
+            $('#uplodeRecipt').modal('show');
+        });
+
+        $(document).on('click','#sendNewPrice', function(e) {
+            $(document).find('#dealsprice').val($(this).data('deals'));
+            $('#modal-show-booking-invoice').modal('hide');
+
+            $('#newPrice').modal('show');
+        });
+
+        function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#blah')
+                .attr('src', e.target.result)
+                .width(150);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
     </script>
 @endpush

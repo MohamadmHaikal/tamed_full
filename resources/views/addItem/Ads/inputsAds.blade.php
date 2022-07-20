@@ -5,7 +5,7 @@
     <div class="form-group">
     <label class="fieldlabels"
         for="exampleSelectl">{{__('backend.Main Activity')}}</label>
-    <select class="form-control form-control-lg getselecct" id="mainActivity"
+    <select class="form-control form-control-lg getselecct Shadow" id="mainActivity"
     data-url="/ads/getAddActivity/"
     data-appendItemID="#AddActivity"
     data-error="#Activity"
@@ -32,7 +32,7 @@ if(isset($item) )
     <div class="form-group" >
       <label class="fieldlabels"
           for="exampleSelectl">{{__('backend.Add Activity')}}</label>
-      <select class="form-control form-control-lg " id="AddActivity"
+      <select class="form-control form-control-lg  Shadow" id="AddActivity"
       data-error="#errorAddActivity"
       aria-describedby="inputGroupPrepend" required
           name="activitie_Add_id">
@@ -58,7 +58,7 @@ if(isset($item) )
 {{-- <div class="row"> --}}
   <div class="{{  $item['class'] }}">
 <div class="form-group">
-    <div class="custom-radio-1" id="{{ $item['id'] }}" {{  isset($itemValue[$item['name']]) ? '' : isset($item['hidden']) ? $item['hidden']: '' }}>
+    <div class="custom-radio-1 Shadow " id="{{ $item['id'] }}" {{  isset($itemValue[$item['name']]) ? '' : isset($item['hidden']) ? $item['hidden']: '' }}  style=" {{  isset($item['style']) ? $item['style'] : ''}}">
       <label style="  margin-left: 2%
       ">    {{ $item['label'] }}</label>
         @foreach ($item['choices'] as $k => $choices)
@@ -86,17 +86,33 @@ if(isset($item) )
 </div>
 {{-- </div> --}}
 
+@elseif($item['type'] == 'checkbox')
+<div class="{{$item['class']}}">
+  <div class="form-group mb-4">
+     
+      <div class="checkbox-inline" id="{{$item['id']}}"> 
+      
+      <label >{{$item['label']}}</label>
+      @foreach ($item['choices'] as $k => $choices)
+          <label class="checkbox">
+              <input type="checkbox"  name="{{$item['name']}}[{{$k}}]" value="{{$choices['label']}}" {{ isset($itemValue[$item['name']][$k])?'checked':''}}>
+              <span></span>{{$choices['label']}}</label>
+        
+        @endforeach
+      </div>
+  </div>
+  </div>
 @elseif($item['type'] == 'select')
 
 
 {{-- <div class="row"> --}}
-  <div class="col-md-12">
+  <div class="{{  isset($item['class']) ? $item['class'] : 'col-md-12'}}">
 <div class="form-group ">
-  <label for="exampleSelectl">{{  $item['label'] }}</label>
+  <label for="exampleSelectl" class="fieldlabels">{{  $item['label'] }}</label>
       
           
 
-            <select class="form-control form-control-lg" id="type" 
+            <select class="form-control form-control-lg" id="{{ $item['id'] }}"  style=" {{  isset($item['style']) ? $item['style'] : ''}}"
             name="{{  $item['name'] }}" {{  isset($item['multiple']) ? $item['multiple'] : ''}}>
 
 
@@ -111,7 +127,7 @@ if(isset($item) )
         </div>
     
 </div>
-</div>
+
 
     
 {{-- </div> --}}
@@ -190,10 +206,14 @@ class="input-group-prepend switch-outer-container {{  $item['class'] }}">
 {{-- <div class="row"> --}}
   <div class="{{  isset($item['class']) ? $item['class'] : 'col-md-6'}}"  >
     <div class="form-group "  id="{{ $item['id'] }}" {{  isset($itemValue[$item['name']]) ? '' : isset($item['hidden']) ? $item['hidden']: '' }}>
-        <label class="fieldlabels">{{ $item['label'] }}</label>
-        <input type="{{ $item['type'] }}" name="{{ $item['name'] }}" placeholder=""  data-error="#Error{{$item['id']}}"
+      @if (!isset($item['placeholder']))
+         <label class="fieldlabels">{{ $item['label'] }}</label>
+      @endif 
+     
+
+        <input type="{{ $item['type'] }}" name="{{ $item['name'] }}"   data-error="#Error{{$item['id']}}"
         aria-describedby="inputGroupPrepend" 
-            value="{{ isset($itemValue[$item['name']]) ? $itemValue[$item['name']] : '' }}" class="form-control mb-3" {{isset($item['hidden']) ? 'required':''}} />
+            value="{{ isset($itemValue[$item['name']]) ? $itemValue[$item['name']] : '' }}" placeholder="{{isset($item['placeholder']) ? $item['placeholder']:''}}" class="form-control mb-3 Shadow" {{isset($item['hidden']) ? 'required':''}} {{isset($item['required']) ? 'required':''}} />
     </div>
      <div class="errorTxt col-md-12">
       <span class="spanError" id="Error{{$item['id']}}"></span>

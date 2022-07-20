@@ -125,10 +125,11 @@
     letter-spacing: 1px;
     margin-bottom: 0px;
     position: absolute;
-    left: 14px;
+    right: 30px;
     top: -9px;
     background: #ffffff;
     padding: 0px 7px;
+    width: fit-content;
     z-index: 1;
 }
 .general-info .info .form-control {

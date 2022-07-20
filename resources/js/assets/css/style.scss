@@ -2057,11 +2057,21 @@ About Area CSS
         line-height: 1.8;
         color: #5d7079;
         font-size: 13px;
+        font-weight: 500;
 
         margin: {
             bottom: 0;
             top: 12px;
         }
+    }
+
+    .foot {
+        color: #039ca5;
+    }
+
+    i {
+        font-size: 20px;
+        color: #fdc57b;
     }
 }
 
@@ -8902,4 +8912,3 @@ Footer Area CSS
     max-width: 403px;
     max-height: 425px;
 }
-

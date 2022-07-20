@@ -24,18 +24,20 @@
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <span>البريد الالكتروني</span>
-                                <a href="mailto:support@tamedksa.com">support@tamedksa.com</a>
+                                <a href="mailto:info@tamed.sa">info@tamed.sa</a>
+                                <a href="mailto:tsf@tamed.sa">tsf@tamed.sa ( أعمال )</a>
+                                <a href="mailto:tsi@tamed.sa">tsi@tamed.sa ( أفراد )</a>
 
                             </li>
-
-                            <li>
+ 
+                            <!-- <li>
                                 <div class="icon">
                                     <i class="fas fa-phone-volume"></i>
                                 </div>
                                 <span>رقم الجوال</span>
                                 <a href="tel:+966581333357">581333357 (966+)</a>
 
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -86,7 +88,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-12 col-md-12 "  style="text-align: end;">
+                                <div class="col-lg-12 col-md-12 " style="text-align: end;">
                                     <button type="submit" class="btn btn-primary">أرسل رسالة</button>
                                     <div id="msgSubmit" class="h3 text-center hidden"></div>
                                     <div class="clearfix"></div>
