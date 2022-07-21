@@ -22,7 +22,8 @@
                             <h3 class="title-welcome">إعادة تعيين كلمة المرور</h3>
                         </div>
                         <div class="d-flex align-items-center justify-content-center title1 ">
-                            <p style="color:#027496">إعادة التعيين بأستخدام ( رقم الهوية الوطنية أو الإقامه )</p>
+                            {{-- <p style="color:#027496">إعادة التعيين بأستخدام ( رقم الهوية الوطنية أو الإقامه )</p> --}}
+                            <p style="color:#027496">إعادة التعيين بأستخدام (  اسم المستخدم  )</p>
                         </div>
                         <div class="mt-5">
                             <div class="password">
@@ -30,7 +31,8 @@
                             </div>
                             <div class="login-three-inputs mt-2">
                                 <small>يجب ان يكون الرقم من 10 خانات او ارقام</small>
-                                <input type="text" placeholder="رقم الهوية / الاقامة" id="IdCard" min="10" max="10">
+                                {{-- <input type="text" placeholder="رقم الهوية / الاقامة" id="IdCard" min="10" max="10"> --}}
+                                <input type="text" placeholder="اسم المستخدم" id="IdCard" min="10" max="10">
                             </div>
 
                             <div class="form-2" id="gg">

@@ -148,13 +148,14 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($invoices as $invoice)
+                                            @if ($invoice->isDeals=='0')
                                                 <tr>
                                                     <td class="text-center">{{ pad($invoice->id, 6) }}</td>
                                                     <td>{{ $invoice->customer_name }}</td>
 
                                                     <td>{{ $invoice->TaxNumber }}</td>
-                                                    <td>{{ __('backend.' . $invoice->invice_type) }}</td>
-                                                    <td>{{ __('backend.' . $invoice->status) }}</td>
+                                                    <td>{{ __('backend.' . $invoice->invice_type) }} {{ $invoice->invice_type=='Tax bill'?$invoice->isBrief=='1'?__('backend.brief'):__('backend.detailed'):''}}</td>
+                                                    <td style="{{ $invoice->status=='paid'?'color:#10bd07;':'color:#ff9100;'}}">{{ __('backend.' . $invoice->status) }}</td>
                                                     <td>{{ date('Y-m-d', strtotime($invoice->invoice_date)) }}</td>
                                                     <td class="text-center">
                                                         <div class="dropdown custom-dropdown">
@@ -191,6 +192,7 @@
                                                         </div>
                                                     </td>
                                                 </tr>
+                                                @endif
                                             @endforeach
                                         </tbody>
                                     </table>

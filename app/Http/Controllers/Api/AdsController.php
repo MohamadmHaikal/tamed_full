@@ -42,21 +42,21 @@ class AdsController extends Controller
                 if ($ads['application_conditions'] != null) {
                     $ads['salary'] = number_format($ads['application_conditions']->salary);
                 }
-                 if (array_key_exists("residintal", $ads->application_conditions)) {
-                $ads['residintal'] = __('backend.Valid residence');
-            } else {
-                $ads['residintal'] = '';
-            }
-            if ( isset($ads['application_conditions']->employment_on_warranty)) {
-                $ads['employment_on_warranty'] = __('backend.on warranty');
-            } else {
-                $ads['employment_on_warranty'] = '';
-            }
-            if (isset($ads['application_conditions']->employment_rent_contract)) {
-                $ads['employment_rent_contract'] = __('backend.rent contract');;
-            } else {
-                $ads['employment_rent_contract'] = '';
-            }
+                if (array_key_exists("residintal", $ads->application_conditions)) {
+                    $ads['residintal'] = __('backend.Valid residence');
+                } else {
+                    $ads['residintal'] = '';
+                }
+                if (isset($ads['application_conditions']->employment_on_warranty)) {
+                    $ads['employment_on_warranty'] = __('backend.on warranty');
+                } else {
+                    $ads['employment_on_warranty'] = '';
+                }
+                if (isset($ads['application_conditions']->employment_rent_contract)) {
+                    $ads['employment_rent_contract'] = __('backend.rent contract');;
+                } else {
+                    $ads['employment_rent_contract'] = '';
+                }
             }
         }
 
@@ -106,19 +106,24 @@ class AdsController extends Controller
         $ads['infoArray'] = unserialize($ads->infoArray);
         if (!empty(json_decode($ads->application_conditions))) {
             if ($ads->type != 6) {
-                $ads['req_paper'] = explode(',', json_decode($ads->application_conditions)->Certificate[0]);
-                $ads['req_paper'] = explode(',', json_decode($ads->application_conditions)->Certificate[0]);
+                $req_paper = explode(',', json_decode($ads->application_conditions)->Certificate[0]);
+                $papers = [];
+                foreach ($req_paper as $paper) {
+                    if ($paper != '') {
+                        array_push($papers, $paper);
+                    }
+                }
+                $ads['req_paper'] = $papers;
             }
             $ads['application_conditions'] = json_decode($ads->application_conditions);
         }
         if ($ads->type == 6) {
             $ads['salary'] = number_format($ads['application_conditions']->salary);
-           
+
             if (isset($ads['infoArray']['work_hours'])) {
                 $ads['work_hours'] = $ads['infoArray']['work_hours'];
-            }
-            else{
-                $ads['work_hours'] ='';
+            } else {
+                $ads['work_hours'] = '';
             }
             if (array_key_exists("residintal", $ads->application_conditions)) {
                 $ads['residintal'] = __('backend.Valid residence');
@@ -136,19 +141,19 @@ class AdsController extends Controller
                 $ads['employment_rent_contract'] = '';
             }
         }
-        if(array_key_exists("Bank_guarantee", $ads->application_conditions)){
-            $ads->application_conditions->Bank_guarantee='on';
-        } 
-        if(array_key_exists("CodeKSA", $ads->application_conditions)){
-            $ads->application_conditions->CodeKSA='on';
+        if (array_key_exists("Bank_guarantee", $ads->application_conditions)) {
+            $ads->application_conditions->Bank_guarantee = 'on';
         }
-        if(array_key_exists("PricingWithMaterials", $ads->application_conditions)){
-            $ads->application_conditions->PricingWithMaterials='on';
+        if (array_key_exists("CodeKSA", $ads->application_conditions)) {
+            $ads->application_conditions->CodeKSA = 'on';
         }
-        if(array_key_exists("conforming", $ads->application_conditions)){
-            $ads->application_conditions->conforming='on';
+        if (array_key_exists("PricingWithMaterials", $ads->application_conditions)) {
+            $ads->application_conditions->PricingWithMaterials = 'on';
         }
-        $ads['userFile']=get_current_user_id()!=null ? count(getUserfile())!=0 ? getUserfile() : null :null;
+        if (array_key_exists("conforming", $ads->application_conditions)) {
+            $ads->application_conditions->conforming = 'on';
+        }
+        $ads['userFile'] = get_current_user_id() != null ? count(getUserfile()) != 0 ? getUserfile() : null : null;
         $ads['author'] = get_user_by_id($ads->user_id);
         $gallery = $ads['gallery'] != null ? explode(',', $ads['gallery']) : [];
         $ads['files'] = File::whereIn('id', $gallery)->get();

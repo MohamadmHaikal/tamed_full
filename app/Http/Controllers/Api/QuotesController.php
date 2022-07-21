@@ -45,7 +45,7 @@ class QuotesController extends Controller
             $deals->negotiate_note = $request->note;
             $deals->price = $request->price;
             $deals->save();
-        } else if ($request->category == 'full-payment') {
+        } else if ($request->category == 'full-payment' || $request->category == 'deposit') {
             if (!$request->hasFile('file')) {
                 return json_encode(['message' => ' إيصال الدفع مطلوب !', 'code' => '102'], true);
             }
@@ -76,11 +76,11 @@ class QuotesController extends Controller
                 'email' => $DealsAuctions->customer->email,
                 // 'Banks' => serialize($request->bank),
                 'user_id' => 20,
-                'isDeals' => 1,
+                'isDeals' => '1',
                 // 'contracts_id' => $request->route('id') != null ? $request->route('id') : null,
             ]);
 
-         
+
             $DealsAuctions->invoice_num = $invoice->id;
             $DealsAuctions->save();
         } else if ($request->category == 'deposit') {
@@ -101,8 +101,11 @@ class QuotesController extends Controller
             $deals->receipt_img = $filename;
             $deals->save();
         }
-
-        return json_encode(['message' => 'تم ارسال الطلب بنجاح', 'code' => '200'], true);
+        if ($request->category == 'full-payment' || $request->category == 'deposit') {
+            return json_encode(['message' => 'تم ارسال الطلب بنجاح', 'code' => '200', 'invoice_id' => $invoice->id], true);
+        } else {
+            return json_encode(['message' => 'تم ارسال الطلب بنجاح', 'code' => '200'], true);
+        }
     }
     public function SendEmployment(Request $request)
     {

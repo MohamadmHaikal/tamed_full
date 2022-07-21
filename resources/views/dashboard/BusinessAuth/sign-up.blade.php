@@ -22,12 +22,14 @@
                             <h3 class="title-welcome">التسجيل في منصة تعميد أعمال</h3>
                         </div>
                         <div class="d-flex align-items-center justify-content-center title1 ">
-                            <p style="color:#027496">التسجيل عبر ( رقم الهوية الوطنية أو الإقامه )</p>
+                            {{-- <p style="color:#027496">التسجيل عبر ( رقم الهوية الوطنية أو الإقامه )</p> --}}
+                            <p style="color:#027496">التسجيل عبر (  اسم المستخدم )</p>
                         </div>
                         <div class="mt-5">
                             <div class="login-three-inputs mt-2">
                                 <small>يجب ان يكون الرقم من 10 خانات او ارقام</small>
-                                <input type="text" placeholder="رقم الهوية / الاقامة" id="IdCard" min="10" max="10">
+                                {{-- <input type="text" placeholder="رقم الهوية / الاقامة" id="IdCard" min="10" max="10"> --}}
+                                <input type="text" placeholder="اسم المستخدم" id="IdCard" min="10" max="10">
                             </div>
                             <div class="login-three-inputs mt-2">
                                 <small>الاسم الكامل</small>

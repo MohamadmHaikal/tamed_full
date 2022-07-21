@@ -18,11 +18,23 @@
     $site_name = get_site_name();
     ?>
     <link rel="icon" href="{{ asset("$favicon_url") }}">
-    <title>{{$site_name}}</title>
+    <title>{{ $site_name }}</title>
     <!-- Fonts -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Noto%20Kufi%20Arabic:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap">
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8SF8CER51"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-S8SF8CER51');
+    </script>
 </head>
 
 <body>

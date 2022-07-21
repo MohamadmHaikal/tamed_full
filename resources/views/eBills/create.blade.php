@@ -74,6 +74,19 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="col-md-6" id="type_countainer">
+                                                <div class="form-group">
+                                                    <label for="degree2"
+                                                        style="color: #fff;">{{ __('backend.Invoice type') }}</label>
+                                                    <select id="type_type" name="type_type" onchange="myFunction1()"
+                                                        class="form-control mb-4">
+                                                        <option value="Detailed bill" selected>
+                                                            {{ __('backend.Detailed bill') }}</option>
+                                                        <option value="short invoice">
+                                                            {{ __('backend.short invoice') }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="form-group"><label
                                                         for="degree2">{{ __('backend.purchases or sales') }}</label>
@@ -105,7 +118,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                          
+
                                         </div>
                                         <hr class="rounded" style=" border-top: 2.5px solid #e5eaff; ">
                                         <div class="clientInfo">
@@ -236,7 +249,7 @@
                                                 <div class="form-group"><label
                                                         for="degree2">{{ __('backend.name of Service') }}</label><input
                                                         type="text" name="product_name[1]" class="form-control "
-                                                        aria-describedby="inputGroupPrepend" required>
+                                                        id="product_name" aria-describedby="inputGroupPrepend" required>
                                                     <div class="invalid-feedback">
                                                         {{ __('backend.Service name is required') }}
                                                     </div>
@@ -248,7 +261,7 @@
                                                 <div class="form-group"><label
                                                         for="degree2">{{ __('backend.Quantity') }}</label><input
                                                         type="text" name="Quantity[1]" class="form-control "
-                                                        aria-describedby="inputGroupPrepend" required>
+                                                        id="Quantity" aria-describedby="inputGroupPrepend" required>
                                                     <div class="invalid-feedback">
                                                         {{ __('backend.Quantity required') }}
                                                     </div>
@@ -256,9 +269,9 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group"><label
-                                                        for="degree2">{{ __('backend.Price') }}</label><input type="text"
-                                                        name="Price[1]" class="form-control "
-                                                        aria-describedby="inputGroupPrepend" required>
+                                                        for="degree2">{{ __('backend.Price') }}</label><input
+                                                        type="text" name="Price[1]" class="form-control "
+                                                        id="Price" aria-describedby="inputGroupPrepend" required>
                                                     <div class="invalid-feedback">
                                                         {{ __('backend.price required') }}
                                                     </div>
@@ -269,8 +282,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group"><label
                                                         for="degree2">{{ __('backend.Discount') }}</label><input
-                                                        type="text" name="Discount[1]" class="form-control " value="0"
-                                                        aria-describedby="inputGroupPrepend" required>
+                                                        type="text" name="Discount[1]" class="form-control "
+                                                        value="0" aria-describedby="inputGroupPrepend" required>
 
                                                     <div class="invalid-feedback">
                                                         {{ __('backend.Discount required') }}
@@ -292,9 +305,9 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group"><label
-                                                        for="degree2">{{ __('backend.Tax') }}</label><input type="text"
-                                                        name="Tax[1]" class="form-control" value="15"
-                                                        aria-describedby="inputGroupPrepend" required>
+                                                        for="degree2">{{ __('backend.Tax') }}</label><input
+                                                        type="text" name="Tax[1]" class="form-control"
+                                                        value="15" aria-describedby="inputGroupPrepend" required>
                                                     <div class="invalid-feedback">
                                                         {{ __('backend.tax required') }}
                                                     </div>
@@ -393,10 +406,99 @@
         function myFunction() {
             var x = document.getElementById("invice_type").value;
             if (x == "simplified tax invoice") {
+                document.getElementById("type_countainer").style.display = 'none';
                 $('.clientInfo').html("");
 
             } else {
+                document.getElementById("type_countainer").style.display = 'block';
                 $('.clientInfo').append(
+                    '<div class="row"><div class="col-md-6"> <div class="form-group"><label  for="degree2">' + window
+                    .translation.customername +
+                    '</label><input  type="text" name="customer_name" class="form-control " aria-describedby="inputGroupPrepend" required>  <div class="invalid-feedback"> ' +
+                    window.translation.Customerrequired +
+                    ' </div>  </div> </div> <div class="col-md-6"> <div class="form-group"><label for="degree2">' +
+                    window.translation.address +
+                    '</label><input type="text" name="address" class="form-control"  aria-describedby="inputGroupPrepend" required> <div class="invalid-feedback">' +
+                    window.translation.Addressrequired +
+                    ' </div> </div> </div> </div><div class="row"><div class="col-md-6">  <div class="form-group"><label  for="degree2">' +
+                    window.translation.TaxNumber +
+                    '</label><input type="text" name="Tax_Number" class="form-control" aria-describedby="inputGroupPrepend" required>  <div class="invalid-feedback">  ' +
+                    window.translation.Taxrequired +
+                    ' </div> </div></div> <div class="col-md-6"><div class="form-group"><label for="degree2">' + window
+                    .translation.responsible +
+                    '</label><input type="text" name="responsible" class="form-control " aria-describedby="inputGroupPrepend" required> <div class="invalid-feedback">  ' +
+                    window.translation.Responsiblerequired +
+                    ' </div> </div></div></div>  <div class="row"> <div class="col-md-6"> <div class="form-group"><label for="degree2">' +
+                    window.translation.phone +
+                    '</label><input type="text" name="phone" class="form-control" aria-describedby="inputGroupPrepend" required><div class="invalid-feedback"> ' +
+                    window.translation.Mobilerequired +
+                    '</div> </div> </div><div class="col-md-6"> <div class="form-group"><label for="degree2">' + window
+                    .translation.email +
+                    '</label><input  type="text" name="email" class="form-control" aria-describedby="inputGroupPrepend" required> <div class="invalid-feedback">' +
+                    window.translation.Emailrequired +
+                    '</div> </div> </div> </div>  <hr class="rounded" style=" border-top: 2.5px solid #e5eaff;">');
+
+
+            }
+        }
+
+        function myFunction1() {
+            var x = document.getElementById("type_type").value;
+            if (x == "short invoice") {
+                document.getElementById("product_card").style.display = 'none';
+                $('.clientInfo').html(
+                    `<div class="row"><div class="col-md-12"> <div class="form-group"><label  for="degree2">` + window
+                    .translation.note +`
+                    </label><input  type="text" name="note" class="form-control " aria-describedby="inputGroupPrepend" required>  <div class="invalid-feedback">` +
+                    window.translation.NoteRequired +
+                    ` </div>  </div> </div>
+
+                    <div class="col-md-6"> <div class="form-group"><label  for="degree2">` + window
+                    .translation.discountValue +`
+                    </label><input  type="text" name="discountValue" class="form-control " aria-describedby="inputGroupPrepend" required>  <div class="invalid-feedback">` +
+                    window.translation.RequiredDiscountAmount +
+                    ` </div>  </div> </div>
+
+                    <div class="col-md-6"> <div class="form-group"><label  for="degree2">` + window
+                    .translation.DiscountType +`
+                    </label><select name="DiscountType" class="form-control mb-4">
+                    <option value="1">{{ __('backend.Fixed value') }}</option>
+                    <option value="2">{{ __('backend.percent') }}</option></select>` +
+                   
+                    ` </div>  </div>
+
+                    <div class="col-md-6"> <div class="form-group"><label  for="degree2">` + window
+                    .translation.Tax +`
+                    </label><input  type="text" name="Tax" value="15" class="form-control " aria-describedby="inputGroupPrepend" required>  <div class="invalid-feedback">` +
+                    window.translation.taxRequire +
+                    ` </div>  </div> </div>
+
+                    <div class="col-md-6"> <div class="form-group"><label  for="degree2">` + window
+                    .translation.Total +`
+                    </label><input  type="text" name="Total" class="form-control " aria-describedby="inputGroupPrepend" required>  <div class="invalid-feedback">` +
+                    window.translation.TotalRequired +
+                    ` </div>  </div> </div>
+                    <div class="col-md-6">  <div class="form-group"><label  for="degree2">` +
+                    window.translation.TaxNumber +
+                    `</label><input type="text" name="Tax_Number" class="form-control" aria-describedby="inputGroupPrepend" required>  <div class="invalid-feedback">  ` +
+                    window.translation.Taxrequired +
+                    ` </div> </div></div>
+                    <div class="col-md-6"> <div class="form-group"><label  for="degree2">` + window
+                    .translation.customername +`
+                    </label><input  type="text" name="customer_name" class="form-control " aria-describedby="inputGroupPrepend" required>  <div class="invalid-feedback"> ` +
+                    window.translation.Customerrequired +
+                    ` </div>  </div> </div>
+                    </div>`
+                );
+                $("#product_card input").prop('required', false);
+
+            } else {
+                
+                $("#product_card #Price").prop('required', true);
+                $("#product_card #Quantity").prop('required', true);
+                $("#product_card #product_name").prop('required', true);
+                document.getElementById("product_card").style.display = 'block';
+                $('.clientInfo').html(
                     '<div class="row"><div class="col-md-6"> <div class="form-group"><label  for="degree2">' + window
                     .translation.customername +
                     '</label><input  type="text" name="customer_name" class="form-control " aria-describedby="inputGroupPrepend" required>  <div class="invalid-feedback"> ' +

@@ -49,7 +49,7 @@
                                         </div>
                                     </dir>
 
-                                    <div class="accept-price-check mt-5">
+                                    <!-- <div class="accept-price-check mt-5">
                                         <label class="container1 mt-5" @click="accept('all-accept-deals')">
                                             <input type="checkbox" id="all-accept-deals">
                                             تم الإطلاع على جميع المواصفات المرفقة
@@ -63,7 +63,7 @@
                                             </router-link> لمنصة تعميد
                                             <span class="checkmark"></span>
                                         </label>
-                                    </div>
+                                    </div> -->
                                     <div class="quotes-btn mt-5 ">
                                         <a href="#" class="btn btn-logo" @click="openCity($event, 'deposit')"
                                             style="border-radius:10px;background-color:#039ca4;color:white;    padding: 5px 15px 5px 15px;">دفع
@@ -116,14 +116,14 @@
                                     </div>
 
                                     <div class="accept-price-check mt-5">
-                                        <label class="container1 mt-5" @click="accept('all-accept-deals')">
-                                            <input type="checkbox" id="all-accept-deals">
+                                        <label class="container1 mt-5" @click="accept('all-accept-full')">
+                                            <input type="checkbox" id="all-accept-full">
                                             تم الإطلاع على جميع المواصفات المرفقة
                                             <span class="checkmark"></span>
                                         </label>
                                         <br>
-                                        <label class="container1" @click="accept('all-privacy-deals')">
-                                            <input type="checkbox" id="all-privacy-deals">
+                                        <label class="container1" @click="accept('all-privacy-full')">
+                                            <input type="checkbox" id="all-privacy-full">
                                             موافق على <router-link to="/privacy-policy" style="color:#039ba0 ;">الشروط
                                                 والاحكام
                                             </router-link> لمنصة تعميد
@@ -180,14 +180,14 @@
                                     </div>
 
                                     <div class="accept-price-check mt-5">
-                                        <label class="container1 mt-5" @click="accept('all-accept-deals')">
-                                            <input type="checkbox" id="all-accept-deals">
+                                        <label class="container1 mt-5" @click="accept('all-accept-deposit')">
+                                            <input type="checkbox" id="all-accept-deposit">
                                             تم الإطلاع على جميع المواصفات المرفقة
                                             <span class="checkmark"></span>
                                         </label>
                                         <br>
-                                        <label class="container1" @click="accept('all-privacy-deals')">
-                                            <input type="checkbox" id="all-privacy-deals">
+                                        <label class="container1" @click="accept('all-privacy-deposit')">
+                                            <input type="checkbox" id="all-privacy-deposit">
                                             موافق على <router-link to="/privacy-policy" style="color:#039ba0 ;">الشروط
                                                 والاحكام
                                             </router-link> لمنصة تعميد
@@ -572,7 +572,52 @@ export default {
                 }
 
             }
+            else if (category == 'full-payment') {
+                if (document.getElementById('all-accept-full').checked != true || document.getElementById('all-privacy-full').checked != true) {
+                    this.$toast('الرجاء الموافقة على الشروط والأحكام', {
+                        duration: 2000,
+                        pauseOnHover: true,
+                        styles: {
+                            borderRadius: '5px',
+                            background: '#cc2e2e',
+                            boxShadow: '0 1px 3px #0000',
+                            width: '340px'
 
+                        },
+                        slotRight: '<i class="fas fa-info-circle"></i>', // Add icon to left
+                        class: 'local-class', // Added to this toast only
+                        type: 'error', // Default classes: 'success', 'error' and 'passive'
+                        positionX: 'left',
+                        positionY: 'bottom',
+                        disableClick: false,
+                    });
+                    return;
+                }
+
+            }
+            else if (category == 'deposit') {
+                if (document.getElementById('all-accept-deposit').checked != true || document.getElementById('all-privacy-deposit').checked != true) {
+                    this.$toast('الرجاء الموافقة على الشروط والأحكام', {
+                        duration: 2000,
+                        pauseOnHover: true,
+                        styles: {
+                            borderRadius: '5px',
+                            background: '#cc2e2e',
+                            boxShadow: '0 1px 3px #0000',
+                            width: '340px'
+
+                        },
+                        slotRight: '<i class="fas fa-info-circle"></i>', // Add icon to left
+                        class: 'local-class', // Added to this toast only
+                        type: 'error', // Default classes: 'success', 'error' and 'passive'
+                        positionX: 'left',
+                        positionY: 'bottom',
+                        disableClick: false,
+                    });
+                    return;
+                }
+
+            }
             if (type == 'send') {
                 var id = this.$route.params.id;
                 let formData = new FormData();
@@ -591,14 +636,14 @@ export default {
                     formData.append('note', document.getElementById('note').value);
                 }
                 else if (category == 'full-payment') {
-                     formData.append('price', this.ads['price']);
+                    formData.append('price', this.ads['price']);
                     formData.append('note', document.getElementById('full-file').value);
-                     formData.append('file', document.getElementById('full-file').files[0]);
+                    formData.append('file', document.getElementById('full-file').files[0]);
                 }
                 else if (category == 'deposit') {
-                    formData.append('price',this.ads['price']);
+                    formData.append('price', this.ads['price']);
                     formData.append('note', document.getElementById('deposit_note').value);
-                     formData.append('file', document.getElementById('deposit-file').files[0]);
+                    formData.append('file', document.getElementById('deposit-file').files[0]);
                 }
 
                 const headers = {
@@ -628,6 +673,11 @@ export default {
                                 positionY: 'bottom',
                                 disableClick: false,
                             });
+                            if (response['data']['invoice_id'] != null) {
+                                setTimeout(function () {
+                                    window.location.href = '/DealsAuctions/show/' + response['data']['invoice_id'];
+                                }, 1000);
+                            }
                         }
                         else {
 

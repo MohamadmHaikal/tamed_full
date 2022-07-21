@@ -155,7 +155,7 @@
                                                                     {{ __('backend.Invoice type') }}</div>
                                                                 <div class="col-sm-3"
                                                                     style="border: 2px solid #dae1e7  ;   margin-left: 3px;">
-                                                                    {{ __('backend.' .$invoice->invice_type) }}
+                                                                    {{ __('backend.' .$invoice->invice_type) }} {{ $invoice->isBrief=='1'?__('backend.brief'):__('backend.detailed')}}
                                                                 </div>
                                                             @else
                                                                 <div class="col-sm-3 pt-1 pb-1"
@@ -169,6 +169,8 @@
                                                         </div>
                                                         @if ($invoice->invice_type != 'simplified tax invoice')
                                                         <div class="row mt-2">
+                                                            @if ($invoice->isBrief!='1')
+                                                            
                                                             <div class="col-sm-2 pt-1 pb-1"
                                                                 style="border: 2px solid #dae1e7; background-color: #cfe9f2;    margin-left: 3px;">
                                                                 {{ __('backend.address') }} </div>
@@ -176,6 +178,8 @@
                                                                 style="border: 2px solid #dae1e7  ;   margin-left: 3px;">
                                                                 {{ $invoice->address }}
                                                             </div>
+                                                                
+                                                            @endif
                                                             <div class="col-sm-2 pt-1 pb-1"
                                                                 style="border: 2px solid #dae1e7; background-color: #cfe9f2;    margin-left: 3px;">
                                                                 {{ __('backend.Tax Number') }}</div>
@@ -184,6 +188,7 @@
                                                                 {{ $invoice->TaxNumber }}
                                                             </div>
                                                         </div>
+                                                        @if ($invoice->isBrief!='1')
                                                         <div class="row mt-2">
                                                             <div class="col-sm-2 pt-1 pb-1"
                                                                 style="border: 2px solid #dae1e7; background-color: #cfe9f2;    margin-left: 8px;">
@@ -194,6 +199,8 @@
                                                             </div>
 
                                                         </div>
+                                                        @endif
+                                                        @if ($invoice->isBrief!='1')
                                                         <div class="row mt-2">
                                                             <div class="col-sm-2 pt-1 pb-1"
                                                                 style="border: 2px solid #dae1e7; background-color: #cfe9f2;    margin-left: 3px;">
@@ -211,6 +218,7 @@
                                                             </div>
                                                         </div>
                                                         @endif
+                                                        @endif
                                                         <div class="row inv--product-table-section"
                                                             style="margin-top: 10px; margin-bottom: 0px;">
                                                             <div class="col-12" style="padding-right: 0px;">
@@ -225,9 +233,11 @@
                                                                                     style="    padding: 0.5rem;">
                                                                                     {{ __('backend.product or service') }}
                                                                                 </th>
+                                                                                @if ($invoice->isBrief!='1')
                                                                                 <th class="text-center" scope="col"
                                                                                     style="    padding: 0.5rem;">
                                                                                     {{ __('backend.Quantity') }}</th>
+                                                                                     @endif
                                                                                 <th class="text-center" scope="col"
                                                                                     style="    padding: 0.5rem;">
                                                                                     {{ __('backend.value') }}</th>
@@ -262,8 +272,10 @@
                                                                                 @foreach ($products as $product)
                                                                                     <td>{{ $i++ }}</td>
                                                                                     <td>{{ $product->name }}</td>
+                                                                                    @if ($invoice->isBrief!='1')
                                                                                     <td class="text-left">
                                                                                         {{ $product->quantity }}</td>
+                                                                                    @endif
                                                                                     <td class="text-left">
                                                                                         {{ number_format($product->value, 2, '.', ',') }}
                                                                                     </td>
@@ -437,7 +449,8 @@
                                                             <div class="row">
                                                                 <div class="col-sm-12 col-12">
                                                                     <p class="">
-                                                                        {{ "Email: $author->email | Contact: $author->phone " }}
+                                                                        {{-- {{ "Email: $author->email | Contact: $author->phone " }} --}}
+                                                                        {{__('backend.The invoice is issued by the billing system baptism platform')}}
                                                                     </p>
                                                                 </div>
                                                             </div>

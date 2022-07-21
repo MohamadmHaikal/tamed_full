@@ -162,6 +162,14 @@
         uploadRecipt:"{{__('backend.uploadRecipt')}}",
         AwaitingPayment:"{{__('backend.Awaiting payment')}}",
         sendPrice:"{{__('backend.send new price')}}",
+        note:"{{__('backend.note')}}",
+        NoteRequired:"{{__('backend.Note required')}}",
+        Total:"{{__('backend.Total')}}",
+        discountValue:"{{__('backend.discount value')}}",
+        RequiredDiscountAmount:"{{__('backend.Required discount amount')}}",
+        RequiredTypDiscount:"{{__('backend.Required type of discount')}}",
+        taxRequire:"{{__('backend.tax required')}}",
+        TotalRequired:"{{__('backend.Total required')}}",
     };
 </script>
 <!-- Stack array for including inline js or scripts -->

@@ -20,7 +20,9 @@ class invoice extends Model
         'email',
         'Banks',
         'user_id',
-        'contracts_id'
+        'contracts_id',
+        'isDeals',
+        'isBrief'
     ];
     use HasFactory;
 }

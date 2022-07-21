@@ -107,7 +107,7 @@
                                                                 }
                                                                 return base64_encode($tlv_string);
                                                             }
-                                                            $qrContent = einv_generate_tlv_qr_code([$author->name, $author->TaxNumber, $invoice->created_at, $Ttotal['total'], $Ttotal['tax_amount']]);
+                                                            $qrContent = einv_generate_tlv_qr_code([$author->name, $author->TaxNumber, $invoice->created_at, (($DealsAuctions->price * 5 /100)+ ((($DealsAuctions->price * 5 /100)) * 15 / 100)), ($DealsAuctions->price * 5 /100)]);
                                                             
                                                             ?>
                                                             <div
@@ -174,7 +174,7 @@
                                                                 {{ __('backend.address') }} </div>
                                                             <div class="col-sm-4"
                                                                 style="border: 2px solid #dae1e7  ;   margin-left: 3px;">
-                                                                {{ $invoice->address }}
+                                                                {{ getUserAddressByNeighborhoo(get_user_by_id($DealsAuctions->from_id)) }}
                                                             </div>
                                                             <div class="col-sm-2 pt-1 pb-1"
                                                                 style="border: 2px solid #dae1e7; background-color: #cfe9f2;    margin-left: 3px;">
@@ -184,7 +184,7 @@
                                                                 {{ $invoice->TaxNumber }}
                                                             </div>
                                                         </div>
-                                                        <div class="row mt-2">
+                                                        {{-- <div class="row mt-2">
                                                             <div class="col-sm-2 pt-1 pb-1"
                                                                 style="border: 2px solid #dae1e7; background-color: #cfe9f2;    margin-left: 8px;">
                                                                 {{ __('backend.responsible') }} </div>
@@ -193,7 +193,7 @@
                                                                 {{ $invoice->responsible }}
                                                             </div>
 
-                                                        </div>
+                                                        </div> --}}
                                                         <div class="row mt-2">
                                                             <div class="col-sm-2 pt-1 pb-1"
                                                                 style="border: 2px solid #dae1e7; background-color: #cfe9f2;    margin-left: 3px;">

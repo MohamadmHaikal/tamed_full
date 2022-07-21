@@ -26,8 +26,8 @@ class eBillsController extends Controller
         } else if ($source == "issued") {
             $invoices = invoice::where('user_id', '=', get_current_user_id())->get();
         } else if ($source == "Unpaid") {
-            $invoices = invoice::where('user_id', '=', get_current_user_id())->where('status', '=','un paid')->get();
-        }else {
+            $invoices = invoice::where('user_id', '=', get_current_user_id())->where('status', '=', 'un paid')->get();
+        } else {
             $invoices = invoice::where('user_id', '=', get_current_user_id())->orWhere('TaxNumber', '=', get_current_user_data()->TaxNumber)->get();
         }
         $date = subscription::where('user_id', '=', get_current_user_id())->first();
@@ -109,7 +109,7 @@ class eBillsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {  
         $invoice = invoice::create([
             'invoice_date' => $request->Invoice_date,
             'supply_date' => $request->date_supply,
@@ -124,7 +124,31 @@ class eBillsController extends Controller
             'Banks' => serialize($request->bank),
             'user_id' => get_current_user_id(),
             'contracts_id' => $request->route('id') != null ? $request->route('id') : null,
+            'isBrief'=> $request->type_type=='short invoice'? '1' :null,
         ]);
+        if($request->invice_type=='Tax bill' && $request->type_type=='short invoice'){
+            $tax_amount = ((($request->Tax['1']) / 100) * ($request->Total));
+            $Taxable_amount = null;
+            if ($request->DiscountType == 1) {
+                $Taxable_amount =   ($request->Total) - $request->discountValue;
+            } else if ($request->DiscountType == 2) {
+                $Taxable_amount =($request->Total)-( (($request->Total)*($request->discountValue))/100) ;
+            }
+            $total = $Taxable_amount + $tax_amount;
+            Products::create([
+                'name' => $request->note,
+                'quantity' => '1',
+                'value' => $request->Total,
+                'discount' => $request->discountValue,
+                'discount_type' => $request->DiscountType,
+                'Taxable_amount' => $Taxable_amount,
+                'tax_rate' => $request->Tax['1'],
+                'tax_amount' => $tax_amount,
+                'invoices_id' => $invoice->id,
+                'total' => $total,
+            ]);
+        }
+        else{
         $card = $request->product_name;
         for ($i = 1; $i <= count($card); $i++) {
             if (!empty($card[$i])) {
@@ -149,6 +173,7 @@ class eBillsController extends Controller
                     'total' => $total,
                 ]);
             }
+        }
         }
         if ($request->route('id') != null) {
             return redirect()->route('ElectronicContracts', ['source' => 'issued']);
@@ -207,7 +232,9 @@ class eBillsController extends Controller
     public function _search(Request $request)
     {
         $date = explode(" إلى ", $request->date);
-       
+        if ($request->date == null) {
+            return redirect()->back();
+        }
         $invoices = invoice::where('user_id', '=', get_current_user_id())->orWhere('TaxNumber', '=', get_current_user_data()->TaxNumber)->get();
         $invoices = $invoices->whereBetween('invoice_date', [$date[0], $date[1]]);
         $date = subscription::where('user_id', '=', get_current_user_id())->first();
@@ -224,13 +251,13 @@ class eBillsController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */ 
-    public function _changeStatus($status,$id)
+     */
+    public function _changeStatus($status, $id)
     {
-      $invoice=invoice::find($id);
-      $invoice->status=$status;
-      $invoice->save();
-      return redirect()->back();
+        $invoice = invoice::find($id);
+        $invoice->status = $status;
+        $invoice->save();
+        return redirect()->back();
     }
     public function destroy($id)
     {
