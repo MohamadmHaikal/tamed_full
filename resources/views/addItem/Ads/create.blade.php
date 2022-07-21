@@ -394,7 +394,7 @@
 
                                                                             <div class="col-2"></div>
 
-                                                                            @if (!isset($item))
+                                                                            @if (!isset($item) ||(isset($item) && $item->type!='6'))
                                                                             <div class="col-6 has-price">
                                                                                 {{-- <label class="fieldlabels">{{__('backend.Price')}}</label> --}}
                                                                                 <div class="input-group mt-3">
@@ -441,7 +441,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            @else
+                                                                            @elseif (isset($item) && $item->type=='6')
                                                                             <div class="col-6">
                                                                             <div class="form-group " id="salary">
                                                                                 <label class="fieldlabels">الراتب</label>

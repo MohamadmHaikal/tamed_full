@@ -136,9 +136,28 @@ class AdsController extends Controller
                 $ads['employment_rent_contract'] = '';
             }
         }
+        if(array_key_exists("Bank_guarantee", $ads->application_conditions)){
+            $ads->application_conditions->Bank_guarantee='on';
+        } 
+        if(array_key_exists("CodeKSA", $ads->application_conditions)){
+            $ads->application_conditions->CodeKSA='on';
+        }
+        if(array_key_exists("PricingWithMaterials", $ads->application_conditions)){
+            $ads->application_conditions->PricingWithMaterials='on';
+        }
+        if(array_key_exists("conforming", $ads->application_conditions)){
+            $ads->application_conditions->conforming='on';
+        }
+        $ads['userFile']=get_current_user_id()!=null ? count(getUserfile())!=0 ? getUserfile() : null :null;
         $ads['author'] = get_user_by_id($ads->user_id);
         $gallery = $ads['gallery'] != null ? explode(',', $ads['gallery']) : [];
         $ads['files'] = File::whereIn('id', $gallery)->get();
+        $specificationsFiles = $ads['specificationsFiles'] != null ? explode(',', $ads['specificationsFiles']) : [];
+        $ads['specificationsFiles'] = File::whereIn('id', $specificationsFiles)->get();
+        $ThreeDFiles = $ads['3D_Files'] != null ? explode(',', $ads['3D_Files']) : [];
+        $ads['3D_Files'] = File::whereIn('id', $ThreeDFiles)->get();
+        $planFiles = $ads['planFiles'] != null ? explode(',', $ads['planFiles']) : [];
+        $ads['planFiles'] = File::whereIn('id', $planFiles)->get();
         foreach ($ads['files'] as $file) {
             $file['info'] = unserialize($file['info']);
         }

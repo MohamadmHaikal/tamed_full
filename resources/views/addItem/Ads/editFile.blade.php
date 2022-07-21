@@ -125,7 +125,7 @@ $upload_project_plans = $item['planFiles'] != '' ? explode(',', $item['planFiles
         @endforeach
     </div>
     <div class="row fileContent col-md-10 align-items-center" id="progressContainer2" style="display: none">
-        <small id="pers" style="position: absolute;right: 50%;color: #fff;">1%</small>
+        <small id="pers2" style="position: absolute;right: 50%;color: #fff;">1%</small>
         <div class="progress mb-2 br-30" style="width: 95%;">
             <div id="myBar2" class="progress-bar br-0 progress-bar-striped progress-bar-animated bg-secondary"
                 role="progressbar"></div>
@@ -162,7 +162,7 @@ $upload_project_plans = $item['planFiles'] != '' ? explode(',', $item['planFiles
         @endforeach
     </div>
     <div class="row fileContent col-md-10 align-items-center" id="progressContainer3" style="display: none">
-        <small id="pers" style="position: absolute;right: 50%;color: #fff;">1%</small>
+        <small id="pers3" style="position: absolute;right: 50%;color: #fff;">1%</small>
         <div class="progress mb-2 br-30" style="width: 95%;">
             <div id="myBar3" class="progress-bar br-0 progress-bar-striped progress-bar-animated bg-secondary"
                 role="progressbar"></div>

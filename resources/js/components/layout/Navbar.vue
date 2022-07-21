@@ -28,11 +28,11 @@
 
                             </li>
                             <li class="nav-item">
-                                <a href="javascript:void(0);" class="nav-link">
-                                    المشاريع <i class="fas fa-chevron-down"></i>
+                                <a href="javascript:void(0);" class="nav-link" id="projects-menu">
+                                    المشاريع <i class="fas fa-chevron-down" id="chevron"></i>
                                 </a>
-                                <ul class="dropdown-menu"
-                                    style="box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 0%);background: #ffffff00;">
+                                <ul class="dropdown-menu" id="project-nav-menu"
+                                    style=" box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 0%);background: #ffffff00;">
                                     <div class="drop-arrow"
                                         style="position: absolute;width: 0;height: 0;border-style: solid;border-width: 0 7.5px 10px;border-color: transparent transparent #fff;right: 9%;z-index: 9;transform: translateX(-50%); bottom: 318px;transition: .25s ease-in-out;">
                                     </div>
@@ -103,7 +103,7 @@
 
                             </li>
                             <li class="nav-item">
-                                 <router-link to="/GuideManual" class="nav-link">
+                                <router-link to="/GuideManual" class="nav-link">
                                     الدليل الإرشادي
                                 </router-link>
 
@@ -363,6 +363,47 @@ export default {
             });
         }
 
+        let width = screen.width;
+        if (width <= 600 && document.getElementById("project-nav-menu") != null) {
+            document.getElementById("project-nav-menu").style.border = "none";
+            document.getElementById("project-nav-menu").style.display = "none";
+            document.getElementById("chevron").style.display = "inline-block";
+            document.getElementById("chevron").style.float = "left";
+            document.getElementById("chevron").classList.add('fa-chevron-up');
+
+        }
+        var projectsMenu = document.getElementById("projects-menu");
+        if (projectsMenu != null) {
+            projectsMenu.addEventListener("click", function () {
+
+                let width = screen.width;
+                if (width <= 600 && document.getElementById("project-nav-menu") != null) {
+                    var css = '#projects-menu:hover{ background-color: #fff; }';
+                    var style = document.createElement('style');
+
+                    if (style.styleSheet) {
+                        style.styleSheet.cssText = css;
+                    } else {
+                        style.appendChild(document.createTextNode(css));
+                    }
+                    projectsMenu.appendChild(style);
+                    let status = document.getElementById("project-nav-menu").getAttribute("style").indexOf("display: none");
+
+                    if (status != -1) {
+                        document.getElementById("chevron").classList.add('fa-chevron-down');
+                        document.getElementById("chevron").classList.remove('fa-chevron-up');
+                        document.getElementById("project-nav-menu").style.display = "block";
+                    }
+                    else {
+                        document.getElementById("chevron").classList.add('fa-chevron-up');
+                        document.getElementById("chevron").classList.remove('fa-chevron-down');
+                        document.getElementById("project-nav-menu").style.display = "none";
+                    }
+
+                }
+
+            });
+        }
     }
 }
 </script>

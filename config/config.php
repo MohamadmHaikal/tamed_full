@@ -300,6 +300,12 @@ return [
         ],
         [
             'type' => 'item',
+            'label' => awe_lang('EmploymentApplications'),
+            'icon' => 'la-user-edit',
+            'route_name' => 'employment',
+        ],
+        [
+            'type' => 'item',
             'label' => awe_lang('FinancialAnalysis'),
             'icon' => 'la-chart-bar',
             'route_name' => 'FinancialAnalysis',
@@ -609,6 +615,12 @@ return [
         ],
         [
             'type' => 'item',
+            'label' => awe_lang('EmploymentApplications'),
+            'icon' => 'la-user-edit',
+            'route_name' => 'employment',
+        ],
+        [
+            'type' => 'item',
             'label' => awe_lang('CustomerList'),
             'icon' => 'la-user-friends',
             'route_name' => 'FacilityCustomers',
@@ -742,6 +754,12 @@ return [
                 ],
 
             ],
+        ],
+        [
+            'type' => 'item',
+            'label' => awe_lang('EmploymentApplications'),
+            'icon' => 'la-user-edit',
+            'route_name' => 'employment',
         ],
         [
             'type' => 'item',

@@ -723,7 +723,7 @@ $(".QuotesDetails").click(function () {
                 + '</div>'
                 + '<p style="color:gray;">المشروع المقدم إليه</p>'
                 + '<p style="color:blue;">' + data['name'] + ' </p>'
-                + ' <div class="col-md-12"> <div class="form-group text-center"><label for="aboutBio">ملاحظات</label> <textarea id="aboutBio" class="form-control" name="description" rows="5" disabled>' + data['note'] + '</textarea><a href="/images/' + data['file'] + '" download><button class="btn btn-outline-primary btn-rounded qoutes-file-download mt-3" style="padding:7px;">تحميل ملف عرض السعر</button></a> </div></div>'
+                + ' <div class="col-md-12"> <div class="form-group text-center"><label for="aboutBio">ملاحظات</label> <textarea id="aboutBio" class="form-control" name="description" rows="5" disabled>' + data['note'] + '</textarea><a href="/image/' + data['file'] + '" download><button class="btn btn-outline-primary btn-rounded qoutes-file-download mt-3" style="padding:7px;">تحميل ملف عرض السعر</button></a> </div></div>'
                 + '</div><div class="modal-footer" style="display: initial;"></div></div></div></div></div>');
             if (data['status'] == 'new' && data['owner'] == false) {
                 $(".modal-footer").html('<div class="row text-center"> <div class="col-md-6"><button type="button" data-action="waiting"  class="btn  btn-success btn-rounded quotes-action">' + window.translation.Accepttheoffer + '</button></div><div class="col-md-6"><button type="button" data-action="rejected"  class="btn btn-danger btn-rounded quotes-action">' + window.translation.offerrejected + '</button></div></div> ');
@@ -773,6 +773,91 @@ $(".QuotesDetails").click(function () {
 
             });
             $('#quotesDetails').modal('show');
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    });
+
+
+
+});
+$(".EmploymentDetails").click(function () {
+    var id = $(this).data('id');
+    console.log(id);
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        url: "/employment/show/" + id,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: (data) => {
+            console.log(data);
+            const element = document.getElementById("employmentDetails");
+            console.log(data);
+            if (element != null) { element.remove(); }
+            $("body").append(' <div class="modal fade" id="employmentDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document">   <div class="modal-content">   <div class="modal-header">  <h5 class="modal-title" id="exampleModalLabel">' + window.translation.OrderDetails + '</h5>  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="las la-times"></i> </button> </div><div class="modal-body text-center">' +
+                '<p>مقدم الطلب : ' + data.user['name'] + ' </p>'
+                + '<a href="/profile/' + data.user['id'] + '/details"><button class="btn btn-outline-dark btn-rounded mt-2" style="padding:7px;">مشاهدة الملف الشخصي</button></a>'
+                + '<div class="text-left mt-3 mr-2">'
+                + '<p class="text-center mt-3">العنوان الرئيسي : ' + data.user['address'] + ' </p>'
+                 + '</div>'
+                + '<p style="color:gray;">الوظيفة المقدم إليها</p>'
+                + '<p style="color:blue;">' + data['ads']['title'] + ' </p>'
+                + ' <div class="col-md-12"> <div class="form-group text-center"><label for="aboutBio">ملاحظات</label> <textarea id="aboutBio" class="form-control" name="description" rows="5" disabled>' + data['note'] + '</textarea><a href="/image/' + data['file'] + '" download><button class="btn btn-outline-primary btn-rounded qoutes-file-download mt-3" style="padding:7px;">تحميل ملف  السيرة الذاتية</button></a> </div></div>'
+                + '</div><div class="modal-footer" style="display: initial;"></div></div></div></div></div>');
+            if (data['status'] == 'new' && data['owner'] == false) {
+                $(".modal-footer").html('<div class="row text-center"> <div class="col-md-6"><button type="button" data-action="accepted"  class="btn  btn-success btn-rounded quotes-action">' + window.translation.RequestAccept + '</button></div><div class="col-md-6"><button type="button" data-action="rejected"  class="btn btn-danger btn-rounded quotes-action">' + window.translation.RejectionApplication + '</button></div></div> ');
+
+            }
+            if (data['status'] == 'new' && data['owner'] == true) {
+                $(".modal-footer").html('<div class="row text-center"> <div class="col-md-6"><button type="button" data-action="waiting"  class="btn  btn-warning btn-rounded">' + window.translation.waitingForAcceptance + '</button></div><div class="col-md-6"><button type="button"  class="btn btn-danger btn-rounded ">' + window.translation.RejectionApplication + '</button></div></div> ');
+
+            }
+            if (data['status'] == 'accepted') {
+
+               
+            }
+            if(data['file']==''){
+                $('.qoutes-file-download').hide();
+            }
+            $('.quotes-action').click(function () {
+                $(this).attr('disabled', 'disabled');
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: 'GET',
+                    url: "/employment/changeStatus/" + $(this).data('action') + '/' + id,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: (data) => {
+                        document.getElementById("alert").innerHTML = data['message'].substring(0, data['message']
+                            .length);
+                        $('.toast').toast('show');
+                        if (data['reload']) {
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 1500);
+
+                        }
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+
+            });
+            $('#employmentDetails').modal('show');
         },
         error: function (data) {
             console.log(data);
