@@ -443,15 +443,29 @@
             });
         });
 
+        $(document).on('click', '#animated-underline-about-tab',function(e) {
+            $('#animated-underline-about').addClass('show active');
+        $('#animated-underline-home').removeClass('show active');
+               
+        });
+
+        $(document).on('click', '#animated-underline-home-tab',function(e) {
+            $('#animated-underline-about').removeClass('show active');
+        $('#animated-underline-home').addClass('show active');
+               
+        });
         
         $('.get_invoice').on('click', function(e) {
             $('#animated-underline-home-tab').css('display','block');
             $('#negotiate-tab').css('display','block');
             $('#animated-underline-about-tab').css('display','block');
+           
             $(document).find('#animated-underline-home').empty();
             $(document).find('#animated-underline-about').empty();
+     
+            $('#animated-underline-about').removeClass('show active');
             $(document).find('#negotiate').empty();
-
+           
             var id = $(this).data('id');
          
 
@@ -464,7 +478,7 @@
                 if (data.status == 'done') {
                     $('#animated-underline-home-tab').addClass('active');
                 $('#animated-underline-home').addClass('show active');
-              
+           
 
                    $('#negotiate-tab').css('display','none');
                  

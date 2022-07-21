@@ -93,7 +93,7 @@ class DealsAuctionsController extends Controller
             'address' =>  $DealsAuctions->customer->address,
             // 'invice_type' => $request->invice_type,
             // 'type' => $request->type,
-            'TaxNumber' => $DealsAuctions->customer->Tax_Number,
+            'TaxNumber' => $DealsAuctions->customer->TaxNumber,
             // 'responsible' => $request->responsible,
             'phone' => $DealsAuctions->customer->phone,
             'email' => $DealsAuctions->customer->email,
