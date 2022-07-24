@@ -625,7 +625,8 @@
             type: "get",
             contentType: 'application/json',
             success: function (data) {
-                var jsonobj = $.parseJSON(data)
+                var respon = $.parseJSON(data)
+                
                 document.getElementById("alert").innerHTML = respon.message.substring(0, respon.message
                                 .length);
 

@@ -177,6 +177,15 @@ return [
 
                 ],
 
+                [
+                    'type' => 'item',
+                    'label' => awe_lang('Project Permits'),
+                    'route_name' => 'Permits',
+                    'icon'=>'la-sticky-note',
+                    'active_class' => 'ads/Permits'
+
+                ],
+
             ],
         ],
         [

@@ -8,6 +8,7 @@ use App\Models\File;
 use App\Models\invoice;
 use App\Models\User;
 use App\Models\Products;
+use App\Models\Permit;
 use App\Models\Quote;
 use App\Models\UserType;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
@@ -23,6 +24,16 @@ function get_ads_quotes_count($id)
     }
     return 0;
 }
+
+function get_permits_count($id)
+{
+    $Permit = Permit::where('ads_id', '=', $id)->get();
+    if ($Permit != null) {
+        return $Permit->count();
+    }
+    return 0;
+}
+
 function get_Signed_ads($id){
     $quotes = Quote::where('ads_id', '=', $id)->where('status','=','accepted')->get();
   

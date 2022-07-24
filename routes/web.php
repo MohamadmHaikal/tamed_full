@@ -285,6 +285,14 @@ Route::post('get-list-item', [OptionController::class, '_getListItem'])->name('g
         Route::post('/uploadFile','AdsController@uploadFile')->name('uploadFile');
         Route::post('/removeFile/{id}','AdsController@removeFile')->name('removeFile');
         Route::get('/ads/{id}','AdsController@show')->name('showAds');
+        Route::get('/Permits','AdsController@Permits')->name('Permits');
+        Route::get('/permitsShow/{id}','AdsController@permitsShow')->name('permitsShow');
+        Route::post('/permitsCreate','AdsController@permitsCreate')->name('permitsCreate');
+        Route::get('/permitsdelete/{id}','AdsController@permitsdelete')->name('permitsdelete');
+        Route::get('/permit_get/{id}','AdsController@permit_get')->name('permit_get');
+        Route::post('/permit_update/{id}','AdsController@permit_update')->name('permit_update');
+        Route::get('/permit_status/{id}','AdsController@permit_status')->name('permit_status');
+
 
     });
     Route::group(['prefix' => 'project'], function () {

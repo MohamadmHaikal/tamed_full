@@ -162,7 +162,70 @@ function Create(element) {
         }, 'json');
 
     });
+
+
 }
+
+// function Createfile(element) {
+    $(document).on('click', '#createItemFile', function (ev) {
+        var fd = new FormData();
+        fd.append('file', $('#file').get(0).files[0]);
+        let form = $(this).closest("form").serializeArray();
+        $.each(form, function (key, input) {
+            if (input.name === 'description') {
+                editor = $(".Editor-editor").html();
+                fd.append('description', editor);
+            } else {
+            fd.append(input.name, input.value);
+                
+            }
+           
+        });
+   
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    
+        $.ajax({
+            type: $(this).closest("form").attr('method'),
+            url: $(this).closest("form").attr('action'),
+            data: fd,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: (data) => {
+                
+                var respon = $.parseJSON(data)
+                
+                document.getElementById("alert").innerHTML = respon.message.substring(0, respon.message
+                                .length);
+
+                            $('.toast').toast('show');
+
+                            if (respon.redirect) {
+                                setTimeout(function () {
+                                    window.location.href = respon.redirect;
+                                }, 1500);
+                            }
+
+                            if (respon.reload) {
+                                setTimeout(function () {
+                                    window.location.reload();
+                                }, 1000);
+                            }
+    
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    
+
+
+    });
+// }
 
 function Delete(element) {
 
