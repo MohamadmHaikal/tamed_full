@@ -14,6 +14,7 @@ use Hash;
 use Illuminate\Auth\AuthManager;
 use Sentinel;
 use Illuminate\Support\Facades\Http;
+
 class AuthMangerController extends Controller
 {
     use AuthenticatesUsers;
@@ -112,25 +113,26 @@ class AuthMangerController extends Controller
         //  "apiKey"=> "ad8fe82ffa00761d1fc36b2cdb15a516",
         //  "msg"=> "$msg"
         //  ]);
-         
+
         //  if($a['code']!=1){
         //     return $this->sendJson([
         //         'status' => 0,
         //         'message' => view('common.alert', ['type' => 'danger', 'message' => 'حدث خطأ لم يتم ارسال الكود'])->render()
         //     ]);
         //  }else{
-            return $this->sendJson([
-                'status' => 1,
-                'mobile' => $user['phone'],
-                'message' => view('common.alert', ['type' => 'success', 'message' => 'تم إرسال كود التحقق بنجاح'])->render()
-            ]);
+        return $this->sendJson([
+            'status' => 1,
+            'mobile' => $user['phone'],
+            'message' => view('common.alert', ['type' => 'success', 'message' => 'تم إرسال كود التحقق بنجاح'])->render()
+        ]);
         //  }
-       
+
     }
-    
+
     public function _getPostSignUp(Request $request)
-    {   if(str_starts_with($request->mobile, '9660')){
-        $request->mobile=substr_replace($request->mobile, '', 4, 1);
+    {
+        if (str_starts_with($request->mobile, '9660')) {
+            $request->mobile = substr_replace($request->mobile, '', 4, 1);
         }
         $user = AuthManger::where('IdCard', '=', $request->IdCard)->orWhere('phone', $request->mobile)->first();
         if ($user != null) {
@@ -203,7 +205,45 @@ class AuthMangerController extends Controller
         return redirect()->route('Business.login');
     }
     public function _add_facility(Request $request)
-    {
+    { 
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'logo' => 'required',
+                'name' => 'required',
+                'CRecord' => 'required|numeric|digits:10',
+                'phone' => 'required|digits_between:9,12',
+                'email' => 'required|email',
+                'specialNumber' => 'required|numeric',
+                'TaxNumber' => 'required|numeric|digits:15',  
+                'city' => 'required',
+                'neighbor' => 'required',
+                'type_id' => 'required',
+                'activitie_id' => 'required',
+                'add_activity' => 'required',
+            ],
+            [
+                'logo.required' => __('The mobile is required'),
+                'phone.required' => __('backend.Mobile number is required'),
+                'name.required' => __('backend.The name of the facility is required'),
+                'email.required' => __('backend.Email is required'),
+                'CRecord.required' => __('backend.Commercial Registration Required'),
+                'specialNumber.required' => __('backend.The distinctive number of the facility is required'),
+                'TaxNumber.required' => __('backend.Tax number is required'),  
+                'city.required' => __('backend.The city of the facility is required'),
+                'neighbor.required' => __('backend.The neighborhood of the facility is required'),
+                'activitie_id.required' => __('backend.Main activity required'),
+                'type_id.required' => __('backend.The quality of the facility is required'),
+                'add_activity.required' => __('backend.Additional activity is required'),
+            ]
+        );
+        if ($validator->fails()) {
+
+            return $this->sendJson([
+                'status' => 0,
+                'message' => view('common.alert', ['type' => 'danger', 'message' => $validator->errors()->first()])->render()
+            ]);
+        }
         $credentials = [
             'phone'    => request()->get('phone'),
             'password' => \Illuminate\Support\Str::random(12),
@@ -232,10 +272,20 @@ class AuthMangerController extends Controller
         $city = request()->get('city');
         $neighbor = request()->get('neighbor');
         $activitie_id = request()->get('activitie_id');
+        $type_id = request()->get('type_id');
+        $add_activity = request()->get('add_activity');
         $user->name = $name;
-        $filename = time() . '.' . request()->logo->getClientOriginalExtension();
-        request()->logo->move(public_path('image'), $filename);
-        $user->logo = $filename;
+        if (request()->logo != 'undefined') {
+            $filename = time() . '.' . request()->logo->getClientOriginalExtension();
+            request()->logo->move(public_path('image'), $filename);
+            $user->logo = $filename;
+        }
+        else{
+            return $this->sendJson([
+                'status' => 0,
+                'message' => view('common.alert', ['type' => 'danger', 'message' =>__('backend.The company is logo is required')])->render()
+            ]);
+        }
         $user->email = $email;
         $user->TaxNumber = $TaxNumber;
         $user->specialNumber = $specialNumber;
@@ -244,10 +294,12 @@ class AuthMangerController extends Controller
         $user->city_id = $city;
         $user->neighborhood = $neighbor;
         $user->activitie_id = $activitie_id;
+        $user->type_id = $type_id;
         $user['v-code'] = $code;
         $user['password'] = bcrypt($code);
-
+        addAdditionalActitvityToFacility($user->id,$add_activity);
         $user->save();
+       
         return $this->sendJson([
             'status' => 1,
             'reload' => true,

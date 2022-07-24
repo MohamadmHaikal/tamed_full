@@ -368,7 +368,7 @@
                                                                     <br>
                                                                     <span>قبل التأكد من مواصفات الصفقة</span>
                                 
-                                                                    <h6 style="padding-top:15px ;color:#049ba6 ;">نسبة التأمين 10 % من قيمة الصفقة</h6>
+                                                                    <h6 style="padding-top:15px ;color:#049ba6 ;">نسبة التأمين 5 % من قيمة الصفقة</h6>
                                                                     <div class="text-center">
                                                                         <div class="mt-2"
                                                                             style="     margin-right: 9%;background-color:#b6e2e5;  border-radius: 20px;  width: 76%;     padding: 22px;   text-align: right; ">
@@ -397,7 +397,7 @@
                                                         
                                                         <div class="footer-contact">
                                                             <div class="row">
-                                                                <div class="col-sm-12 col-12">
+                                                                <div class="col-sm-12 col-12 mt-5">
                                                                     <p class="">
                                                                         {{ "Email: $author->email | Contact: $author->phone " }}
                                                                     </p>

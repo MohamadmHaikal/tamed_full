@@ -28,9 +28,9 @@
                                     <span>قبل التأكد من مواصفات الصفقة</span>
 
                                     <h6 style="padding-top:15px ;color:#049ba6 ;">نسبة التأمين 5 % من قيمة الصفقة</h6>
-                                    <dir class="text-center">
-                                        <div class="mt-2"
-                                            style="     margin-right: 9%;background-color:#b6e2e5;  border-radius: 20px;  width: 76%;     padding: 22px;   text-align: right; ">
+                                    <div class="text-center">
+                                        <div class="mt-2 note-payment"
+                                            >
                                             <h6 style="color:#4e8a8b ; font-weight: 800;">ملاحظة</h6>
                                             <p style="     font-weight: 300;color: #000;font-size: 12px;"> بعد دفع
                                                 التأمين سيتم اصدار فاتورة بالمبلغ المدفوع وحجز الصفقة لك حسب المدة
@@ -39,15 +39,15 @@
                                                 الصفقة من نصيبك</p>
 
                                         </div>
-                                        <div class="mt-2"
-                                            style="margin-right: 9%;background-color:#f6dec2;  border-radius: 20px;  width: 76%;     padding: 22px;   text-align: right; ">
+                                        <div class="mt-2 note-payment1"
+                                            >
 
                                             <p style="font-weight: 300;font-size: 12px; color: #000;"> وان لم تكن بفس
                                                 المواصفات المعروضة سيتم استردادالمبلغ المدفوع بعد خصم رسوم تعميد وسيتم
                                                 استرداد المبلغ خلال 5 ايام عمل</p>
 
                                         </div>
-                                    </dir>
+                                    </div>
 
                                     <!-- <div class="accept-price-check mt-5">
                                         <label class="container1 mt-5" @click="accept('all-accept-deals')">
@@ -73,16 +73,16 @@
                                             style="border-radius: 10px;background-color: #ecb072; margin-top: 15px;color: white; padding: 5px 20px 5px 20px;">دفع
                                             المبلغ كامل</a>
                                         <br>
-                                        <a href="javascript:void(0);">
+                                       <router-link :to="'/project/' + id + '/details'">
                                             <p style="padding-top: 15px;font-weight: 500; padding-bottom: 15px;">العودة
                                                 للصفحة السابقة</p>
-                                        </a>
+                                        </router-link>
                                     </div>
                                 </div>
                                 <div class="deposit1 " id="full-payment"
                                     style="display:none ;     text-align: -webkit-center;">
                                     <div class="col-md-8"
-                                        style="    padding-right: 25px;text-align: -webkit-center; padding-top: 15px;">
+                                        style="text-align: -webkit-center; padding-top: 15px;">
                                         <div class="row mt-5 text-start">
                                             <div class="col-md-6 text-center">
 
@@ -105,8 +105,7 @@
 
                                     </div>
                                     <div class="col-md-8">
-                                        <small
-                                            style="position:relative;top: 58px; left: 180px;background-color:#ffffff; color:#b6e6e8;padding:0px 10px 0px 10px;     font-size: 12px;">هل
+                                        <small class="qoutes-note-area">هل
                                             لديك ملاحظات</small>
                                         <div style="text-align:-webkit-center ; ">
                                             <textarea class="mt-5" name="" id="full_note" cols="40" rows="6"
@@ -130,23 +129,28 @@
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
-                                    <div class="quotes-btn mt-5 ">
+                                    <div class="quotes-btn mt-5  mb-5">
                                         <a href="#" class="btn btn-logo" @click="send('send', 'full-payment')"
-                                            style="border-radius:10px;background-color:#039ca4;color:white;    padding: 5px 15px 5px 15px;">ارسال
-                                            عرض السعر
+                                            style="border-radius:10px;background-color:#039ca4;color:white;    padding: 5px 15px 5px 15px;">
+                                             متابعة الشراء
                                         </a>
                                         <br>
 
-                                        <a href="javascript:void(0);">
-                                            <p style="padding-top: 15px;font-weight: 500; padding-bottom: 15px;">العودة
-                                                للصفحة السابقة</p>
-                                        </a>
+                                        
                                     </div>
                                 </div>
                                 <div class="deposit1 " id="deposit"
                                     style="display:none ;     text-align: -webkit-center;">
                                     <div class="col-md-8"
-                                        style="    padding-right: 25px;text-align: -webkit-center; padding-top: 15px;">
+                                        style="text-align: -webkit-center; padding-top: 15px;">
+                                        <div class="mt-2"
+                                            style="background-color:#b6e2e5;  border-radius: 20px;     padding: 22px;   text-align: right; ">
+                                            <h6 style="color:#4e8a8b ; font-weight: 800;">ملاحظة</h6>
+                                            <p style="     font-weight: 300;color: #000;font-size: 12px;">لدفع مبلغ حجز
+                                                تأمين الصفقة يمكنكم التحويل على حساب المشغل لدينا نجوم لتقنية المعلومات
+                                                (ستارتك)</p>
+                                            <p class="text-center">بنك الراجحي  &nbsp;  STARS TECH  &nbsp; SA9680000530608016098443 </p>
+                                        </div>
                                         <div class="row mt-5 text-start">
                                             <div class="col-md-6 text-center">
 
@@ -170,7 +174,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <small
-                                            style="position:relative;top: 58px; left: 180px;background-color:#ffffff; color:#b6e6e8;padding:0px 10px 0px 10px;     font-size: 12px;">هل
+                                           class="qoutes-note-area">هل
                                             لديك ملاحظات</small>
                                         <div style="text-align:-webkit-center ; ">
                                             <textarea class="mt-5" name="" id="deposit_note" cols="40" rows="6"
@@ -194,17 +198,14 @@
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
-                                    <div class="quotes-btn mt-5 ">
+                                    <div class="quotes-btn mt-5 mb-5 ">
                                         <a href="#" class="btn btn-logo" @click="send('send', 'deposit')"
-                                            style="border-radius:10px;background-color:#039ca4;color:white;    padding: 5px 15px 5px 15px;">ارسال
-                                            عرض السعر
+                                            style="border-radius:10px;background-color:#039ca4;color:white;    padding: 5px 15px 5px 15px;">
+                                            متابعة الشراء
                                         </a>
                                         <br>
 
-                                        <a href="javascript:void(0);">
-                                            <p style="padding-top: 15px;font-weight: 500; padding-bottom: 15px;">العودة
-                                                للصفحة السابقة</p>
-                                        </a>
+                                       
                                     </div>
                                 </div>
                                 <div class="negotiation-content mt-5"
@@ -214,7 +215,7 @@
                                         style="     margin-right: 5px; color: #049fa8;   text-align: center; width: 20%;border: 1px solid #049fa8;border-radius: 5px;">
                                     <br>
                                     <small
-                                        style="position:relative;top: 58px; left: 180px;background-color:#ffffff; color:#b6e6e8;padding:0px 10px 0px 10px;     font-size: 12px;">هل
+                                        class="qoutes-note-area">هل
                                         لديك ملاحظات</small>
                                     <div style="text-align:-webkit-center ; ">
                                         <div class="mt-5 col-md-8">
@@ -233,7 +234,7 @@
                                         <div v-if="ads['userFile'] != null" class="mt-5 col-md-8"
                                             style="border: 1px solid rgb(204, 204, 204); border-radius: 25px; padding: 20px;    padding-top: 0px;">
                                             <small
-                                                style="position:relative;top: -13px; left: 180px;background-color:#ffffff; color:#b6e6e8;padding:0px 10px 0px 10px;     font-size: 12px;">
+                                               class="qoutes-paper-area">
                                                 الأوراق المرفقة
                                             </small>
                                             <div class="row">
@@ -262,16 +263,13 @@
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
-                                    <div class="quotes-btn mt-5 ">
+                                    <div class="quotes-btn mt-5 mb-5 ">
                                         <a href="javascript:void(0);" class="btn btn-logo"
                                             @click="send('send', 'deals')"
                                             style="border-radius:10px;background-color:#039ca4;color:white;    padding: 5px 15px 5px 15px;">ارسال
                                             إلى مقدم الصفقة</a>
                                         <br>
-                                        <a href="javascript:void(0);">
-                                            <p style="padding-top: 15px;font-weight: 500; padding-bottom: 15px;">العودة
-                                                للصفحة السابقة</p>
-                                        </a>
+                                       
                                     </div>
                                 </div>
 
@@ -282,9 +280,9 @@
                                 <div class="col-md-10 mt-5"
                                     style="    padding-right: 25px;text-align: -webkit-center; padding-top: 15px;">
                                     <div class="row mt-5 text-start">
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 quotes-file-btn">
 
-                                            <a @click="chooseFiles" href="javascript:void(0);" class="btn btn-logo"
+                                            <a @click="chooseFiles" href="javascript:void(0);" class="btn btn-logo "
                                                 style="border-radius: 12px;background-color: #d6a562; width: 55%;color: white; padding: 10px 10px;">ارفاق
                                                 عرض السعر</a>
 
@@ -313,7 +311,7 @@
                                     <div v-if="ads['userFile'] != null" class="mt-5 col-md-8"
                                         style="border: 1px solid rgb(204, 204, 204); border-radius: 25px; padding: 20px;    padding-top: 0px;">
                                         <small
-                                            style="position:relative;top: -13px; left: 180px;background-color:#ffffff; color:#b6e6e8;padding:0px 10px 0px 10px;     font-size: 12px;">
+                                            class="qoutes-paper-area" >
                                             الأوراق المرفقة
                                         </small>
                                         <div class="row">
@@ -325,7 +323,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <small
-                                            style="position:relative;top: 58px; left: 180px;background-color:#ffffff; color:#b6e6e8;padding:0px 10px 0px 10px;     font-size: 12px;">هل
+                                           class="qoutes-note-area">هل
                                             لديك ملاحظات</small>
                                         <div style="text-align:-webkit-center ; ">
                                             <textarea class="mt-5" name="" id="project_note" cols="40" rows="6"
@@ -347,10 +345,13 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div
-                                    style="width: 85%; padding-bottom: 15px; margin-top: 6%; border-radius: 12px; margin-bottom: 5%; box-shadow: rgb(236, 233, 233) 1px 1px 5px 2px;">
+                                <div class="second-card"
+                                    style=" padding-bottom: 15px; margin-top: 6%; border-radius: 12px; margin-bottom: 5%; box-shadow: rgb(236, 233, 233) 1px 1px 5px 2px;">
                                     <div style="border-bottom: 1px solid rgb(238, 239, 241);     padding-bottom: 15px;">
-                                        <p
+                                        <p v-if="ads.type==5"
+                                            style="text-align:right;padding-right:10%;padding-top:10%;font-weight:500;font-size:13px;">
+                                            اخر موعد لأنتهاء الصفقة </p>
+                                                <p v-else
                                             style="text-align:right;padding-right:10%;padding-top:10%;font-weight:500;font-size:13px;">
                                             اخر موعد لتقديم العروض </p>
                                         <div style="text-align: right;">
@@ -421,19 +422,18 @@
                                                     class="fa fa-star checked" style="font-size:20px;"></span><span
                                                     class="fa fa-star checked" style="font-size:20px;"></span><span
                                                     class="fa fa-star checked" style="font-size:20px;"></span></div>
-                                            <div class="row text-center mt-2">
-                                                <div class="col-md-5 col-sm-2"
-                                                    style="text-align:center;margin-bottom:12px;"><a
-                                                        :href="'/chat/' + author.id" style="color:#039ca4;">
+                                            <div class="row text-center msg-report mt-2">
+                                                <div class="col-md-5 col-4"><a :href="'/chat/' + author.id"
+                                                        style="color:#039ca4;">
                                                         <p style="position:relative;top:18px;">رسالة</p><i
                                                             class="far fa-comment-alt mb-2"
                                                             style="font-size:25px;color:#039ca4;"></i>
                                                     </a></div>
-                                                <div class="col-md-7 col-sm-10"><a href="javascript:void(0);"
+                                                <div class="col-md-7 col-8"><a href="javascript:void(0);"
                                                         class="btn report"> تقديم بلاغ على الصفقة </a></div>
                                             </div>
                                         </div>
-                                        <div class="mt-3" id="payment-info"
+                                        <div class="mt-4" id="payment-info"
                                             style="text-align: -webkit-center;padding-bottom: 15px;display: block;">
 
                                         </div>
@@ -728,6 +728,8 @@ export default {
                 document.getElementById("negotiation").style.backgroundColor = "white";
                 document.getElementById('price-with-material-accept').style.display = 'block';
                 document.getElementById('price-with-material').style.display = 'none';
+                 document.getElementById('deposit').style.display = 'none';
+                  document.getElementById('full-payment').style.display = 'none';
             }
             else if (cityName == 'deposit') {
                 document.getElementById('deposit').style.display = 'block';
@@ -736,19 +738,19 @@ export default {
                 document.getElementById('ref-number').style.display = 'none';
                 document.getElementById('owner-details').style.display = 'none';
                 document.getElementById('payment-info').innerHTML = `
-                                            <h5>معلومات الدفع</h5>
-                                            <span style="color: #039ca5;">قيمة الصفقة : 
-                                            <span style="color: #fdc57b;">`+ this.ads['price'] + ` ريال</span>
+                                            <h5>تفاصيل المبلغ </h5>
+                                            <span style="color: #039ca5;font-size: 13px;">قيمة الصفقة : 
+                                            <span style="color: #000000;">`+ this.ads['price'] + ` ريال</span>
                                             </span>
                                             <br>
-                                            <span style="color: #039ca5;"> قيمة تأمين حجز الصفقة : 
-                                            <span style="color: #fdc985;">`+ (((this.ads['price']) * 5) / 100) + ` ريال</span></span>
+                                            <span style="color: #039ca5;font-size: 13px;"> قيمة تأمين حجز الصفقة : 
+                                            <span style="color: #000000;">`+ (((this.ads['price']) * 5) / 100) + ` ريال</span></span>
                                             <br>
-                                            <span style="color: #039ca5;"> ضريبة القيمة المضافة : 
-                                            <span style="color: #fdc57b;">`+ ((((this.ads['price']) * 5) / 100) * 0.15) + ` ريال</span>
+                                            <span style="color: #039ca5;font-size: 13px;"> ضريبة القيمة المضافة : 
+                                            <span style="color: #000000;">`+ ((((this.ads['price']) * 5) / 100) * 0.15) + ` ريال</span>
                                             </span>
                                             <hr style="width: 80%;">
-                                            <span style="color: #039ca5;">المبلغ الإجمالي: 
+                                            <span style="color: #039ca5;   font-size: 18px;">المبلغ الإجمالي: 
                                             <span style="color: #fdc57b;">`+ ((((this.ads['price']) * 5) / 100) + ((((this.ads['price']) * 5) / 100) * 0.15)) + ` ريال</span>
                                             </span>`;
                 document.getElementById('payment-info').style.display = 'block';

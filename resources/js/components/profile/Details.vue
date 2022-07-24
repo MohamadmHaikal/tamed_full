@@ -3,8 +3,8 @@
         <div class="about-area pb-70">
             <div class="containp  container">
                 <div class="header-profile">
-                    <img src="../../assets/images/profile.png"
-                        style="position: relative; padding-bottom: 25px;width: 92%;  border-bottom-right-radius: 75px;      border-bottom-left-radius: 75px;  margin-right: 4%; margin-left: 4%;"
+                    <img class="cover" src="../../assets/images/profile.png" width="1121px " height="365"
+                       
                         alt="">
                     <div class="logo-profile">
 
@@ -58,15 +58,13 @@
                                                 تعليقات</button>
                                         </div>
 
-                                        <div id="London" class="tabcontent">
-                                            <div
-                                                style="    border-bottom: 1px solid rgb(238, 239, 241); padding-bottom: 40px;">
+                                        <div id="London" class="tabcontent about-facilite">
+                                            <div  >
 
                                                 <small
                                                     style="position:relative;top:26px;right:40px;background-color:#ffffff;padding:0px 10px 0px 10px;">نبذة
                                                     عن المنشآة</small>
-                                                <div class="mt-3"
-                                                    style="border:1px solid #019aa2;border-radius:25px;padding:20px;">
+                                                <div class="mt-3 title">
                                                     <span>{{ user.description }}</span>
                                                 </div>
                                             </div>
@@ -77,43 +75,43 @@
                                                 <div class="mt-3"
                                                     style="    border:1px solid #c2c2c2;border-radius:15px;padding:10px;">
 
-                                                    <div class="row">
-                                                        <div class="col-md-3 col-6">
+                                                    <div class="row additional-profile">
+                                                        <div class="col-md-4 col-6">
                                                             <img src="../../assets/images/customer.png" alt=""
-                                                                style="    width: 20%;">
+                                                               >
                                                             <span
-                                                                style="color:#c7c7c7 ;font-size: 10px;font-weight: 500; padding: 0px 5px 0px 0px;">عدد
+                                                                class="title-add">عدد
                                                                 العملاء:</span>
-                                                            <span style=" color: #039ca4;   font-size: 10px;">
+                                                            <span  class="value">
                                                                 +{{ user.Customers }} عميل
                                                             </span>
                                                         </div>
-                                                        <div class="col-md-3 col-6">
+                                                        <div class="col-md-4 col-6">
                                                             <img src="../../assets/images/projects.png" alt=""
-                                                                style="    width: 18%;">
+                                                               >
                                                             <span
-                                                                style="color:#c7c7c7 ;font-size: 10px;font-weight: 500; padding: 0px 5px 0px 0px;">عدد
+                                                                class="title-add">عدد
                                                                 المشاريع:</span>
-                                                            <span style=" color: #039ca4;   font-size: 10px;">
+                                                            <span  class="value">
                                                                 {{ projects.length }} مشروع
                                                             </span>
                                                         </div>
-                                                        <div class="col-md-3 col-6">
+                                                        <div class="col-md-4 col-6">
                                                             <img src="../../assets/images/activity.png" alt=""
-                                                                style="    width: 20%;">
+                                                               >
                                                             <span
-                                                                style="color:#c7c7c7 ;font-size: 8px;font-weight: 500; padding: 0px 5px 0px 0px;">النشاط
+                                                                class="title-add">النشاط
                                                                 الرئيسي:</span>
-                                                            <span style=" color: #039ca4;   font-size: 10px;">
+                                                            <span  class="value">
                                                                 {{ user.activity }}</span>
                                                         </div>
-                                                        <div class="col-md-3 col-6">
+                                                        <div class="col-md-4 col-6">
                                                             <img src="../../assets/images/tasnef.png" alt=""
-                                                                style="    width: 20%;">
+                                                               >
                                                             <span
-                                                                style="color:#c7c7c7 ;font-size: 10px;font-weight: 500; padding: 0px 5px 0px 0px;">فئة
+                                                                 class="title-add">فئة
                                                                 التصنيف:</span>
-                                                            <span style=" color: #039ca4;   font-size: 10px;"> تصنيف أول
+                                                            <span class="value"> تصنيف أول
                                                             </span>
                                                         </div>
                                                     </div>
@@ -194,7 +192,9 @@
 
                                                         </div>
                                                     </div>
-                                                    <div class="feedback-slides">
+                                                      <div class="mt-5" style="border: 1px solid rgb(204, 204, 204); border-radius: 25px; padding: 0px 20px 20px;"><div class="row mt-4" style="text-align: center; height: 163px; align-items: center;"><p>لا يوجد مشاريع...قيد التطوير </p></div></div>
+                                                   
+                                                    <div class="feedback-slides" style="display: none;">
                                                         <carousel :autoplay="5000" :settings="settings"
                                                             :wrap-around="true" :breakpoints="breakpoints">
                                                             <slide v-for="slide in carouselItems" :key="slide.id">
@@ -258,7 +258,7 @@
 
                                         </div>
                                         <div id="comment" class="tabcontent">
-                                            <div class="box mt-4"
+                                            <!-- <div class="box mt-4"
                                                 style="background: #fff; padding: 25px; border-radius: 3px;box-shadow: 0px 4px 8px rgba(0,0,0,0.15);">
 
                                                 <div class="content"
@@ -291,75 +291,9 @@
                                                     repellendus repudiandae deleniti ideas fuga molestiae, alias.</p> <i
                                                     class="fas fa-quote-left quote"
                                                     style=" font-size: 20px;color: #17a2b8;display: flow-root;text-align: end;padding-left: 20px;"></i>
-                                            </div>
-                                            <div class="box mt-4"
-                                                style="background: #fff; padding: 25px; border-radius: 3px;box-shadow: 0px 4px 8px rgba(0,0,0,0.15);">
-
-                                                <div class="content"
-                                                    style=" display: flex;flex-wrap: wrap;align-items: center;justify-content: space-between;">
-                                                    <div class="info">
-                                                        <div class="name" style=" font-weight: 600;font-size: 17px;">
-                                                            فرسان للمقاولات</div>
-                                                        <div class="job"
-                                                            style=" font-size: 12px;font-weight: 500;color: #17a2b8;    padding: 3px 0px 3px 0px;">
-                                                            شركة | مقاولات</div>
-                                                        <div class="stars" style="margin-top: 2px;">
-                                                            <i class="fas fa-star" style=" color: #ffd203"></i>
-                                                            <i class="fas fa-star" style=" color: #ffd203;"></i>
-                                                            <i class="far fa-star" style=" color: #ffd203;"></i>
-                                                            <i class="far fa-star" style=" color: #ffd203;"></i>
-                                                            <i class="far fa-star" style=" color: #ffd203;"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="image"
-                                                        style=" height: 75px;width: 75px; padding: 3px;background: #17a2b8;border-radius: 50%;">
-                                                        <img src="/image/1653349843.png"
-                                                            alt=""
-                                                            style="     background-color: white; border-color: #fff;height: 100%; width: 100%; object-fit: cover;border-radius: 50%;border: 2px solid #fff;">
-                                                    </div>
-                                                </div>
-
-                                                <p style=" padding-top: 10px;">Lorem aliasry ipsum dolor sits ametans,
-                                                    consectetur adipisicing
-                                                    elitits. Expedita reiciendis itaque placeat thuratu, quasi yiuos
-                                                    repellendus repudiandae deleniti ideas fuga molestiae, alias.</p> <i
-                                                    class="fas fa-quote-left quote"
-                                                    style=" font-size: 20px;color: #17a2b8;display: flow-root;text-align: end;padding-left: 20px;"></i>
-                                            </div>
-                                            <div class="box mt-4"
-                                                style="background: #fff; padding: 25px; border-radius: 3px;box-shadow: 0px 4px 8px rgba(0,0,0,0.15);">
-
-                                                <div class="content"
-                                                    style=" display: flex;flex-wrap: wrap;align-items: center;justify-content: space-between;">
-                                                    <div class="info">
-                                                        <div class="name" style=" font-weight: 600;font-size: 17px;">
-                                                            فرسان للمقاولات</div>
-                                                        <div class="job"
-                                                            style=" font-size: 12px;font-weight: 500;color: #17a2b8;    padding: 3px 0px 3px 0px;">
-                                                            شركة | مقاولات</div>
-                                                        <div class="stars" style="margin-top: 2px;">
-                                                            <i class="fas fa-star" style=" color: #ffd203"></i>
-                                                            <i class="fas fa-star" style=" color: #ffd203;"></i>
-                                                            <i class="far fa-star" style=" color: #ffd203;"></i>
-                                                            <i class="far fa-star" style=" color: #ffd203;"></i>
-                                                            <i class="far fa-star" style=" color: #ffd203;"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="image"
-                                                        style=" height: 75px;width: 75px; padding: 3px;background: #17a2b8;border-radius: 50%;">
-                                                        <img src="/image/1648718574.png"
-                                                            alt=""
-                                                            style="    background-color: white; border-color: #fff;height: 100%; width: 100%; object-fit: cover;border-radius: 50%;border: 2px solid #fff;">
-                                                    </div>
-                                                </div>
-
-                                                <p style=" padding-top: 10px;">Lorem aliasry ipsum dolor sits ametans,
-                                                    consectetur adipisicing
-                                                    elitits. Expedita reiciendis itaque placeat thuratu, quasi yiuos
-                                                    repellendus repudiandae deleniti ideas fuga molestiae, alias.</p> <i
-                                                    class="fas fa-quote-left quote"
-                                                    style=" font-size: 20px;color: #17a2b8;display: flow-root;text-align: end;padding-left: 20px;"></i>
-                                            </div>
+                                            </div> -->
+                                        
+                                        <div class="mt-5" style="border: 1px solid rgb(204, 204, 204); border-radius: 25px; padding: 0px 20px 20px;"><div class="row mt-4" style="text-align: center; height: 163px; align-items: center;"><p>لا يوجد تعليقات...قيد التطوير </p></div></div>
                                         </div>
                                     </div>
 
@@ -368,8 +302,11 @@
                             </div>
                             <div class="col-md-4 col-sm-12 price-card"
                                 style="border-right: 1px solid rgb(238, 239, 241);">
-                                <a href="/SubmitQuotes" class="btn btn-quotes-profile">الحصول
-                                    على عرض سعر لمشروع</a>
+                                <div class="quotes-div"> 
+                                <a :href="'/chat/'+user.id" class="btn btn-quotes-profile" target="_blank">الحصول
+                                    على عرض سعر </a>
+                                </div>
+                               
                                 <div
                                     style="width: 84%; height: 310px; margin-top: 5%; border-radius: 12px; margin-bottom: 5%;  box-shadow: rgb(236 233 233) 1px 1px 5px 2px;">
 
@@ -407,12 +344,12 @@
                                     </div>
 
                                 </div>
-                                <a href="/SubmitQuotes" class="btn btn-report-profile">تقديم
+                                <a href="/dashboard" class="btn btn-report-profile">تقديم
                                     بلاغ على المنشآة</a>
                                 <br>
 
                                 <br><br>
-                                <a :href="'/chat/'+user.id" class="btn-chat-profile"><i
+                                <a :href="'/chat/'+user.id" class="btn-chat-profile" target="_blank"><i
                                         class="far fa-comment-alt mb-2" style="font-size:25px;color:#039ca4;"></i><small
                                         style="    position: relative;top: 15px;left: 65px;">محادثة مع
                                         المنشآة</small></a>

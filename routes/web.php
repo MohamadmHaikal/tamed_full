@@ -142,6 +142,7 @@ Route::group(['prefix' => 'ElectronicContracts', 'middleware' => ['LanguageSwitc
     Route::get('/create', [ElectronicContractsController::class, 'create'])->name('ElectronicContracts.create');
     Route::post('/store', [ElectronicContractsController::class, 'store'])->name('ElectronicContracts.store');
     Route::get('/invoice/{id}', [ElectronicContractsController::class, '_getInvoice'])->name('ElectronicContracts.invoice');
+    Route::get('/demodulator/{id}', [ElectronicContractsController::class, '_getDemodulator'])->name('ElectronicContracts.demodulator');
     Route::get('/checkUser/{CRecord?}', [ElectronicContractsController::class, 'checkUser'])->name('ElectronicContracts.checkUser');
     Route::get('/changeStatus/{status}/{id}', [ElectronicContractsController::class, 'changeStatus'])->name('ElectronicContracts.changeStatus');
     Route::get('/edit/{id}', [ElectronicContractsController::class, 'edit'])->name('ElectronicContracts.edit');
@@ -236,6 +237,10 @@ Route::group(['prefix' => 'wallet', 'middleware' => ['LanguageSwitcher','auth:cu
     Route::get('deleteRequest/{id}', 'App\Http\Controllers\Dashboard\WalletController@_deleteRequest')->name('delete-Request');
     Route::post('changeStatus/{id}', 'App\Http\Controllers\Dashboard\WalletController@_changeStatus')->name('change-Request');
     Route::get('getStatement', 'App\Http\Controllers\Dashboard\WalletController@_getStatement')->name('getStatement');
+});
+//demodulators route
+Route::group(['prefix' => 'demodulator', 'middleware' => ['LanguageSwitcher','auth:customer']], function () {
+    Route::get('/create/{id?}', 'App\Http\Controllers\Dashboard\DemodulatorController@create')->name('demodulator.create');
 });
 //Support route
 Route::group(['prefix' => 'Support', 'middleware' => ['LanguageSwitcher','auth:customer']], function () {

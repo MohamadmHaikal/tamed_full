@@ -58,7 +58,8 @@ $("#AddFacility").click(function () {
     fd.append('city', $("[name='city']").val());
     fd.append('neighbor', $("[name='Neighborhood']").val());
     fd.append('activitie_id', $("[name='facility_activity']").val());
-
+    fd.append('type_id', $("[name='facility_type']").val()); 
+    fd.append('add_activity', $("[name='add_activity']").val()); 
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -72,11 +73,18 @@ $("#AddFacility").click(function () {
         contentType: false,
         processData: false,
         success: (data) => {
+             $("#AddFacility").prop("disabled", true);
             if (data['status'] == '1') {
-                $("#AddFacility").prop("disabled", true);
+               
                 document.getElementById("alert").innerHTML = data['message'].substring(0, data['message']
                     .length);
                 $('.toast').toast('show');
+            }
+            else{
+                document.getElementById("alert").innerHTML = data['message'].substring(0, data['message']
+                .length);
+            $('.toast').toast('show');
+                $("#AddFacility").prop("disabled", false);
             }
             if (data['reload']) {
                 setTimeout(function () {
@@ -126,7 +134,7 @@ $('#city').change(function () {
     });
 });
 $('#facility_type').change(function () {
-    document.getElementById('subActivity').innerHTML='';
+    //document.getElementById('subActivity').innerHTML='';
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -149,7 +157,7 @@ $('#facility_type').change(function () {
 
 
             }
-            document.getElementById("facility_activity").innerHTML = options_str;
+          //  document.getElementById("facility_activity").innerHTML = options_str;
 
         },
         error: function (data) {
@@ -193,39 +201,46 @@ $('#facility_activity').change(function () {
 // Called when the button is clicked
 function toogleButton(callingElement, hiddenElement) {
     var type;
+    var g= ( $('#add_activity').val())==''? []: ($('#add_activity').val()).split(",");
     if (callingElement.classList.contains('btn-outline-primary')) {
         // If the button is 'unset'; change color and update hidden element to 1
         callingElement.classList.remove('btn-outline-primary');
         callingElement.classList.add('btn-primary');
         document.getElementById(hiddenElement.id).value = "1";
         type = 1;
-
+        g.push(callingElement.id);
     } else {
         // If the button is 'set'; change color and update hidden element to 0
         callingElement.classList.remove('btn-primary');
         callingElement.classList.add('btn-outline-primary');
         document.getElementById(hiddenElement.id).value = "0";
         type = 0;
+        const index = g.indexOf(callingElement.id);
+        if (index > -1) { // only splice array when item is found
+            g.splice(index, 1); // 2nd parameter means remove one item only
+        }
+
     }
+    $('#add_activity').val(g);
 
-
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    $.ajax({
-        type: 'POST',
-        url: "changeStatus/"+type +'/'+callingElement.id,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: (data) => {
-        },
-        error: function (data) {
-            console.log(data);
-        }
-    });
+   
+    // $.ajaxSetup({
+    //     headers: {
+    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //     }
+    // });
+    // $.ajax({
+    //     type: 'POST',
+    //     url: "changeStatus/"+type +'/'+callingElement.id,
+    //     cache: false,
+    //     contentType: false,
+    //     processData: false,
+    //     success: (data) => {
+    //     },
+    //     error: function (data) {
+    //         console.log(data);
+    //     }
+    // });
 
 
 }

@@ -96,6 +96,7 @@
                                                     <th>{{ __('backend.Date of contract') }}</th>
                                                     <th>{{ __('backend.status') }}</th>
                                                     <th>{{ __('backend.Invoices') }}</th>
+                                                    <th>{{ __('backend.Abstracts') }}</th>
                                                     <th class="no-content">{{ __('backend.Contract details') }}</th>
                                                 </tr>
                                             </thead>
@@ -119,6 +120,14 @@
                                                                 <button type="button" class="btn btn-soft-info btn-rounded"
                                                                     data-toggle="modal"
                                                                     data-target="#CreateUser">{{ __('backend.Invoices') }}</button>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:void(0);" class="Abstracts"
+                                                                data-id="{{ $item->id }}">
+                                                                <button type="button" class="btn btn-soft-info btn-rounded"
+                                                                    data-toggle="modal"
+                                                                    data-target="#CreateUser">{{ __('backend.Abstracts') }}</button>
                                                             </a>
                                                         </td>
                                                         <td class="text-center">

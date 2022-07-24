@@ -59,9 +59,9 @@
                                       
                                         <div class="widget-content widget-content-area text-center">
                                             <div class="button-list">
-                                                <a href="{{ route('employment', ['filter' => 'new']) }}">
+                                                <a href="{{ route('employment', ['filter' => 'waiting']) }}">
                                                     <button type="button"
-                                                        class="btn btn-primary btn-rounded">{{ __('backend.new') }}</button>
+                                                        class="btn btn-warning btn-rounded">{{ __('backend.waiting') }}</button>
 
                                                 </a>
                                                 <a
@@ -111,7 +111,7 @@
                                                         </td>
                                                         <td>{{$item->id}}</td>
                                                         <td>{{get_user_by_id($item->from_id)!=null ?get_user_by_id($item->from_id)->name :''}}</td>
-                                                        <td>{{__('backend.'.$item->status)}}</td>
+                                                        <td style="{{$item->status=="accepted"? 'color:#16ca5b;': ($item->status=="waiting"?'color:darkorange':'color:#e7515a' )}}">{{__('backend.'.$item->status)}}</td>
                                                         <td>{{date('Y-m-d', strtotime($item->created_at))}}</td>
                                                         <td>
                                                             <div class="dropdown custom-dropdown">

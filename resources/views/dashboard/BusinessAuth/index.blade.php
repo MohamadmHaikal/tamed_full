@@ -18,6 +18,7 @@
     $current_user = Auth::guard('mangers')->user();
     $cities = get_cities();
     $userType = get_users_type();
+    $allActivity = get_all_activity();
     ?>
 
     <!--  Navbar Starts / Breadcrumb Area  -->
@@ -63,7 +64,8 @@
                                                             <a class="nav-link mb-2  text-center"
                                                                 id="rounded-corner-pills-icon-profile-tab"
                                                                 data-toggle="pill" href="#rounded-corner-pills-icon-profile"
-                                                                role="tab" aria-controls="rounded-corner-pills-icon-profile"
+                                                                role="tab"
+                                                                aria-controls="rounded-corner-pills-icon-profile"
                                                                 aria-selected="true"><i class="las la-user-tie"></i>
                                                                 {{ __('backend.My Account') }}</a>
                                                         </li>
@@ -97,11 +99,12 @@
                                                                 @foreach ($facilities as $item)
                                                                     <div class="col-md-4 mt-5">
                                                                         <div class="card component-card_9 cardlog">
-                                                                            <img class="card-img1" 
+                                                                            <img class="card-img1"
                                                                                 src="{{ $item->logo != null ? url("image/$item->logo") : url('https://dummyimage.com/1200x900/e0e0e0/c7c7c7.png') }}"
                                                                                 class="card-img-top" alt="widget-card-2">
                                                                             <div class="card-body">
-                                                                                <h5 class="card-title" style="color:#568c96;">
+                                                                                <h5 class="card-title"
+                                                                                    style="color:#568c96;">
                                                                                     {{ $item->name }}</h5>
                                                                                 <p class="card-text">
                                                                                     {{ __('backend.Commercial record') }}
@@ -123,30 +126,35 @@
                                                                                         </div>
 
                                                                                     </div>
-                                                                                    @if($item->status=='active')
-                                                                                     <p class="text-success card-status" >{{ __('backend.'.$item->status) }}</p>
+                                                                                    @if ($item->status == 'active')
+                                                                                        <p class="text-success card-status">
+                                                                                            {{ __('backend.' . $item->status) }}
+                                                                                        </p>
                                                                                     @else
-                                                                                     <p class="text-danger card-status" >{{ __('backend.'.$item->status) }}</p>
+                                                                                        <p class="text-danger card-status">
+                                                                                            {{ __('backend.' . $item->status) }}
+                                                                                        </p>
                                                                                     @endif
-                                                                                   
-                                                                                    <div class="d-flex align-items-center"> 
-                                                                                       @if($item->status=='active')
-                                                                                        <form method="POST"
-                                                                                            action="{{ route('facil_login') }}">
-                                                                                            @csrf
-                                                                                            <input type="text" name="id"
-                                                                                                value=" {{ $item->id }}"
-                                                                                                hidden>
-                                                                                          
-                                                                                              <button type="submit"
-                                                                                                class="btn btn-success btn-rounded ">{{ __('backend.sign in') }}</button>
-                                                                                          
-                                                                                         
-                                                                                                
-                                                                                        </form>
+
+                                                                                    <div class="d-flex align-items-center">
+                                                                                        @if ($item->status == 'active')
+                                                                                            <form method="POST"
+                                                                                                action="{{ route('facil_login') }}">
+                                                                                                @csrf
+                                                                                                <input type="text"
+                                                                                                    name="id"
+                                                                                                    value=" {{ $item->id }}"
+                                                                                                    hidden>
+
+                                                                                                <button type="submit"
+                                                                                                    class="btn btn-success btn-rounded ">{{ __('backend.sign in') }}</button>
+
+
+
+                                                                                            </form>
                                                                                         @else
-                                                                                            <button 
-                                                                                                class="btn  btn-rounded" >{{ __('backend.sign in') }}</button>
+                                                                                            <button
+                                                                                                class="btn  btn-rounded">{{ __('backend.sign in') }}</button>
                                                                                         @endif
                                                                                     </div>
                                                                                 </div>
@@ -156,15 +164,17 @@
                                                                 @endforeach
 
 
-                                                                <div class="col-md-4 mt-5">
-                                                                    <a class=" mb-2 text-center"
-                                                                        href="javascript:void(0);"
+                                                                <div class="col-md-4 mt-5" >
+                                                                    <a class=" mb-2 text-center" href="javascript:void(0);"
                                                                         onclick="document.getElementById('rounded-corner-pills-icon-addfacil-tab').click()">
-                                                                        <div class="card component-card_9 cardlog">
-                                                                            <div class="card-body text-center" style="margin-bottom: 30%; margin-top: 29%;">
+                                                                        <div class="card component-card_9 cardlog"
+                                                                            style="height: 100%;">
+                                                                            <div class="card-body text-center"
+                                                                                style="margin: 0;position: absolute; top: 50%;left: 50%;transform: translate(-50%, -50%);">
                                                                                 <i class="las la-plus-circle "
                                                                                     style="color:gainsboro; margin: auto; font-size: 70px"></i>
-                                                                                <h5>{{ __('backend.Open a facility file') }}
+                                                                                <h5 style="font-size: 17px;">
+                                                                                    {{ __('backend.Open a facility file') }}
                                                                                     </h3>
                                                                             </div>
                                                                         </div>
@@ -288,9 +298,9 @@
                                                                             <div class="form-group">
                                                                                 <label
                                                                                     for="country">{{ __('backend.City') }}</label>
-                                                                                <select class="form-control" name="city"
-                                                                                    id="city">
-                                                                                    <option value=""></option>
+                                                                                <select class="form-control"
+                                                                                    name="city" id="city">
+                                                                                    <option ></option>
                                                                                     @foreach ($cities as $city)
                                                                                         <option
                                                                                             value="{{ $city->id }}">
@@ -310,20 +320,23 @@
 
 
                                                                                 </select> --}}
-                                                                                 <input type="text" class="form-control mb-4 "
-                                                                                placeholder="{{ __('backend.neighborhood') }}"
-                                                                                name="Neighborhood">
+                                                                                <input type="text"
+                                                                                    class="form-control mb-4 "
+                                                                                    placeholder="{{ __('backend.neighborhood') }}"
+                                                                                    name="Neighborhood">
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <input type="text" name="add_activity" id="add_activity" hidden>
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
                                                                                 <label
                                                                                     for="country">{{ __('backend.facility type') }}</label>
                                                                                 <select class="form-control"
-                                                                                    name="facility_type" id="facility_type">
-                                                                                    <option value=""></option>
+                                                                                    name="facility_type"
+                                                                                    id="facility_type">
+                                                                                    <option ></option>
                                                                                     @foreach ($userType as $type)
                                                                                         <option
                                                                                             value="{{ $type->id }}">
@@ -341,12 +354,20 @@
                                                                                 <select class="form-control"
                                                                                     name="facility_activity"
                                                                                     id="facility_activity">
+                                                                                    <option >
 
+                                                                                    </option>
+                                                                                    @foreach ($allActivity as $item)
+                                                                                        <option
+                                                                                            value="{{ $item->id }}">
+                                                                                            {{ $item->name }}
+                                                                                        </option>
+                                                                                    @endforeach
 
                                                                                 </select>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="row col-md-12">
+                                                                        <div class="row col-md-12 mb-3">
                                                                             <?php
                                                                             $i = 0;
                                                                             
@@ -358,9 +379,10 @@
                                                                             </div>
 
                                                                             <button class="btn btn-success btn-rounded"
-                                                                                id="AddFacility" style="position: absolute;
+                                                                                id="AddFacility"
+                                                                                style="position: absolute;
                                                                                         left: 1%;
-                                                                                        bottom: -15px;">
+                                                                                        bottom: -20px;">
                                                                                 {{ __('backend.add') }}</button>
 
                                                                         </div>
@@ -377,9 +399,8 @@
 
 
                                                                 <div class=" text-center img-thumbnail">
-                                                                    <input type="file" id="UploadLogo"
-                                                                        class="dropify"
-                                                                        data-default-file="{{url('assets/img/avatar.png') }}"
+                                                                    <input type="file" id="UploadLogo" class="dropify"
+                                                                        data-default-file="{{ url('assets/img/avatar.png') }}"
                                                                         data-max-file-size="2M" name="logo" />
                                                                     <p class="mt-2"><i
                                                                             class="flaticon-cloud-upload mr-1"></i>
@@ -391,20 +412,24 @@
                                                                         <div class="form-group">
                                                                             <label
                                                                                 for="fullName">{{ __('backend.name') }}</label>
-                                                                            <input type="text" class="form-control mb-4 "
+                                                                            <input type="text"
+                                                                                class="form-control mb-4 "
                                                                                 placeholder="{{ __('backend.name') }}"
                                                                                 name="name"
-                                                                                value="{{ $current_user->name }}" disabled>
+                                                                                value="{{ $current_user->name }}"
+                                                                                disabled>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label
                                                                                 for="IdCard">{{ __('backend.ID card number') }}</label>
-                                                                            <input type="text" class="form-control mb-4 "
+                                                                            <input type="text"
+                                                                                class="form-control mb-4 "
                                                                                 placeholder="{{ __('backend.ID card number') }}"
                                                                                 name="IdCard"
-                                                                                value="{{ $current_user->IdCard }}" disabled>
+                                                                                value="{{ $current_user->IdCard }}"
+                                                                                disabled>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -413,7 +438,8 @@
                                                                         <div class="form-group">
                                                                             <label
                                                                                 for="phone">{{ __('backend.phone') }}</label>
-                                                                            <input type="text" class="form-control mb-4 "
+                                                                            <input type="text"
+                                                                                class="form-control mb-4 "
                                                                                 placeholder="{{ __('backend.phone') }}"
                                                                                 name="phone"
                                                                                 value="{{ $current_user->phone }}"
@@ -466,7 +492,6 @@
     {!! Html::script('assets/js/basicui/notifications.js') !!}
     {!! Html::script('plugins/dropify/dropify.min.js') !!}
     {!! Html::script('assets/js/add_facility.js') !!}
-    
 @endpush
 
 @push('custom-scripts')

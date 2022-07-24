@@ -127,7 +127,7 @@ class QuotesController extends Controller
             return json_encode(['message' => ' لايمكن التقدم للوظائف من عضوية المنشآت  !', 'code' => '102'], true);
         }
         $employment = new EmploymentApplications();
-        $employment->status = 'new';
+        $employment->status = 'waiting';
         $employment->from_id = $request->from_id;
         $employment->to_id = $request->to_id;
         $employment->ads_id = $request->ads_id;

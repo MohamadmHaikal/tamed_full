@@ -27,7 +27,7 @@
                                 <img src="../../assets/images/contract.svg">
                             </div>
                             <h3>الدليل الإرشادي لخدمات المنصة</h3>
-                            <a href="/الملف%20الإرشادي%20للمنصة%20.pdf" class="button btn-animation" download>
+                            <a href="/Platform guide.pdf" class="button btn-animation" download>
                                 تحميل الملف
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                     <path id="download"
@@ -45,7 +45,7 @@
                                 <img src="../../assets/images/contract.svg">
                             </div>
                             <h3>الدليل الإرشادي لعضوية المكاتب الهندسية</h3>
-                            <a href="javascript:void(0);" class="button btn-animation">
+                            <a href="/Engineering Offices Membership Guide.pdf" class="button btn-animation" download>
                                 تحميل الملف
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                     <path id="download"

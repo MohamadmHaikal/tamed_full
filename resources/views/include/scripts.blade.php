@@ -170,6 +170,13 @@
         RequiredTypDiscount:"{{__('backend.Required type of discount')}}",
         taxRequire:"{{__('backend.tax required')}}",
         TotalRequired:"{{__('backend.Total required')}}",
+        Abstracts:"{{__('backend.Abstracts')}}",
+        ExtractNo:"{{__('backend.Extract No.')}}",
+        ExtractDate:"{{__('backend.Extract date')}}",
+        ExtractDetails:"{{__('backend.Extract details')}}",
+        addExtract:"{{__('backend.add extract')}}",
+        title:"{{__('backend.title')}}",
+        Period:"{{__('backend.Period')}}",
     };
 </script>
 <!-- Stack array for including inline js or scripts -->

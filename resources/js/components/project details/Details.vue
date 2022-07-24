@@ -88,13 +88,13 @@
                                         <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
-                                    <span><a @click="openModal(); currentSlide(1)" href="javascript: void(0);"
-                                            class="view-gallery item-link">
+                                    <span><a v-if="ads['video'] != null" @click="openVideoModal(); currentSlide(1)"
+                                            href="javascript: void(0);" class="view-gallery item-link">
                                             <img alt=""
                                                 srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
                                                 src="../../assets/images/photos.svg" decoding="async"
                                                 data-nimg="intrinsic">
-                                            <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
+                                            <span style="padding-right: 5px;">عرض الفيديو</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -149,13 +149,13 @@
                                         <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
-                                    <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                            class="view-gallery item-link">
+                                    <span><a v-if="ads['video'] != null" href="javascript: void(0);"
+                                            @click="openVideoModal(); currentSlide(1)" class="view-gallery item-link">
                                             <img alt=""
                                                 srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
                                                 src="../../assets/images/photos.svg" decoding="async"
                                                 data-nimg="intrinsic">
-                                            <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
+                                            <span style="padding-right: 5px;">عرض الفيديو</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -203,13 +203,13 @@
                                         <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
-                                    <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                            class="view-gallery item-link">
+                                    <span><a v-if="ads['video'] != null" href="javascript: void(0);"
+                                            @click="openVideoModal(); currentSlide(1)" class="view-gallery item-link">
                                             <img alt=""
                                                 srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
                                                 src="../../assets/images/photos.svg" decoding="async"
                                                 data-nimg="intrinsic">
-                                            <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
+                                            <span style="padding-right: 5px;">عرض الفيديو</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -251,13 +251,13 @@
                                         <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
-                                    <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                            class="view-gallery item-link">
+                                    <span><a v-if="ads['video'] != null" href="javascript: void(0);"
+                                            @click="openVideoModal(); currentSlide(1)" class="view-gallery item-link">
                                             <img alt=""
                                                 srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
                                                 src="../../assets/images/photos.svg" decoding="async"
                                                 data-nimg="intrinsic">
-                                            <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
+                                            <span style="padding-right: 5px;">عرض الفيديو</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -288,13 +288,13 @@
                                         <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
-                                    <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                            class="view-gallery item-link">
+                                    <span><a v-if="ads['video'] != null" href="javascript: void(0);"
+                                            @click="openVideoModal(); currentSlide(1)" class="view-gallery item-link">
                                             <img alt=""
                                                 srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
                                                 src="../../assets/images/photos.svg" decoding="async"
                                                 data-nimg="intrinsic">
-                                            <span style="padding-right: 5px;">عرض كل الفيديوهات</span>
+                                            <span style="padding-right: 5px;">عرض الفيديو</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -311,6 +311,27 @@
                             </div>
                             <div class="hh-gallery hh-grid-gallery show-item mt-4"
                                 style=" position: relative;  Height: 30%;Overflow: hidden;">
+                                <div class="col-md-3 col-sm-12 text-center fav-share-mobile">
+                                    <span>
+                                        <i class="far fa-heart" style="font-size:24px ;    color: white;"></i>
+                                    </span>
+
+                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                                        style="enable-background:new 0 0 512 512;padding-bottom: 5px; width: 24px;margin-right: 20px; fill: white;"
+                                        xml:space="preserve">
+                                        <g>
+                                            <polygon
+                                                points="334.9,120.6 256,41.7 177.1,120.6 156.3,99.7 256,0 355.7,99.7 	" />
+                                            <rect x="241.1" y="20.8" width="29.8" height="312.6" />
+                                            <path d="M404.8,512H107.2c-25.3,0-44.7-19.4-44.7-44.7V199.4c0-25.3,19.3-44.7,44.7-44.7h104.2v29.8H107.2c-8.9,0-14.9,6-14.9,14.9
+		v267.9c0,8.9,6,14.9,14.9,14.9h297.7c8.9,0,14.9-6,14.9-14.9V199.4c0-8.9-6-14.9-14.9-14.9H300.7v-29.8h104.2
+		c25.3,0,44.7,19.3,44.7,44.7v267.9C449.5,492.6,430.1,512,404.8,512z" stroke="white" stroke-width="6" />
+                                        </g>
+                                    </svg>
+
+
+                                </div>
                                 <div class="controls">
                                     <a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
                                         class="view-gallery item-link">
@@ -320,13 +341,13 @@
                                         <span style="padding-right: 5px;">عرض كل الصور</span>
                                         <i class="ti-gallery"></i>
                                     </a>
-                                    <span><a href="javascript: void(0);" @click="openModal(); currentSlide(1)"
-                                            class="view-gallery item-link">
+                                    <span><a v-if="ads['video'] != null" href="javascript: void(0);"
+                                            @click="openVideoModal(); currentSlide(1)" class="view-gallery item-link">
                                             <img alt=""
                                                 srcset="../../assets/images/photos.svg 1x, ../../assets/images/photos.svg 2x"
                                                 src="../../assets/images/photos.svg" decoding="async"
-                                                data-nimg="intrinsic"> <span style="padding-right: 5px;">عرض كل
-                                                الفيديوهات</span>
+                                                data-nimg="intrinsic"> <span style="padding-right: 5px;">عرض
+                                                الفيديو</span>
                                             <i class="ti-gallery"></i>
                                         </a></span>
                                 </div>
@@ -346,13 +367,14 @@
                                 <span class="close cursor" @click="closeModal()"
                                     style=" cursor: pointer; color: #999;position: fixed;top: 10px;right: 25px;font-size: 35px;font-weight: bold;">&times;</span>
                                 <div class="modal-content" @click.stop=""
-                                    style="position: relative;background-color: #FEFEFE00;margin: auto; padding: 0; width: 60%; max-width: 1200px;    height: 80%;    direction: ltr;">
+                                    style="position: relative;background-color: #FEFEFE00;margin: auto; padding: 0;  max-width: 1200px;    height: 90%;    direction: ltr;">
 
                                     <div v-for="i in AllImage.length" :key="i" class="mySlides">
                                         <div class="numbertext"
                                             style="font-size: 18px; color: #999;padding: 8px 12px;position: fixed;top: 10px; left: 60px;">
                                             {{ i }} / {{ AllImage.length }}</div>
-                                        <img :src="'/image/' + AllImage[i - 1].file">
+                                        <img :src="'/image/' + AllImage[i - 1].file"
+                                            style="max-height: 100%;max-width: 100%;width: auto;height: auto;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;">
                                         <a class="close cursor" :href="'/image/' + AllImage[i - 1].file" download=""
                                             style="cursor: pointer; color: #999; position: fixed; top: 22px;right: 100px; font-size: 18px;"><i
                                                 class="fa fa-download"></i></a>
@@ -371,8 +393,28 @@
                                         style=" right: 0; border-radius: 3px 0 0 3px;background-color: rgba(0, 0, 0, 0.5); cursor: pointer;position: fixed;top: 50%;width: auto; padding: 16px; color: white; font-weight: bold; font-size: 20px;transition: 0.6s ease; border-radius: 0 3px 3px 0;user-select: none;-webkit-user-select: none;"><i
                                             class="fa fa-arrow-right"></i></a>
                                     <a class="prev" @click="plusSlides(1)"
-                                        style="top: 50%;font-size: 22px;left: 10px; cursor: pointer; position: fixed;width: auto; padding: 16px;  color: white;font-weight: bold; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none; -webkit-user-select: none; "><i
+                                        style="top: 50%;font-size: 22px;left: 0; cursor: pointer;background-color: rgba(0, 0, 0, 0.5); position: fixed;width: auto; padding: 16px;  color: white;font-weight: bold; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none; -webkit-user-select: none; "><i
                                             class="fa fa-arrow-left"></i></a>
+
+                                </div>
+                            </div>
+                            <div id="myVideoModal" class="modal" style=" padding-top: 130px;background-color: black;"
+                                @click="closeVideoModal()">
+                                <span class="close cursor" @click="closeVideoModal()"
+                                    style=" cursor: pointer; color: #999;position: fixed;top: 10px;right: 25px;font-size: 35px;font-weight: bold;">&times;</span>
+                                <div class="modal-content" @click.stop=""
+                                    style="position: relative;background-color: #FEFEFE00;margin: auto; padding: 0; max-width: 1200px;    height: 80%;    direction: ltr;">
+
+
+
+                                    <div class="mySlides1" style="width: 100%;height: 100%;">
+
+                                        <video controls style="width: 100%;height: 100%;">
+                                            <source :src="ads['video']" v-bind:type="ads['videoType']">
+                                        </video>
+
+                                    </div>
+
 
                                 </div>
                             </div>
@@ -391,6 +433,46 @@
 
                             </div>
                         </div>
+                        <div class="ref-header-mobile">
+                            <h3 class="title mt-5 mb-3">{{ ads.title }}</h3>
+                            <span class="ref-header" style="color: #019aa2;    font-size: 14px;"> الرقم المرجعي:</span>
+                            <span class="ref-header"
+                                style="color: rgb(87 83 77) ;    font-size: 14px; padding-right: 5px;">
+                                {{ ads.reference_number }}</span>
+                            <div class="row mt-3">
+                                <div class="col-md-9 col-sm-12  header-row">
+                                    <span><i class="fas fa-star pr-2"
+                                            style="color:#019aa2 ; font-size: 17px;padding-left: 10px;"></i>0
+                                        <span style="color:#9d9dab;">(لايوجد تقييمات)</span>
+                                        <span
+                                            style="margin-bottom: 2px; margin-right: 12px; height: 5px; width: 5px; background-color: rgb(187, 187, 187); border-radius: 50%; display: inline-block;"></span>
+                                        <i class="far fa-eye"
+                                            style="color: #019aa2;font-size: 17px;margin-right: 10px;"></i>
+
+                                        <span style="margin-right: 20px;">{{ ads.seenCount }}</span>
+                                    </span>
+
+                                    <br class="bg-hidden">
+                                    <i class="fas fa-map-marker-alt	"
+                                        style="color: #848484a3;font-size: 22px; margin-top: 10px;"></i>
+                                    <span style=" margin-right: 6px;">{{ ads.city }} - {{ ads.neighborhood }}</span>
+                                    <br class="bg-hidden">
+                                    <i class="far fa-clock project-header"></i>
+                                    <span style=" margin-right: 6px;">التاريخ : {{ ads.created }}</span>
+                                    <br class="bg-hidden">
+                                    <i class="fas fa-file-contract"
+                                        style="color: #848484a3;font-size: 20px; margin-top: 10px;"></i>
+                                    <span style="    margin-right: 6px;">نوع
+                                        العقد : <span> {{ ads.infoArray.contractType }}</span></span>
+
+
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
                         <div class="row" style="    padding-right: 0px; 
     padding-left: 0px;">
                             <div class="col-md-7  col-sm-12 text-end mt-3">
@@ -403,9 +485,12 @@
 
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row align-items-end">
                                     <div class="col-md-8  project-deadline">
-                                        <p
+                                        <p v-if="ads.type == '5'"
+                                            style=" padding-right: 2%;padding-top: 5%;font-weight: 500; font-size: 13px;">
+                                            اخر موعد لتقديم طلب الشراء </p>
+                                        <p v-else
                                             style=" padding-right: 2%;padding-top: 5%;font-weight: 500; font-size: 13px;">
                                             اخر موعد لتقديم العروض </p>
                                         <i class="far fa-calendar-alt"
@@ -418,7 +503,13 @@
                                             <i class="far fa-clock" style="color:#37D337;    font-size: 15px;"></i>
                                             12:00</span>
                                     </div>
-                                    <div class="col-md-4 project-activite">
+                                    <div v-bind:class="(application_conditions['conforming'] == 'on' ) ? 'col-md-4 project-activite2' : 'col-md-4 project-activite'"
+                                        class="">
+                                        <small v-if="application_conditions['conforming'] == 'on' "
+                                            style="color:#333333 ;">مطابق لهيئة المواصفات
+                                            السعودية</small>
+                                        <br>
+
                                         <span style="color: #019aa2;    font-size: 14px;">
                                             النشاط:</span>
                                         <span style="color: rgb(87 83 77) ;    font-size: 14px; padding-right: 5px;">
@@ -519,54 +610,83 @@
                                                 </div>
 
                                             </div>
-                                            <div v-else class="row mt-5"
-                                                style=" border: 1px solid rgb(204, 204, 204); border-radius: 25px; padding: 20px; ">
-                                                <div v-if="ads.type == '2' || ads.type == '3'" class="col-md-12 row">
+                                            <div v-else class="row mt-5 additional-info"
+                                                style=" border: 1px solid rgb(204, 204, 204); border-radius: 25px; padding: 20px; margin: 0;">
+                                                <div v-if="ads.type == '2' || ads.type == '3'" class="col-md-12 row"
+                                                    style="margin: 0;">
 
-                                                    <div class="col-md-3"><span>نوع الطلب:
-                                                            <span>{{ ads.infoArray.Available }}</span></span></div>
-                                                    <div class="col-md-3"> <span>بلد الصنع:
+                                                    <div class="col-md-3 mt-2 col-6">
+                                                        <span class="dotStart"></span>
+                                                        <span>نوع الطلب:
+                                                            <span>{{ ads.infoArray.Available }}</span></span>
+                                                    </div>
+                                                    <div class="col-md-3 mt-2 col-6">
+                                                        <span class="dotStart"></span>
+                                                        <span>بلد الصنع:
                                                             <span>{{ ads.infoArray.countryManufacture }}</span> </span>
                                                     </div>
-                                                    <div class="col-md-3"><span>الكمية:
+                                                    <div class="col-md-3 mt-2 col-6">
+                                                        <span class="dotStart"></span>
+                                                        <span>الكمية:
                                                             <span>{{ ads.infoArray.quantityMaterial }}</span> </span>
                                                     </div>
 
-                                                    <div class="col-md-3"><span>فترة الضمان :
-                                                            <span>{{ ads.infoArray.warrantyPeriod }}</span></span></div>
+                                                    <div class="col-md-3 mt-2 col-6">
+                                                        <span class="dotStart"></span>
+                                                        <span>فترة الضمان :
+                                                            <span>{{ ads.infoArray.warrantyPeriod }} سنة</span></span>
+                                                    </div>
                                                 </div>
-                                                <div v-if="ads.type == '4'" class="col-md-12 row text-center">
+                                                <div v-if="ads.type == '4'" class="col-md-12 row text-center"
+                                                    style="margin: 0;">
 
-                                                    <div class="col-md-4"><span>نوع الطلب:
-                                                            <span>{{ ads.infoArray.requestType }}</span></span></div>
-                                                    <div class="col-md-4"> <span> استقبال الطلبات : 
+                                                    <div class="col-md-4 mt-2  col-6">
+                                                        <span class="dotStart"></span>
+                                                        <span>نوع الطلب:
+                                                            <span>{{ ads.infoArray.requestType }}</span></span>
+                                                    </div>
+                                                    <div class="col-md-4 mt-2 col-6"> <span> استقبال الطلبات :
                                                             <span>{{ ads.infoArray.ReceivingOrders['1'] }}</span> <span
                                                                 v-if="ads.infoArray.ReceivingOrders.length > 1"> - {{
                                                                         ads.infoArray.ReceivingOrders['2']
                                                                 }}</span> </span>
                                                     </div>
 
-                                                    <div class="col-md-4 "><span>الكمية:
+                                                    <div class="col-md-4 mt-2 col-6">
+                                                        <span class="dotStart"></span>
+                                                        <span>الكمية:
                                                             <span>{{ ads.infoArray.quantityEquipment }}</span> </span>
                                                     </div>
-                                                    <div class="col-md-4 mt-2"><span> حالة المعدات :
+                                                    <div class="col-md-4 col-6 mt-2">
+                                                        <span class="dotStart"></span>
+                                                        <span>حالة المعدات :
                                                             <span>{{ ads.infoArray.equipmentStatus }}</span></span>
                                                     </div>
 
                                                 </div>
-                                                <div v-if="ads.type == '5'" class="col-md-12 row">
+                                                <div v-if="ads.type == '5'" class="col-md-12 row" style="margin: 0;">
 
-                                                    <div class="col-md-3"><span> حالة المواد:
-                                                            <span>{{ ads.infoArray.materialStatus }}</span></span></div>
-                                                    <div class="col-md-3"> <span>بلد الصنع:
+                                                    <div class="col-md-3 mt-2 col-6">
+                                                        <span class="dotStart"></span>
+                                                        <span>حالة المواد:
+                                                            <span>{{ ads.infoArray.materialStatus }}</span></span>
+                                                    </div>
+                                                    <div class="col-md-3 mt-2 col-6">
+                                                        <span class="dotStart"></span>
+                                                        <span>بلد الصنع:
                                                             <span>{{ ads.infoArray.countryManufacture }}</span> </span>
                                                     </div>
-                                                    <div class="col-md-3"><span>الكمية:
+                                                    <div class="col-md-3  mt-2 col-6">
+                                                        <span class="dotStart"></span>
+                                                        <span>الكمية:
                                                             <span>{{ ads.infoArray.Count }}</span> </span>
                                                     </div>
 
-                                                    <div class="col-md-3"><span>فترة الضمان :
-                                                            <span>{{ ads.infoArray.warrantyPeriod }}</span></span></div>
+                                                    <div class="col-md-3 mt-2 col-6">
+                                                        <span class="dotStart"></span>
+                                                        <span>فترة الضمان :
+                                                            <span>{{ ads.infoArray.warrantyPeriod }}</span> سنة</span>
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -670,7 +790,8 @@
                                                                 application_conditions['Category_Category']
                                                         }}</small>
                                                     </div>
-                                                    <div class="col-md-4 col-6 text-center mt-2">
+                                                    <div v-if="ads.infoArray.Available != 'مطلوب'"
+                                                        class="col-md-4 col-6 text-center mt-2">
                                                         <img src="../../assets/images/daman.png" alt=""
                                                             style="width:50px;">
                                                         <br>
@@ -691,7 +812,7 @@
                                                             style="color:#019aa2 ;">لايهم</small>
                                                         <small v-else style="color:#019aa2 ;">مطلوب</small>
                                                     </div>
-                                                    <div v-if="ads['type'] == '2' || ads['type'] == '3' || ads['type'] == '5'"
+                                                    <div v-if="(ads['type'] == '2' || ads['type'] == '3' ) && (ads.infoArray.Available == 'مطلوب')"
                                                         class="col-md-4 col-6 text-center mt-2">
                                                         <img src="../../assets/images/daman.png" alt=""
                                                             style="width:50px;">
@@ -797,28 +918,29 @@
                                             12:00</span>
                                         <div v-if="isLoggedIn == true" style="text-align:center ;">
 
-                                            <router-link v-if="ads.type == 5"
+                                            <router-link
+                                                v-if="((ads.type == 2 || ads.type == 3) && ads.infoArray.Available == 'متوفر') || ads.type == 5"
                                                 :to="{ name: 'SubmitQuotes', params: { id: ads.id } }"
                                                 class="btn btn-logo btn-animation"
                                                 style="border-radius:25px;background-color:#039ca4; width:85%;color:white;margin-top:25px;padding:10px 30px 10px 30px;">
-                                                تقديم
-                                                عرض سعر لل{{ ads.infoArray.dealsOrAuction }} </router-link>
+                                                تقديم طلب شراء </router-link>
                                             <router-link v-else :to="{ name: 'SubmitQuotes', params: { id: ads.id } }"
                                                 class="btn btn-logo btn-animation"
                                                 style="border-radius:25px;background-color:#039ca4; width:85%;color:white;margin-top:25px;padding:10px 30px 10px 30px;">
                                                 تقديم
-                                                عرض سعر للمشروع </router-link>
+                                                عرض سعر </router-link>
                                         </div>
                                         <div v-else style="text-align:center ;">
 
-                                            <a v-if="ads.type == 5" href="/login" class="btn btn-logo btn-animation"
+                                            <a v-if="((ads.type == 2 || ads.type == 3) && ads.infoArray.Available == 'متوفر') || ads.type == 5"
+                                                href="/login" class="btn btn-logo btn-animation"
                                                 style="border-radius:25px;background-color:#039ca4; width:85%;color:white;margin-top:25px;padding:10px 30px 10px 30px;">
-                                                تقديم
-                                                عرض سعر لل{{ ads.infoArray.dealsOrAuction }} </a>
+                                                تقديم طلب شراء
+                                            </a>
                                             <a v-else href="/login" class="btn btn-logo btn-animation"
                                                 style="border-radius:25px;background-color:#039ca4; width:85%;color:white;margin-top:25px;padding:10px 30px 10px 30px;">
                                                 تقديم
-                                                عرض سعر للمشروع </a>
+                                                عرض سعر </a>
                                         </div>
                                         <div class="text-center mt-5">
 
@@ -871,9 +993,8 @@
                                             <span class="fas fa-star checked" style="    font-size: 20px;"></span>
                                             <span class="fas fa-star checked" style="    font-size: 20px;"></span>
                                         </div>
-                                        <div class="row text-center mt-2">
-                                            <div class="col-md-5 col-sm-2"
-                                                style="text-align: center;margin-bottom: 12px;">
+                                        <div class="row text-center mt-2 msg-report">
+                                            <div class="col-md-5 col-4">
                                                 <a :href="'/chat/' + author.id" style="color: #039ca4;"
                                                     class="message-owner">
                                                     <p style="position: relative; top: 18px">رسالة</p>
@@ -882,7 +1003,7 @@
                                                 </a>
 
                                             </div>
-                                            <div class="col-md-7 col-sm-10">
+                                            <div class="col-md-7 col-8">
 
                                                 <a v-if="ads.type == 5" href="javascript:void(0);" class="btn report">
                                                     تقديم بلاغ على ال{{ ads.infoArray.dealsOrAuction }} </a>
@@ -919,17 +1040,38 @@
                                             </p>
 
                                         </div>
-                                        <router-link v-if="isLoggedIn == true"
-                                            :to="{ name: 'SubmitQuotes', params: { id: ads.id } }"
-                                            class="btn action-button " id="mobile-check-availability"
-                                            style=" padding: 9px 15px; color: #fff;text-decoration: none;    height: 45px; width: 150px;border-radius: 12px;background: #039ca4; border-color: #039ca4;">
-                                            تقديم عرض سعر
-                                        </router-link>
-                                        <a v-else href="/login" class="btn action-button "
-                                            id="mobile-check-availability"
-                                            style=" padding: 9px 15px; color: #fff;text-decoration: none;    height: 45px; width: 150px;border-radius: 12px;background: #039ca4; border-color: #039ca4;">
-                                            تقديم عرض سعر
-                                        </a>
+                                        <div v-if="isLoggedIn == true">
+
+                                            <router-link
+                                                v-if="((ads.type == 2 || ads.type == 3) && ads.infoArray.Available == 'متوفر') || ads.type == 5"
+                                                :to="{ name: 'SubmitQuotes', params: { id: ads.id } }"
+                                                class="btn action-button " id="mobile-check-availability"
+                                                style=" padding: 9px 15px; color: #fff;text-decoration: none;    height: 45px; width: 150px;border-radius: 12px;background: #039ca4; border-color: #039ca4;">
+                                                 تقديم طلب شراء
+                                            </router-link>
+                                            <router-link v-else :to="{ name: 'SubmitQuotes', params: { id: ads.id } }"
+                                                class="btn action-button " id="mobile-check-availability"
+                                                style=" padding: 9px 15px; color: #fff;text-decoration: none;    height: 45px; width: 150px;border-radius: 12px;background: #039ca4; border-color: #039ca4;">
+                                                تقديم
+                                                عرض سعر 
+                                            </router-link>
+                                        </div>
+                                        <div v-else>
+
+                                            <a v-if="((ads.type == 2 || ads.type == 3) && ads.infoArray.Available == 'متوفر') || ads.type == 5"
+                                                href="/login" class="btn action-button " id="mobile-check-availability"
+                                                style=" padding: 9px 15px; color: #fff;text-decoration: none;    height: 45px; width: 150px;border-radius: 12px;background: #039ca4; border-color: #039ca4;">
+                                                 تقديم طلب شراء
+                                            </a>
+                                            <a v-else href="/login" class="btn action-button "
+                                                id="mobile-check-availability"
+                                                style=" padding: 9px 15px; color: #fff;text-decoration: none;    height: 45px; width: 150px;border-radius: 12px;background: #039ca4; border-color: #039ca4;">
+                                               تقديم
+                                                عرض سعر
+                                            </a>
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -1126,6 +1268,12 @@ export default {
                 isLoggedIn: false,
             }
         },
+        openVideoModal() {
+            document.getElementById("myVideoModal").style.display = "block";
+        },
+        closeVideoModal() {
+            document.getElementById("myVideoModal").style.display = "none";
+        },
         openModal() {
             document.getElementById("myModal").style.display = "block";
         },
@@ -1227,7 +1375,7 @@ export default {
 
             planFiles.push(element);
         });
-        document.title = window.site.site_name + ' - ' + ads['title'];
+        document.title = ads['title'];
         console.log(images);
         return {
             ads, author, papers, files, arrayInfo, images, AllImage, application_conditions, specificationsFiles, threeFile, planFiles

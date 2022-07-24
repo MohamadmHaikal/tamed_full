@@ -18,9 +18,9 @@ class FileMangerController extends Controller
         $files = null;
         $array = [];
         if (is_admin()) {
-            $files = File::orderBy('id', 'DESC')->get();
+            $files = File::where('model','=','File')->orderBy('id', 'DESC')->get();
         } else {
-            $files = File::orderBy('id', 'DESC')->get();
+            $files = File::where('model','=','File')->orderBy('id', 'DESC')->get();
 
             foreach ($files as $file) {
                 if (unserialize($file->info)['owner'] == get_current_user_id()) {

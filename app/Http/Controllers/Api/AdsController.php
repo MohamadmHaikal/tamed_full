@@ -166,6 +166,8 @@ class AdsController extends Controller
         foreach ($ads['files'] as $file) {
             $file['info'] = unserialize($file['info']);
         }
+        $ads['video'] =null;//'https://www.w3schools.com/html/mov_bbb.mp4';
+        $ads['videoType'] ='video/mp4';
         return $ads;
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\City;
+use App\Models\Demodulator;
 use App\Models\ElectronicContracts;
 use App\Models\File;
 use App\Models\invoice;
@@ -169,6 +170,11 @@ class ElectronicContractsController extends Controller
     {
         return invoice::where('contracts_id', '=', $id)->get();
     }
+    public function _getDemodulator($id)
+    {
+        return Demodulator::where('contracts_id', '=', $id)->get();
+    }
+    
     /**
      * Update the specified resource in storage.
      *

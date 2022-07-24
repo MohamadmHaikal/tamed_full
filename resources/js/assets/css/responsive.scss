@@ -3639,12 +3639,85 @@ $value_eleven: 1399px;
 }
 
 @media only screen and (min-width: 768px) {
+    .note-payment {
+        margin-right: 9%;
+        background-color: #b6e2e5;
+        border-radius: 20px;
+        width: 76%;
+        padding: 22px;
+        text-align: right;
+    }
+
+    .note-payment1 {
+        margin-right: 9%;
+        background-color: #f6dec2;
+        border-radius: 20px;
+        width: 76%;
+        padding: 22px;
+        text-align: right;
+    }
+
+    .qoutes-note-area {
+        position: relative;
+        top: 58px;
+        left: 180px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(182, 230, 232);
+        padding: 0px 10px;
+        font-size: 12px;
+    }
+
+    .qoutes-paper-area {
+        position: relative;
+        top: -10px;
+        left: 180px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(182, 230, 232);
+        padding: 0px 10px;
+        font-size: 12px;
+    }
+
+    .additional-profile {
+        .title-add {
+            color: rgb(199, 199, 199);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 0px 5px 0px 0px;
+        }
+
+        .value {
+            color: rgb(3, 156, 164);
+            font-size: 12px;
+        }
+
+        img {
+            width: 20%;
+        }
+    }
+
+    .msg-report {
+
+        .col-md-5 {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+    }
+
     .spaceUnderAds {
         height: 400px;
     }
 
     .ref-header {
         text-align: right;
+    }
+
+    .quotes-div {
+        width: 78%;
+        text-align: center;
+    }
+
+    .ref-header-mobile {
+        display: none;
     }
 
     .bg-hidden {
@@ -4647,6 +4720,17 @@ $value_eleven: 1399px;
         margin-left: 4%;
         height: 470px;
 
+        .cover {
+            position: relative;
+            padding-bottom: 25px;
+            width: 92%;
+            border-bottom-right-radius: 75px;
+            border-bottom-left-radius: 75px;
+            margin-right: 4%;
+            margin-left: 4%;
+            margin-top: 10px;
+        }
+
     }
 
     .profile-share {
@@ -4814,7 +4898,6 @@ $value_eleven: 1399px;
     }
 
     .project-activite {
-        padding-top: 8%;
         text-align: end;
     }
 
@@ -5561,7 +5644,7 @@ $value_eleven: 1399px;
     .show-item {
         display: none;
     }
-    
+
     .checkmark {
         position: absolute;
         top: 2px;
@@ -5571,13 +5654,59 @@ $value_eleven: 1399px;
         background-color: #fff;
         border: 1px solid #a8a8a8;
     }
-    
+
+    .additional-info {
+        font-size: 12px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
-    .accept-price-check{
+    .quotes-file-btn{
+        text-align: center;
+    }
+    .note-payment {
+        background-color: #b6e2e5;
+        border-radius: 20px;
+        padding: 22px;
+        text-align: right;
+    }
+
+    .note-payment1 {
+        background-color: #f6dec2;
+        border-radius: 20px;
+        padding: 22px;
+        text-align: right;
+    }
+
+    .qoutes-note-area {
+        position: relative;
+        top: 58px;
+        left: 100px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(182, 230, 232);
+        padding: 0px 10px;
+        font-size: 12px;
+    }
+
+    .qoutes-paper-area {
+        position: relative;
+        top: -10px;
+        left: 100px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(182, 230, 232);
+        padding: 0px 10px;
+        font-size: 12px;
+    }
+
+    .reg-now {
+
+        font-size: 18px;
+    }
+
+    .accept-price-check {
         text-align: -webkit-left;
     }
+
     .checkmark {
         position: absolute;
         top: 2px;
@@ -5587,10 +5716,15 @@ $value_eleven: 1399px;
         background-color: #fff;
         border: 1px solid #a8a8a8;
     }
+
+    .additional-info {
+        font-size: 12px;
+    }
+
     .view-gallery {
         margin-right: 5px;
         background: rgb(238, 238, 238);
-        font-size: 10px;
+        font-size: 14px;
         padding: 10px 10px;
         display: flex;
         align-items: center;
@@ -5628,7 +5762,12 @@ $value_eleven: 1399px;
     }
 
     .ref-header {
-        text-align: center;
+        display: none;
+    }
+
+    .ref-header-mobile {
+        text-align: right;
+        display: block;
     }
 
     .price-card {
@@ -5665,7 +5804,7 @@ $value_eleven: 1399px;
 
     .small-nav {
         position: relative;
-        left: 34%;
+        left: 35.5%;
         display: block;
     }
 
@@ -6180,6 +6319,7 @@ $value_eleven: 1399px;
     .custom-cv {
         text-align: center;
         margin-bottom: 1rem !important;
+
         img {
             width: 20%;
         }
@@ -6241,7 +6381,7 @@ $value_eleven: 1399px;
         }
     }
 
-   
+
 
     .section-title {
         .activity {
@@ -6584,8 +6724,7 @@ $value_eleven: 1399px;
         outline: none;
         cursor: pointer;
         padding: 14px 16px;
-
-
+        color: #000;
     }
 
     .tab button.active {
@@ -6618,8 +6757,13 @@ $value_eleven: 1399px;
     }
 
     .project-activite {
-        padding-top: 5%;
+
         padding-right: 5%;
+        text-align: center;
+    }
+
+    .project-activite2 {
+        padding-top: 5px;
         text-align: center;
     }
 
@@ -6634,16 +6778,25 @@ $value_eleven: 1399px;
         color: rgb(1, 154, 162);
         border-radius: 9px;
         padding: 5px;
-        position: absolute;
-        top: 1790px;
-        right: 175px;
+        // position: absolute;
+        // top: 1790px;
+        // right: 175px;
 
     }
 
+    .msg-report {
+        align-items: center;
+
+        .col-md-5 {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+    }
+
     .message-owner {
-        position: relative;
-        top: -5px;
-        right: -95px;
+        // position: relative;
+        // top: -5px;
+        // right: -95px;
     }
 
     .project-activite {
@@ -6658,14 +6811,15 @@ $value_eleven: 1399px;
     }
 
     .project-header {
-        margin-right: 10px;
-        margin-top: 15px;
-        color: rgb(1, 154, 162);
-        font-size: 18px;
+
+        margin-top: 10px;
+        color: #848484a3;
+        font-size: 17px;
     }
 
     .header-row {
-        text-align: center;
+        text-align: right;
+        font-size: 12px;
     }
 
     .fav-share {
@@ -6674,9 +6828,17 @@ $value_eleven: 1399px;
 
     }
 
+    .fav-share-mobile {
+        position: absolute;
+        z-index: 1054;
+        left: 30px;
+        margin-top: 20px;
+
+    }
+
     .title {
 
-        text-align: center;
+        text-align: right;
         color: #000000;
     }
 
@@ -7385,10 +7547,19 @@ $value_eleven: 1399px;
 
     .header-profile {
         border-bottom: 1px solid rgb(238, 239, 241);
-        margin-right: 4%;
-        margin-left: 4%;
         height: 350px;
         padding-top: 20%;
+
+        .cover {
+            position: relative;
+            padding-bottom: 25px;
+            width: 100%;
+            border-bottom-right-radius: 75px;
+            border-bottom-left-radius: 75px;
+            margin-top: 10px;
+            height: 58%;
+
+        }
     }
 
     .btn-chat-profile {
@@ -7426,7 +7597,7 @@ $value_eleven: 1399px;
         border: none;
         outline: none;
         cursor: pointer;
-        padding: 14px 18px;
+        padding: 14px 16px;
 
 
     }
@@ -7437,27 +7608,46 @@ $value_eleven: 1399px;
         border: none;
         outline: none;
         cursor: pointer;
+        color: #000;
         padding: 14px 9px;
 
 
     }
 
     .tab button.active {
-        border-radius: 20px;
+        border-radius: 30px;
         background-color: #039ca4;
         color: white;
-        margin-top: 3px;
-        padding: 11px 14px 11px 14px;
+        margin-top: 0px;
+        padding: 14px 20px 14px 20px;
 
     }
 
     .tab button.active-profile {
-        border-radius: 18px;
+        border-radius: 25px;
         background-color: #039ca4;
         color: white;
-        margin-top: 6px;
-        padding: 7px 5px 7px 5px;
+        margin-top: 0px;
+        padding: 15px 13px 15px 13px;
 
+    }
+
+    .additional-profile {
+        .title-add {
+            color: rgb(199, 199, 199);
+            font-size: 10px;
+            font-weight: 500;
+            padding: 0px 5px 0px 0px;
+        }
+
+        .value {
+            color: rgb(3, 156, 164);
+            font-size: 10px;
+        }
+
+        img {
+            width: 15%;
+        }
     }
 
 }

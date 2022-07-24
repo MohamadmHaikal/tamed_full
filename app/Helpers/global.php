@@ -9,6 +9,7 @@ use App\Models\invoice;
 use App\Models\User;
 use App\Models\Products;
 use App\Models\Quote;
+use App\Models\UserActivities;
 use App\Models\UserType;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Illuminate\Support\Facades\Config;
@@ -95,6 +96,16 @@ function getUserBymobile($id)
     $user = User::where('phone','!=',null)->where('phone', $id)->first();
   
     return ($user == null) ? null : $user->id;
+}
+function addAdditionalActitvityToFacility($id,$additional)
+{  
+    $addi= explode (",", $additional);
+    foreach($addi as $item){
+    $activity=new UserActivities;
+    $activity->user_id=$id;
+    $activity->activity_id= $item;
+    $activity->save();
+    }
 }
 function getQuotesFile($id)
 {
